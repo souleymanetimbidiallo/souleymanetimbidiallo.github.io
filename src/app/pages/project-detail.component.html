@@ -1,0 +1,68 @@
+<div *ngIf="project">
+    <div class="hero hero-single route bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
+      <div class="overlay-mf"></div>
+      <div class="hero-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <h2 class="hero-title mb-4">{{ project.title }}</h2>
+            <ol class="breadcrumb d-flex justify-content-center">
+              <li class="breadcrumb-item">
+                <a routerLink="/">Accueil</a>
+              </li>
+              <li class="breadcrumb-item active">{{ project.title }}</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <main id="main">
+      <section class="portfolio-details">
+        <div class="container">
+          <div class="row gy-4">
+  
+            <!-- Slider -->
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                  <div class="swiper-slide" *ngFor="let image of project.images">
+                    <img [src]="image" alt="">
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+  
+            <!-- Infos projet -->
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>Informations</h3>
+                <ul>
+                  <li><strong>Catégorie</strong>: {{ project.category }}</li>
+                  <li><strong>Client</strong>: {{ project.client }}</li>
+                  <li><strong>Date</strong>: {{ project.date }}</li>
+                  <li *ngIf="project.url"><strong>Url du projet</strong>: 
+                    <a [href]="project.url" target="_blank">{{ project.url }}</a>
+                  </li>
+                </ul>
+              </div>
+  
+              <div class="portfolio-description">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <div *ngIf="!project">
+    <div class="container mt-5">
+      <h3>Projet introuvable 😕</h3>
+      <a routerLink="/" class="btn btn-primary mt-3">Retour à l'accueil</a>
+    </div>
+  </div>
+  
