@@ -13,5 +13,5 @@ fs.readdirSync(source).forEach(file => {
 });
 
 // Supprimer le dossier browser
-fs.rmdirSync(source, { recursive: true });
+fs.rmSync(source, { recursive: true, force: true });
 console.log('✅ Dossier browser déplacé avec succès dans docs/');
