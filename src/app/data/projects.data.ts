@@ -37,16 +37,14 @@ export interface Project {
       date: '18 Sep. 2018',
       category: 'Application web',
       client: 'Gouvernement .gn',
-      url: 'https://github.com/souleymanetimbidiallo',
+      url: 'https://github.com/souleymanetimbidiallo/gestion-demo',
       description: `
         Notre projet vise à révolutionner l'accès aux services administratifs en Guinée en introduisant une plateforme de numérisation des documents.*
         En un clic, les citoyens peuvent numériser leurs documents administratifs, simplifiant ainsi la prise de rendez-vous et l'accès à des services essentiels.
         Avec une interface conviviale et sécurisée, notre solution intègre des technologies de pointe, telles que la reconnaissance optique de caractères (OCR), garantissant l'efficacité et la précision.
       `,
       images: [
-        'assets/img/projects/gestion-demo.jpg',
-        'assets/img/projects/guiplus/guiplus2.png',
-        'assets/img/projects/guiplus/guiplus3.png'
+        'assets/img/projects/gestion-demo.jpg'
       ]
     },
     {
@@ -63,9 +61,7 @@ export interface Project {
         Rendez-vous Soodou-Shop pour achetez vos produits high-tech !
       `,
       images: [
-        'assets/img/projects/soodou-shop.png',
-        'assets/img/projects/guiplus/guiplus2.png',
-        'assets/img/projects/guiplus/guiplus3.png'
+        'assets/img/projects/soodou-shop.png'
       ]
     },
     {
@@ -78,6 +74,7 @@ export interface Project {
       url: 'https://github.com/souleymanetimbidiallo/ag35_website',
       description: `
         Créée depuis 2007, l'AG35 a pour but de : Créer, favoriser et consolider les liens de fraternité, de solidarité et d'entraide entre les guinéen(ne)s.
+
         Porter, accompagner et soutenir le développement et l'intégraon socio-professionnels et culturels des guinéen(ne)s en Ille-et-Vilaine.
         Promouvoir, encourager et communiquer sur les initiatives et les acvités de ses membres et de ses partenaires et les aider dans la réalisaon de leurs projets.
       `,
@@ -119,6 +116,21 @@ export interface Project {
       images: [
         'assets/img/projects/examens-gn-2023/Capture.PNG',
         'assets/img/projects/examens-gn-2023/demo2.PNG'
+      ]
+    },
+    {
+      slug: 'api-guinea-geo',
+      title: 'API Guinée Geo',
+      image: 'assets/img/projects/api-guinea-geo.png',
+      date: '10 Avr. 2024',
+      category: 'Data',
+      client: 'Gui-Plus Group',
+      url: 'https://api-guinea-geo.vercel.app/',
+      description: `
+        Les données géographiques de la Guinée en accès libre.
+      `,
+      images: [
+        'assets/img/projects/api-guinea-geo.png',
       ]
     },
     // Ajoute les autres projets ici...

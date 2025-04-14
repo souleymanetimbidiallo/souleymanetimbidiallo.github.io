@@ -220,7 +220,7 @@
     /**
      * Preloader
      */
-    let preloader = select('#preloader');
+    /*let preloader = select('#preloader');
     if (preloader) {
       if (!sessionStorage.getItem('preloaderLoaded')) {
         window.addEventListener('load', () => {
@@ -231,7 +231,7 @@
         preloader.remove();
       }
       
-    }
+    }*/
   
     /**
      * Initiate Pure Counter 
