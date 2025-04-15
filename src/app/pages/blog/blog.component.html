@@ -1,0 +1,32 @@
+<section id="blog" class="container my-5">        
+  <div class="row">
+  <div class="col-sm-12">
+      <div class="title-box text-center">
+          <h3 class="title-a">
+              BLOG
+          </h3>
+          <p class="subtitle-a">
+            Apprenez, explorez, codez. Le blog qui vous accompagne
+          </p>
+          <div class="line-mf"></div>
+      </div>
+  </div>
+</div>
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let post of articles">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <img *ngIf="post.image" [src]="post.image" class="card-img-top" alt="Image article">
+            <h5 class="card-title">{{ post.titre }}</h5>
+            <span class="badge bg-light text-dark mb-2">{{ post.date }}</span>
+
+            <p class="card-text">{{ post.resume }}</p>
+            <a [routerLink]="['/blog', post.slug]" class="btn btn-outline-primary btn-sm mt-2">
+              Lire plus <i class="bi bi-arrow-right"></i>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

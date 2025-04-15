@@ -1,0 +1,21 @@
+<div class="container my-5" *ngIf="article">
+    <div class="py-5 px-3 text-center" >
+        <img *ngIf="article.image" [src]="article.image" class="card-img-top" alt="Image article">
+        <p class="mb-1">{{ article.date }}</p>
+        <h1 class="fw-bold">{{ article.titre }}</h1>
+        <p class="lead">Publié sur le blog personnel</p>
+      </div>
+      
+      <div class="container">
+          <markdown [src]="'assets/articles/' + article.slug + '.md'"></markdown>
+      </div>
+      
+  
+      <div class="text-center mt-4">
+        <a routerLink="/" class="btn btn-primary">
+          <i class="bi bi-arrow-left"></i> Retour à l'accueil
+        </a>
+      </div>
+      
+  </div>
+  

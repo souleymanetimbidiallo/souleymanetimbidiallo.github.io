@@ -1,0 +1,35 @@
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #007bff;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-top: 8px;
+  z-index: 1;
+}
+
+.timeline-card {
+  max-width: 100%;
+  width: 100%;
+}
+
+.timeline-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}

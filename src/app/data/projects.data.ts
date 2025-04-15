@@ -131,6 +131,8 @@ export interface Project {
       `,
       images: [
         'assets/img/projects/api-guinea-geo.png',
+        'assets/img/projects/api-guinea-geo/docs-api.jpg',
+        'assets/img/projects/api-guinea-geo/test-api.jpg',
       ]
     },
     // Ajoute les autres projets ici...

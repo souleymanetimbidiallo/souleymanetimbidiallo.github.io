@@ -8,6 +8,8 @@ import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { TimeLineComponent } from '../time-line/time-line.component';
+import { BlogComponent } from "../blog/blog.component";
 
 @Component({
   selector: 'app-home',
@@ -19,8 +21,10 @@ import { AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
     ServicesComponent,
     PortfolioComponent,
     ContactComponent,
-    FooterComponent
-  ],
+    TimeLineComponent,
+    FooterComponent,
+    BlogComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,0 +1,43 @@
+<section id="parcours" class="container my-5">
+  <h3 class="title-a text-center mb-5">Parcours</h3>
+  <div class="position-relative timeline-line">
+
+    <div *ngFor="let item of experiences; let i = index" class="row timeline-block mb-5 align-items-center">
+      
+      <!-- Alternance via container -->
+      <ng-container *ngIf="i % 2 === 0; else rightBlock">
+        <!-- Gauche -->
+        <div class="col-md-5 d-flex justify-content-end">
+          <div class="card shadow-sm p-3 timeline-card text-end">
+            <small class="text-muted">{{ item.date }}</small>
+            <h5 class="fw-bold mt-1">{{ item.titre }}</h5>
+            <h6 class="text-muted">&#64;{{ item.lieu }}</h6>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center position-relative">
+          <div class="timeline-dot bg-primary"></div>
+        </div>
+        <div class="col-md-5"></div> <!-- vide à droite -->
+      </ng-container>
+
+      <ng-template #rightBlock>
+        <!-- Droite -->
+        <div class="col-md-5"></div> <!-- vide à gauche -->
+        <div class="col-md-2 d-flex justify-content-center position-relative">
+          <div class="timeline-dot bg-primary"></div>
+        </div>
+        <div class="col-md-5 d-flex">
+          <div class="card shadow-sm p-3 timeline-card text-start">
+            <small class="text-muted">{{ item.date }}</small>
+            <h5 class="fw-bold mt-1">{{ item.titre }}</h5>
+            <h6 class="text-muted">&#64;{{ item.lieu }}</h6>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+
+  </div>
+</section>
