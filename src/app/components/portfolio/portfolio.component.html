@@ -41,35 +41,26 @@
 
     <!-- Grille -->
     <div class="grid">
-      <article class="card project" *ngFor="let project of filteredProjects">
-        <a [routerLink]="['/projets', project.slug]"
-   class="thumb"
-   [attr.aria-label]="'Voir ' + project.title">
+      <article class="card project card-sd" appReveal *ngFor="let project of filteredProjects">
+  <a [routerLink]="['/projets', project.slug]" class="thumb card-zoom ratio-16x10" [attr.aria-label]="'Voir ' + project.title">
+    <img class="img-cover"
+         ngSrc="{{ project.image }}" width="640" height="400"
+         alt="{{ project.title }}">
+  </a>
 
-          <img class="img" 
-               ngSrc="{{ project.image }}" width="640" height="420"
-               alt="{{ project.title }}">
-          <div class="overlay">
-            <span class="more"><i class="bi bi-plus-circle"></i></span>
-          </div>
-        </a>
+  <div class="meta">
+    <h4 class="title">{{ project.title }}</h4>
+    <div class="sub">
+      <span class="cat">{{ project.category }}</span>
+      <span class="dot">·</span>
+      <span class="date">{{ project.date }}</span>
+    </div>
+    <div class="tags" *ngIf="project.tags?.length">
+      <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+    </div>
+  </div>
+</article>
 
-        <div class="meta">
-          <h4 class="title">{{ project.title }}</h4>
-          <div class="sub">
-            <span class="cat">{{ project.category }}</span>
-            <span class="dot">·</span>
-            <span class="date">{{ project.date }}</span>
-          </div>
-          <div class="tags" *ngIf="project.tags?.length">
-            <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
-          </div>
-          <div class="links" *ngIf="project.demo || project.repo">
-            <a *ngIf="project.demo" [href]="project.demo" target="_blank" class="lnk">Demo</a>
-            <a *ngIf="project.repo" [href]="project.repo" target="_blank" class="lnk">Code</a>
-          </div>
-        </div>
-      </article>
     </div>
   </div>
 </section>

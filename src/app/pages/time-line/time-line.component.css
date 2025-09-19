@@ -91,3 +91,10 @@
   .dot { left: -10px; }
   .timeline-card { margin-left: 1rem; }
 }
+
+/* plus d'espace entre barre et cartes */
+@media (min-width: 992px){
+  .timeline-item:not(.right) .timeline-card{ margin-right: 4.5rem; }
+  .timeline-item.right .timeline-card{ margin-left: 4.5rem; }
+  .timeline::before{ opacity:.2; } /* barre un peu plus visible */
+}

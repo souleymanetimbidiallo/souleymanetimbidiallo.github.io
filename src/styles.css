@@ -129,6 +129,56 @@ body {
     vertical-align: middle;
   }
   
+/* ====== Variables & base ====== */
+:root{
+  --primary:#2563eb;
+  --muted:#64748b;
+  --radius:16px;
+}
+
+.section{padding:4rem 0}
+@media (max-width: 640px){ .section{padding:3rem 0} }
+
+/* ====== Animations au scroll (réutilisable) ====== */
+.reveal {
+  opacity:0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: transform, opacity;
+}
+.reveal-in {
+  opacity:1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-in{opacity:1; transform:none; transition:none}
+}
+
+/* ====== Images uniformes ====== */
+.img-cover { width:100%; height:100%; object-fit:cover; display:block; }
+.img-contain { width:100%; height:100%; object-fit:contain; display:block; }
+
+/* Ratio helpers */
+.ratio-16x10 { aspect-ratio:16/10; }
+.ratio-21x9  { aspect-ratio:21/9; }
+.ratio-4x3   { aspect-ratio:4/3; }
+
+/* Hover léger pour cartes avec image */
+.card-zoom{ overflow:hidden; position:relative; }
+.card-zoom img{ transition: transform .5s ease; }
+.card-zoom:hover img{ transform: scale(1.045); }
+
+/* Ombres/coins cohérents */
+.card-sd {
+  background:#fff;
+  border:1px solid rgba(2,6,23,.06);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(2,6,23,.04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-sd:hover{ transform: translateY(-4px); box-shadow:0 12px 28px rgba(2,6,23,.08); }
+
+
   /*--/ Sections /--*/
   .sect-4 {
     padding: 4rem 0;

@@ -9,8 +9,8 @@
 
       <div class="dot" aria-hidden="true"></div>
 
-      <article class="card shadow-sm p-3 timeline-card">
-        <div class="d-flex align-items-center mb-2">
+      <article class="card shadow-sm p-3 timeline-card card-sd" appReveal>
+        <div class="d-flex align-items-center mb-2 gap-3">
           <img *ngIf="item.image" [src]="item.image" alt="{{ item.titre }}" class="timeline-img me-2">
           <div>
             <small class="text-muted">{{ item.date }}</small>

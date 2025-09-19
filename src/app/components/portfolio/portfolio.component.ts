@@ -3,13 +3,14 @@ import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PROJECTS, Project } from '../../data/projects.data';
 import { isPlatformBrowser } from '@angular/common';
+import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 
 type Stat = { label: string; end: number; value: number };
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [NgFor, NgIf, RouterModule, NgOptimizedImage],
+  imports: [NgFor, NgIf, RouterModule, NgOptimizedImage, RevealOnScrollDirective],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css'],
 })

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, NgFor, NgIf } from '@angular/common';
+import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 
 interface Experience {
   date: string;
@@ -12,7 +13,7 @@ interface Experience {
 @Component({
   selector: 'app-time-line',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, RevealOnScrollDirective],
   templateUrl: './time-line.component.html',
   styleUrls: ['./time-line.component.css']
 })
