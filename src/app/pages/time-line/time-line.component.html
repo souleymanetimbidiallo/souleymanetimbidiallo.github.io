@@ -1,43 +1,26 @@
-<section id="parcours" class="container my-5">
+<section id="timeline" class="container my-5">
   <h3 class="title-a text-center mb-5">Parcours</h3>
-  <div class="position-relative timeline-line">
 
-    <div *ngFor="let item of experiences; let i = index" class="row timeline-block mb-5 align-items-center">
-      
-      <!-- Alternance via container -->
-      <ng-container *ngIf="i % 2 === 0; else rightBlock">
-        <!-- Gauche -->
-        <div class="col-md-5 d-flex justify-content-end">
-          <div class="card shadow-sm p-3 timeline-card text-end">
+  <ol class="timeline">
+    <li *ngFor="let item of experiences; let i = index"
+        class="timeline-item"
+        [class.right]="i % 2 === 1"
+        [style.--stagger]="(i * 0.08) + 's'">
+
+      <div class="dot" aria-hidden="true"></div>
+
+      <article class="card shadow-sm p-3 timeline-card">
+        <div class="d-flex align-items-center mb-2">
+          <img *ngIf="item.image" [src]="item.image" alt="{{ item.titre }}" class="timeline-img me-2">
+          <div>
             <small class="text-muted">{{ item.date }}</small>
-            <h5 class="fw-bold mt-1">{{ item.titre }}</h5>
-            <h6 class="text-muted">&#64;{{ item.lieu }}</h6>
-            <p>{{ item.description }}</p>
+            <h5 class="fw-bold mt-1 mb-0">{{ item.titre }}</h5>
+            <h6 class="text-muted">à {{ item.lieu }}</h6>
           </div>
         </div>
-        <div class="col-md-2 d-flex justify-content-center position-relative">
-          <div class="timeline-dot bg-primary"></div>
-        </div>
-        <div class="col-md-5"></div> <!-- vide à droite -->
-      </ng-container>
+        <p class="mb-0">{{ item.description }}</p>
+      </article>
 
-      <ng-template #rightBlock>
-        <!-- Droite -->
-        <div class="col-md-5"></div> <!-- vide à gauche -->
-        <div class="col-md-2 d-flex justify-content-center position-relative">
-          <div class="timeline-dot bg-primary"></div>
-        </div>
-        <div class="col-md-5 d-flex">
-          <div class="card shadow-sm p-3 timeline-card text-start">
-            <small class="text-muted">{{ item.date }}</small>
-            <h5 class="fw-bold mt-1">{{ item.titre }}</h5>
-            <h6 class="text-muted">&#64;{{ item.lieu }}</h6>
-            <p>{{ item.description }}</p>
-          </div>
-        </div>
-      </ng-template>
-
-    </div>
-
-  </div>
+    </li>
+  </ol>
 </section>

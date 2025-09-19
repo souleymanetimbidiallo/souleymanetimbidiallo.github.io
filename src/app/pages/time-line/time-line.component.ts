@@ -1,61 +1,72 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, NgFor, NgIf } from '@angular/common';
+
+interface Experience {
+  date: string;
+  titre: string;
+  lieu: string;
+  description: string;
+  image?: string;
+}
 
 @Component({
   selector: 'app-time-line',
   standalone: true,
   imports: [NgFor, NgIf],
   templateUrl: './time-line.component.html',
-  styleUrl: './time-line.component.css'
+  styleUrls: ['./time-line.component.css']
 })
 export class TimeLineComponent implements AfterViewInit {
-  experiences = [
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
+  experiences: Experience[] = [
     {
-      date: "Septembre. 2023 - Aujourd'hui",
+      date: "Sept. 2023 – Aujourd’hui",
       titre: "Ingénieur logiciel",
       lieu: "Inetum, France",
-      description: "Développement d’applications Java/Angular."
+      description: "Développement d’applications Java/Angular (Elastic, Docker, CI/CD).",
+      image: "assets/img/inetum.png"
     },
     {
-      date: "Avril 2021 - Août 2023",
+      date: "Avr. 2021 – Août 2023",
       titre: "Ingénieur logiciel",
-      lieu: "Capgemini Nantes",
-      description: "Développement d’applications Java/Angular."
+      lieu: "Capgemini, Nantes",
+      description: "Nouvelles fonctionnalités & maintenance sur stack Java/Angular.",
+      image: "assets/img/capgemini.png"
     },
     {
-      date: "Septembre 2019 - Août 2023",
-      titre: "Etudiant",
+      date: "2019 – 2023",
+      titre: "Étudiant (Licence + Master MIAGE)",
       lieu: "Université de Rennes",
-      description: "Licence + Master en génie logiciel."
+      description: "Génie logiciel, projets data & web, mentions Bien.",
+      image: "assets/img/univ-rennes.png"
     },
-    
     {
-      date: "2019 - 2023",
+      date: "2019 – 2023",
       titre: "Co-fondateur & CTO",
       lieu: "Gui-Plus",
-      description: "Développement d'applications"
+      description: "Conception et dev d’applications (web/mobile).",
+      image: "assets/img/guiplus.jpg"
     }
   ];
 
-  ngAfterViewInit() {
-    this.revealOnScroll();
-  }
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  @HostListener('window:scroll', [])
-  onScroll() {
-    this.revealOnScroll();
-  }
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.timeline-card'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add('reveal');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
 
-  revealOnScroll() {
-    const elements = document.querySelectorAll('.timeline-card');
-    elements.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-
-      if (top < windowHeight - 100) {
-        el.classList.add('reveal');
-      }
-    });
+      cards.forEach(c => io.observe(c));
+    } else {
+      cards.forEach(c => c.classList.add('reveal'));
+    }
   }
-  
 }

@@ -1,114 +1,75 @@
-<!-- ======= Counter Section ======= -->
-<div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container position-relative">
-        <div class="row">
-            <div class="col-sm-3 col-lg-3">
-                <div class="counter-box counter-box pt-4 pt-md-0">
-                    <div class="counter-ico">
-                        <span class="ico-circle"><i class="bi bi-check"></i></span>
-                    </div>
-                    <div class="counter-num">
-                        <p data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                            class="counter purecounter"></p>
-                        <span class="counter-text">TRAVAUX FINIS</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="counter-box pt-4 pt-md-0">
-                    <div class="counter-ico">
-                        <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
-                    </div>
-                    <div class="counter-num">
-                        <p data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1"
-                            class="counter purecounter"></p>
-                        <span class="counter-text">ANNEES D'EXPERIENCE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="counter-box pt-4 pt-md-0">
-                    <div class="counter-ico">
-                        <span class="ico-circle"><i class="bi bi-people"></i></span>
-                    </div>
-                    <div class="counter-num">
-                        <p data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
-                            class="counter purecounter"></p>
-                        <span class="counter-text">CLIENTS</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="counter-box pt-4 pt-md-0">
-                    <div class="counter-ico">
-                        <span class="ico-circle"><i class="bi bi-award"></i></span>
-                    </div>
-                    <div class="counter-num">
-                        <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"
-                            class="counter purecounter"></p>
-                        <span class="counter-text">CERTIFICATIONS</span>
-                    </div>
-                </div>
-            </div>
+<!-- ======= Counter Section (sans purecounter) ======= -->
+<div class="section-counter bg-cover" style="background-image:url('assets/img/counters-bg.jpg')">
+  <div class="overlay"></div>
+
+  <div class="container position-relative" #counters (cdkObserveContent)="onCountersVisible(counters)">
+    <div class="row g-3 text-center">
+      <div class="col-6 col-lg-3" *ngFor="let s of stats">
+        <div class="counter-box">
+          <div class="counter-ico">
+            <span class="ico-circle"><i class="bi bi-check" aria-hidden="true"></i></span>
+          </div>
+          <div class="counter-num">
+            <p class="counter">{{ s.value }}</p>
+            <span class="counter-text">{{ s.label }}</span>
+          </div>
         </div>
+      </div>
     </div>
-</div><!-- End Counter Section -->
+  </div>
+</div>
 
 <!-- ======= Portfolio Section ======= -->
-<section id="work" class="portfolio-mf sect-pt4 route">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="title-box text-center">
-                    <h3 class="title-a">
-                        Projets
-                    </h3>
-                    <p class="subtitle-a">
-                        Explorez une sélection de mes projets passés pour avoir un aperçu de mon travail créatif et de mon expertise.
-                    </p>
-                    <div class="line-mf"></div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mb-4">
-            <button
-              *ngFor="let cat of categories"
-              class="btn btn-sm btn-outline-primary m-1"
-              [class.active]="selectedCategory === cat"
-              (click)="filterByCategory(cat)">
-              {{ cat }}
-            </button>
-          </div>
-          
-          <div class="row">
-            <div class="col-md-4" *ngFor="let project of filteredProjects">
-              <div class="work-box">
-                <a [href]="project.image" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                  <div class="work-img">
-                    <img [src]="project.image" alt="" class="img-fluid">
-                  </div>
-                </a>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">{{ project.title }}</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">{{ project.category }}</span> /
-                        <span class="w-date">{{ project.date }}</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <a [routerLink]="['/projets', project.slug]"><span class="bi bi-plus-circle"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
+<section id="portfolio" class="portfolio section">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h3 class="title-a">Projets</h3>
+      <p class="subtitle-a">Une sélection représentative des travaux récents.</p>
     </div>
-</section><!-- End Portfolio Section -->
+
+    <!-- Filtres -->
+    <div class="filters">
+      <button *ngFor="let cat of categories"
+              class="pill"
+              [class.active]="selectedCategory===cat"
+              (click)="filterByCategory(cat)"
+              type="button">
+        {{ cat }}
+      </button>
+      <span class="count">{{ filteredProjects.length }} projet(s)</span>
+    </div>
+
+    <!-- Grille -->
+    <div class="grid">
+      <article class="card project" *ngFor="let project of filteredProjects">
+        <a [routerLink]="['/projets', project.slug]"
+   class="thumb"
+   [attr.aria-label]="'Voir ' + project.title">
+
+          <img class="img" 
+               ngSrc="{{ project.image }}" width="640" height="420"
+               alt="{{ project.title }}">
+          <div class="overlay">
+            <span class="more"><i class="bi bi-plus-circle"></i></span>
+          </div>
+        </a>
+
+        <div class="meta">
+          <h4 class="title">{{ project.title }}</h4>
+          <div class="sub">
+            <span class="cat">{{ project.category }}</span>
+            <span class="dot">·</span>
+            <span class="date">{{ project.date }}</span>
+          </div>
+          <div class="tags" *ngIf="project.tags?.length">
+            <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+          </div>
+          <div class="links" *ngIf="project.demo || project.repo">
+            <a *ngIf="project.demo" [href]="project.demo" target="_blank" class="lnk">Demo</a>
+            <a *ngIf="project.repo" [href]="project.repo" target="_blank" class="lnk">Code</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

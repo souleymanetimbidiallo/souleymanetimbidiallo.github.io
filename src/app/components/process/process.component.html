@@ -1,0 +1,20 @@
+<section class="section process" aria-label="Processus de travail">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h3 class="title-a">Process</h3>
+      <p class="subtitle-a">Un flux simple et efficace pour livrer vite et bien</p>
+    </div>
+
+    <ol class="steps" role="list">
+      <li class="step" *ngFor="let s of steps; let i = index">
+        <div class="dot">
+          <span class="index">{{ i + 1 }}</span>
+          <i class="bi" [ngClass]="s.icon" aria-hidden="true"></i>
+        </div>
+        <h4 class="step-title">{{ s.title }}</h4>
+        <p class="step-desc">{{ s.desc }}</p>
+        <div class="connector" aria-hidden="true"></div>
+      </li>
+    </ol>
+  </div>
+</section>

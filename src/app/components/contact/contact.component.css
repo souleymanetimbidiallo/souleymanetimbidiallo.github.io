@@ -1,0 +1,11 @@
+.contact.section {padding:4rem 0; background:#f8fafc;}
+.contact h2 {margin-bottom:1rem;}
+.cta {margin:1.5rem 0; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;}
+.socials {margin-top:2rem; display:flex; justify-content:center; gap:1rem;}
+.socials a {
+  font-size:1.6rem; color:var(--primary); 
+  background:#fff; border-radius:50%; padding:.6rem; 
+  box-shadow:0 3px 8px rgba(0,0,0,.1); 
+  transition:.2s;
+}
+.socials a:hover {transform:translateY(-3px); color:#fff; background:var(--primary);}

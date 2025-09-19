@@ -1,41 +1,67 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
-declare var Typed: any;
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
-export class HeroComponent implements AfterViewInit {
+export class HeroComponent implements AfterViewInit, OnDestroy {
+  private intervalId?: number;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      // attend que le DOM soit bien rendu
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          const typedEl = document.querySelector('.typed') as HTMLElement;
+    if (!isPlatformBrowser(this.platformId)) return;
 
-          if (typedEl && !typedEl.getAttribute('data-typed-loaded')) {
-            const items = typedEl.getAttribute('data-typed-items')?.split(',') || [];
+    const el = document.querySelector('.rotator') as HTMLElement | null;
+    if (!el) return;
 
-            const typed = new Typed('.typed', {
-              strings: items.map(i => i.trim()),
-              loop: true,
-              typeSpeed: 70,
-              backSpeed: 40,
-              backDelay: 1800
-            });
+    const items = (el.getAttribute('data-items') || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
 
-            typedEl.setAttribute('data-typed-loaded', 'true');
-          }
-        }, 300); // délai + long pour s'assurer du rendu
-      });
+    if (!items.length) return;
+
+    // Respecte "reduced motion" : pas d'animation, on met la 1ʳᵉ valeur.
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      el.textContent = items[0];
+      return;
     }
+
+    // Petite animation "typewriter" ultra simple, sans lib.
+    let i = 0, char = 0, typing = true;
+
+    const tick = () => {
+      const text = items[i];
+      if (typing) {
+        char++;
+        el.textContent = text.slice(0, char);
+        if (char >= text.length) {
+          typing = false;
+          this.intervalId = window.setTimeout(tick, 1500) as unknown as number; // pause en fin de mot
+          return;
+        }
+      } else {
+        char--;
+        el.textContent = text.slice(0, char);
+        if (char <= 0) {
+          typing = true;
+          i = (i + 1) % items.length;
+        }
+      }
+      this.intervalId = window.setTimeout(tick, typing ? 45 : 25) as unknown as number;
+    };
+
+    // curseur visuel
+    el.classList.add('cursor');
+    tick();
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) window.clearTimeout(this.intervalId);
   }
 }

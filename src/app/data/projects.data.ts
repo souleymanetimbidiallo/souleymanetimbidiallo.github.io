@@ -6,9 +6,12 @@ export interface Project {
     client: string;
     description: string;
     date: string;
-    category: string;
+    category: 'Application web'|'Mobile'|'Data';
     url: string;
     images: string[];
+    tags?: string[];        // ['Angular','Spring','Docker']
+    demo?: string;          // URL
+    repo?: string;          // URL
   }
   
   export const PROJECTS: Project[] = [

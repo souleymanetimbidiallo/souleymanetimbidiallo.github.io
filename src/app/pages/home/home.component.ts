@@ -10,6 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { TimeLineComponent } from '../time-line/time-line.component';
 import { BlogComponent } from "../blog/blog.component";
+import { ProcessComponent } from "../../components/process/process.component";
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ import { BlogComponent } from "../blog/blog.component";
     ContactComponent,
     TimeLineComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    ProcessComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
