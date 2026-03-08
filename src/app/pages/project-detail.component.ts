@@ -2,11 +2,12 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { PROJECTS, Project } from '../data/projects.data';
+import { TranslatePipe } from '../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [NgFor, NgIf, RouterModule],
+  imports: [NgFor, NgIf, RouterModule, TranslatePipe],
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css']
 })
@@ -27,7 +28,6 @@ export class ProjectDetailComponent implements AfterViewInit {
   }
 }
 
-// 👇 Cette déclaration doit être placée en dehors de la classe
 declare global {
   interface Window {
     initPortfolioSwiper: () => void;

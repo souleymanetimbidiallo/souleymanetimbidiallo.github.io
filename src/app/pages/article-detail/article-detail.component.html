@@ -3,7 +3,7 @@
         <img *ngIf="article.image" [src]="article.image" class="card-img-top" alt="Image article">
         <p class="mb-1">{{ article.date }}</p>
         <h1 class="fw-bold">{{ article.titre }}</h1>
-        <p class="lead">Publié sur le blog personnel</p>
+        <p class="lead">{{ 'article.published' | t }}</p>
       </div>
       
       <div class="container">
@@ -13,7 +13,7 @@
   
       <div class="text-center mt-4">
         <a routerLink="/" class="btn btn-primary">
-          <i class="bi bi-arrow-left"></i> Retour à l'accueil
+          <i class="bi bi-arrow-left"></i> {{ 'article.backHome' | t }}
         </a>
       </div>
       

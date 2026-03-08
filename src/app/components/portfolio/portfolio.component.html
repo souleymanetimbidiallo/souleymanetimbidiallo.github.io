@@ -23,26 +23,26 @@
 <section id="portfolio" class="portfolio section">
   <div class="container">
     <div class="text-center mb-4">
-      <h3 class="title-a">Projets</h3>
-      <p class="subtitle-a">Une sélection représentative des travaux récents.</p>
+      <h3 class="title-a">{{ 'portfolio.title' | t }}</h3>
+      <p class="subtitle-a">{{ 'portfolio.subtitle' | t }}</p>
     </div>
 
     <!-- Filtres -->
     <div class="filters">
       <button *ngFor="let cat of categories"
               class="pill"
-              [class.active]="selectedCategory===cat"
+              [class.active]="selectedCategory===cat || (selectedCategory==='Tous' && cat==='All')"
               (click)="filterByCategory(cat)"
               type="button">
         {{ cat }}
       </button>
-      <span class="count">{{ filteredProjects.length }} projet(s)</span>
+      <span class="count">{{ filteredProjects.length }} {{ 'portfolio.count' | t }}</span>
     </div>
 
     <!-- Grille -->
     <div class="grid">
       <article class="card project card-sd" appReveal *ngFor="let project of filteredProjects">
-  <a [routerLink]="['/projets', project.slug]" class="thumb card-zoom ratio-16x10" [attr.aria-label]="'Voir ' + project.title">
+  <a [routerLink]="['/projets', project.slug]" class="thumb card-zoom ratio-16x10" [attr.aria-label]="('portfolio.see' | t) + ' ' + project.title">
     <img class="img-cover"
          ngSrc="{{ project.image }}" width="640" height="400"
          alt="{{ project.title }}">

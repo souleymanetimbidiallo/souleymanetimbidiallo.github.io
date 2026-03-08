@@ -1,5 +1,5 @@
 <section id="timeline" class="container my-5">
-  <h3 class="title-a text-center mb-5">Parcours</h3>
+  <h3 class="title-a text-center mb-5">{{ 'timeline.title' | t }}</h3>
 
   <ol class="timeline">
     <li *ngFor="let item of experiences; let i = index"
@@ -15,7 +15,7 @@
           <div>
             <small class="text-muted">{{ item.date }}</small>
             <h5 class="fw-bold mt-1 mb-0">{{ item.titre }}</h5>
-            <h6 class="text-muted">à {{ item.lieu }}</h6>
+            <h6 class="text-muted">{{ item.lieu }}</h6>
           </div>
         </div>
         <p class="mb-0">{{ item.description }}</p>
