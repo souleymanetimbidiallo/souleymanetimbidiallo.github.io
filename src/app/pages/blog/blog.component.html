@@ -1,32 +1,44 @@
-<section id="blog" class="container my-5">        
+<section id="blog" class="container my-5">
   <div class="row">
-  <div class="col-sm-12">
+    <div class="col-sm-12">
       <div class="title-box text-center">
-          <h3 class="title-a">
-              BLOG
-          </h3>
-          <p class="subtitle-a">
-            {{ 'blog.subtitle' | t }}
-          </p>
-          <div class="line-mf"></div>
+        <h3 class="title-a">BLOG</h3>
+        <p class="subtitle-a">
+          {{ 'blog.subtitle' | t }}
+        </p>
+        <div class="line-mf"></div>
       </div>
+    </div>
   </div>
-</div>
-    <div class="row">
-      <div class="col-md-6 mb-4" *ngFor="let post of articles">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <img *ngIf="post.image" [src]="post.image" class="card-img-top" alt="Image article">
-            <h5 class="card-title">{{ post.titre }}</h5>
-            <span class="badge bg-light text-dark mb-2">{{ post.date }}</span>
 
-            <p class="card-text">{{ post.resume }}</p>
-            <a [routerLink]="['/blog', post.slug]" class="btn btn-outline-primary btn-sm mt-2">
-              {{ 'blog.readMore' | t }} <i class="bi bi-arrow-right"></i>
-            </a>
-            
-          </div>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let post of articles">
+      <div class="card h-100 shadow">
+        <img
+          *ngIf="post.image"
+          [src]="post.image"
+          class="card-img-top"
+          [alt]="getArticleTitle(post)"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ getArticleTitle(post) }}</h5>
+
+          <span class="badge bg-light text-dark mb-2">
+            {{ getArticleDate(post) }}
+          </span>
+
+          <p class="card-text">{{ getArticleSummary(post) }}</p>
+
+          <a
+            [routerLink]="['/blog', post.slug]"
+            class="btn btn-outline-primary btn-sm mt-2"
+          >
+            {{ 'blog.readMore' | t }}
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -1,21 +1,32 @@
 <div class="container my-5" *ngIf="article">
-    <div class="py-5 px-3 text-center" >
-        <img *ngIf="article.image" [src]="article.image" class="card-img-top" alt="Image article">
-        <p class="mb-1">{{ article.date }}</p>
-        <h1 class="fw-bold">{{ article.titre }}</h1>
-        <p class="lead">{{ 'article.published' | t }}</p>
-      </div>
-      
-      <div class="container">
-          <markdown [src]="'assets/articles/' + article.slug + '.md'"></markdown>
-      </div>
-      
-  
-      <div class="text-center mt-4">
-        <a routerLink="/" class="btn btn-primary">
-          <i class="bi bi-arrow-left"></i> {{ 'article.backHome' | t }}
-        </a>
-      </div>
-      
+  <div class="py-5 px-3 text-center">
+    <img
+      *ngIf="article.image"
+      [src]="article.image"
+      class="card-img-top"
+      [alt]="articleTitle"
+    />
+
+    <p class="mb-1">{{ articleDate }}</p>
+    <h1 class="fw-bold">{{ articleTitle }}</h1>
+    <p class="lead">{{ 'article.published' | t }}</p>
   </div>
-  
+
+  <div class="container markdown-body">
+    <markdown [src]="markdownSrc"></markdown>
+  </div>
+
+  <div class="text-center mt-4">
+    <a routerLink="/" class="btn btn-primary">
+      <i class="bi bi-arrow-left"></i>
+      {{ 'article.backHome' | t }}
+    </a>
+  </div>
+</div>
+
+<div class="container my-5" *ngIf="!article">
+  <h3>Article introuvable</h3>
+  <a routerLink="/" class="btn btn-primary mt-3">
+    {{ 'article.backHome' | t }}
+  </a>
+</div>
