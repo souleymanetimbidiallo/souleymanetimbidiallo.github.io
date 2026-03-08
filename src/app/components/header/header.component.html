@@ -11,8 +11,12 @@
         <li><a class="nav-link scrollto" href="#portfolio">{{ 'nav.portfolio' | t }}</a></li>
         <li><a class="nav-link scrollto" href="#blog">{{ 'nav.blog' | t }}</a></li>
         <li><a class="nav-link scrollto" href="#contact">{{ 'nav.contact' | t }}</a></li>
-        <li>
-          <button class="btn btn-sm btn-outline-light" type="button" (click)="languageService.toggleLanguage()">
+        <li class="lang-switch-item">
+          <button
+            class="lang-switch-btn"
+            type="button"
+            (click)="languageService.toggleLanguage()"
+          >
             {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
           </button>
         </li>
