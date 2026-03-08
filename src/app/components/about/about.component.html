@@ -3,11 +3,11 @@
     <div class="profile">
       <img src="assets/img/profil.jpeg" alt="Souleymane Diallo" class="avatar">
       <h3>Souleymane Diallo</h3>
-      <p class="role">Ingénieur Logiciel · Fullstack Developer</p>
+      <p class="role">{{ 'about.role' | t }}</p>
       <p class="location"><i class="bi bi-geo-alt"></i> Rennes, France</p>
 
       <div class="skills">
-        <h4>Compétences clés</h4>
+        <h4>{{ 'about.skills' | t }}</h4>
         <div class="tags">
           <span class="tag">Java</span>
           <span class="tag">Spring Boot</span>
@@ -20,16 +20,10 @@
     </div>
 
     <div class="bio">
-      <h6 class="title-a">À propos</h6>
-      <p>
-        Ingénieur logiciel passionné, spécialisé en développement Fullstack avec un intérêt croissant pour la <strong>Data</strong> et le <strong>DevOps</strong>.
-      </p>
-      <p>
-        J’ai travaillé sur des projets variés (applications web, mobiles, data), en entreprise et à titre personnel, avec le souci de créer des solutions fiables et utiles.
-      </p>
-      <p>
-        Mon objectif : mettre mes compétences au service de projets ambitieux et contribuer à transformer les idées en réalisations concrètes.
-      </p>
+      <h6 class="title-a">{{ 'about.title' | t }}</h6>
+      <p>{{ 'about.p1' | t }}</p>
+      <p>{{ 'about.p2' | t }}</p>
+      <p>{{ 'about.p3' | t }}</p>
     </div>
   </div>
 </section>

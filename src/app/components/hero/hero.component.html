@@ -7,17 +7,14 @@
     <h1 class="hero__title">Souleymane Diallo</h1>
 
     <p class="hero__lead">
-      Je conçois des applications <strong>fiables</strong> et <strong>scalables</strong>
-      en <span class="tag">Java / Angular</span>, <span class="tag">Node</span> & <span class="tag">Cloud</span>.
+      {{ 'hero.lead' | t }}
       <br>
-      <span class="sr-only" aria-live="polite">Domaines clés&nbsp;:</span>
-      <span class="rotator"
-            data-items="Data & IA, DevOps & Cloud, Applications Web performantes"></span>
+      <span class="rotator" [attr.data-items]="'hero.rotator' | t"></span>
     </p>
 
     <div class="hero__cta">
-      <a class="btn btn-outline-light ms-2" href="#portfolio">Voir mes projets</a>
-      <a class="btn btn-outline-primary" href="assets/pdf/cv-souleymane-diallo.pdf" download>Télécharger CV</a>
+      <a class="btn btn-outline-light ms-2" href="#portfolio">{{ 'hero.projects' | t }}</a>
+      <a class="btn btn-outline-primary" href="assets/pdf/cv-souleymane-diallo.pdf" download>{{ 'hero.cv' | t }}</a>
     </div>
   </div>
 </section>

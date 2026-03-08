@@ -3,12 +3,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgIf } from '@angular/common';
 import { BLOG_ARTICLES } from '../../data/articles.data';
-; // À créer ou extraire
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [MarkdownModule, NgIf, RouterModule],
+  imports: [MarkdownModule, NgIf, RouterModule, TranslatePipe],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css'
 })

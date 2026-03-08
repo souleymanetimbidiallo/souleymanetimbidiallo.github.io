@@ -1,9 +1,11 @@
 import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
