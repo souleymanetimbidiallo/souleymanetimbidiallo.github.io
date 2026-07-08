@@ -13,35 +13,35 @@ export interface BlogArticle {
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
-    slug: 'apprendre-angular-en-2024',
+    slug: 'stabiliser-portfolio-angular-github-pages',
     title: {
-      fr: 'Apprendre Angular en 2024',
-      en: 'Learning Angular in 2024',
+      fr: 'Stabiliser un portfolio Angular pour GitHub Pages',
+      en: 'Stabilizing an Angular Portfolio for GitHub Pages',
     },
     date: {
-      fr: '10 Avril 2025',
-      en: 'April 10, 2025',
+      fr: '8 Juillet 2026',
+      en: 'July 8, 2026',
     },
     summary: {
-      fr: 'Pourquoi Angular reste un bon choix cette année...',
-      en: 'Why Angular remains a strong choice this year...',
+      fr: 'Retour concret sur le nettoyage du template, le SEO, la performance et la génération statique du portfolio.',
+      en: 'A practical breakdown of template cleanup, SEO, performance, and static generation for the portfolio.',
     },
-    image: 'assets/articles/angular.png',
+    image: 'assets/img/og-souleymane-diallo.jpg',
   },
   {
-    slug: 'carriere-developpeur-freelance',
+    slug: 'concevoir-api-geographique-guinee',
     title: {
-      fr: 'Carrière de développeur freelance',
-      en: 'Freelance Developer Career',
+      fr: 'Concevoir une API géographique pour la Guinée',
+      en: 'Designing a Geographic API for Guinea',
     },
     date: {
-      fr: '02 Mars 2025',
-      en: 'March 2, 2025',
+      fr: '8 Juillet 2026',
+      en: 'July 8, 2026',
     },
     summary: {
-      fr: 'Les avantages et défis du travail en freelance.',
-      en: 'The benefits and challenges of freelance work.',
+      fr: 'Comment structurer une API REST utile, documentée et simple à tester autour des régions et préfectures.',
+      en: 'How to structure a useful, documented, and testable REST API around regions and prefectures.',
     },
-    image: 'assets/articles/freelance-cover.jpg',
+    image: 'assets/img/projects/api-guinea-geo.png',
   },
 ];

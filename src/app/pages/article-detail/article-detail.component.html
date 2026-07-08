@@ -13,7 +13,11 @@
   </div>
 
   <div class="container markdown-body">
-    <markdown [src]="markdownSrc"></markdown>
+    <markdown *ngIf="articleContent; else articleLoading" [data]="articleContent"></markdown>
+
+    <ng-template #articleLoading>
+      <p class="text-muted">Chargement du contenu...</p>
+    </ng-template>
   </div>
 
   <div class="text-center mt-4">

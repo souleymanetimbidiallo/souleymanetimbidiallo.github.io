@@ -4,13 +4,13 @@
 
     <nav id="navbar" class="navbar" [class.navbar-mobile]="mobileNavOpen">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero" (click)="closeMobileNav()">{{ 'nav.home' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#timeline" (click)="closeMobileNav()">{{ 'nav.timeline' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#services" (click)="closeMobileNav()">{{ 'nav.services' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#portfolio" (click)="closeMobileNav()">{{ 'nav.portfolio' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#blog" (click)="closeMobileNav()">{{ 'nav.blog' | t }}</a></li>
-        <li><a class="nav-link scrollto" href="#contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
+        <li><a class="nav-link scrollto active" routerLink="/" fragment="hero" (click)="closeMobileNav()">{{ 'nav.home' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="timeline" (click)="closeMobileNav()">{{ 'nav.timeline' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="services" (click)="closeMobileNav()">{{ 'nav.services' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="portfolio" (click)="closeMobileNav()">{{ 'nav.portfolio' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="blog" (click)="closeMobileNav()">{{ 'nav.blog' | t }}</a></li>
+        <li><a class="nav-link scrollto" routerLink="/" fragment="contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
         <li class="lang-switch-item">
           <button
             class="lang-switch-btn"
