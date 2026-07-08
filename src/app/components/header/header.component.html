@@ -1,4 +1,4 @@
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top" [class.header-scrolled]="isScrolled">
   <div class="container d-flex align-items-center justify-content-between">
     <h1 class="logo"><a href="index.html">Souleymane Diallo</a></h1>
 
@@ -16,6 +16,7 @@
             class="lang-switch-btn"
             type="button"
             (click)="languageService.toggleLanguage()"
+            
           >
             {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
           </button>

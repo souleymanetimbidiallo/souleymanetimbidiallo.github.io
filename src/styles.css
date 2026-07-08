@@ -514,7 +514,8 @@ body {
   }
   
   #header.header-scrolled {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(15, 23, 42, 0.94);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.24);
     padding: 12px 0;
   }
   
