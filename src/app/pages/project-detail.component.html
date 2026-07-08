@@ -25,13 +25,10 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide" *ngFor="let image of project.images">
-                  <img [src]="image" [alt]="projectTitle" />
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
+            <div class="project-gallery">
+              <figure *ngFor="let image of project.images">
+                <img [src]="image" [alt]="projectTitle" />
+              </figure>
             </div>
           </div>
 
@@ -40,6 +37,11 @@
               <h3>{{ 'project.info' | t }}</h3>
 
               <ul>
+                <li>
+                  <strong>{{ languageService.language() === 'fr' ? 'Rôle' : 'Role' }}</strong>:
+                  {{ projectRole }}
+                </li>
+
                 <li>
                   <strong>{{ 'project.category' | t }}</strong>:
                   {{ projectCategoryLabel }}
@@ -75,8 +77,60 @@
               <h2>{{ projectTitle }}</h2>
               <p>{{ projectDescription }}</p>
 
+              <div class="case-section">
+                <h3>{{ languageService.language() === 'fr' ? 'Impact' : 'Impact' }}</h3>
+                <p>{{ projectImpact }}</p>
+              </div>
+
+              <div class="case-section" *ngIf="projectHighlights.length">
+                <h3>{{ languageService.language() === 'fr' ? 'Points clés' : 'Key points' }}</h3>
+                <ul class="highlights">
+                  <li *ngFor="let highlight of projectHighlights">{{ highlight }}</li>
+                </ul>
+              </div>
+
+              <div class="case-grid" *ngIf="projectCaseStudy.length">
+                <section class="case-card" *ngFor="let section of projectCaseStudy">
+                  <h3>{{ section.title }}</h3>
+                  <ul>
+                    <li *ngFor="let item of section.items">{{ item }}</li>
+                  </ul>
+                </section>
+              </div>
+
+              <div class="proof-section" *ngIf="projectProofBlocks.length">
+                <h3>
+                  {{ languageService.language() === 'fr' ? 'Preuves techniques' : 'Technical proof' }}
+                </h3>
+
+                <div class="proof-grid">
+                  <section
+                    class="proof-card"
+                    *ngFor="let block of projectProofBlocks"
+                    [class.proof-card--code]="block.variant === 'code'"
+                    [class.proof-card--flow]="block.variant === 'flow'"
+                  >
+                    <h4>{{ block.title }}</h4>
+
+                    <pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre>
+
+                    <div class="proof-flow" *ngIf="block.variant === 'flow'">
+                      <span *ngFor="let line of block.lines">{{ line }}</span>
+                    </div>
+
+                    <ul *ngIf="block.variant === 'list'">
+                      <li *ngFor="let line of block.lines">{{ line }}</li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+
               <div class="tags" *ngIf="project.tags?.length">
                 <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+              </div>
+
+              <div class="stack" *ngIf="project.stack?.length">
+                <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
               </div>
             </div>
           </div>

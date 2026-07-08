@@ -11,15 +11,24 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'nav.contact': { fr: 'Contact', en: 'Contact' },
 
   /* HERO */
+  'hero.kicker': {
+    fr: 'Ingénieur logiciel full-stack',
+    en: 'Full-stack Software Engineer',
+  },
   'hero.lead': {
-    fr: 'Je conçois des applications fiables et scalables en Java / Angular, Node & Cloud.',
-    en: 'I build reliable and scalable applications with Java / Angular, Node & Cloud.',
+    fr: 'Je conçois des applications web, API et produits data avec Java, Angular, Node.js et Python.',
+    en: 'I build web applications, APIs, and data products with Java, Angular, Node.js, and Python.',
+  },
+  'hero.focus': {
+    fr: 'Disponible pour des opportunités full-stack, backend/API et data.',
+    en: 'Open to full-stack, backend/API, and data opportunities.',
   },
   'hero.projects': { fr: 'Voir mes projets', en: 'View projects' },
+  'hero.contact': { fr: 'Me contacter', en: 'Contact me' },
   'hero.cv': { fr: 'Télécharger CV', en: 'Download resume' },
   'hero.rotator': {
-    fr: 'Data & IA, DevOps & Cloud, Applications Web performantes',
-    en: 'Data & AI, DevOps & Cloud, High-performance web applications',
+    fr: 'Angular & Java, REST APIs, Python & Data, Cloud-ready apps',
+    en: 'Angular & Java, REST APIs, Python & Data, Cloud-ready apps',
   },
 
   /* ABOUT */
@@ -42,8 +51,8 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
     en: 'My goal: put my skills to work on ambitious projects and help turn ideas into concrete outcomes.',
   },
   'about.availability': {
-    fr: 'Ouvert aux opportunités en télétravail à l’international et aux postes en présentiel aux États-Unis.',
-    en: 'Open to remote opportunities worldwide and on-site roles in the United States.',
+    fr: 'Ouvert aux opportunités remote, hybrides ou en présentiel selon le projet.',
+    en: 'Open to remote, hybrid, or on-site opportunities depending on the role.',
   },
   'about.skills.fullstack': {
     fr: 'Développement Full-Stack',
@@ -159,11 +168,16 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   /* CONTACT */
   'contact.title': { fr: 'Contactez-moi', en: 'Get in touch' },
   'contact.lead': {
-    fr: 'Un projet, une question ou une collaboration ? Je suis toujours ouvert à de nouvelles opportunités.',
-    en: 'A project, a question, or a collaboration? I am always open to new opportunities.',
+    fr: 'Vous recrutez un profil full-stack, backend/API ou data ? Discutons de votre besoin et de la valeur que je peux apporter.',
+    en: 'Hiring for a full-stack, backend/API, or data role? Let’s talk about your needs and the value I can bring.',
   },
-  'contact.email': { fr: '📧 Envoyer un email', en: '📧 Send an email' },
-  'contact.call': { fr: '📞 M’appeler', en: '📞 Call me' },
+  'contact.email': { fr: 'Envoyer un email', en: 'Send an email' },
+  'contact.linkedin': { fr: 'Voir LinkedIn', en: 'View LinkedIn' },
+  'contact.github': { fr: 'Voir GitHub', en: 'View GitHub' },
+  'contact.availabilityLabel': { fr: 'Disponibilité', en: 'Availability' },
+  'contact.availability': { fr: 'Remote international & hybride selon opportunité', en: 'Remote worldwide & hybrid depending on the role' },
+  'contact.focusLabel': { fr: 'Domaines', en: 'Focus' },
+  'contact.focus': { fr: 'Full-stack, API, data products', en: 'Full-stack, APIs, data products' },
 
   /* FOOTER */
   'footer.rights': { fr: 'Tous droits réservés', en: 'All Rights Reserved' },

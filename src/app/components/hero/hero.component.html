@@ -2,30 +2,46 @@
   <div class="hero__overlay"></div>
 
   <div class="container hero__content">
-    <p class="hero__kicker">Software Engineer · Tech Enthusiast</p>
+    <p class="hero__kicker">{{ 'hero.kicker' | t }}</p>
 
     <h1 class="hero__title">Souleymane Diallo</h1>
 
     <p class="hero__lead">
       {{ 'hero.lead' | t }}
-      <br>
+    </p>
+
+    <p class="hero__focus">{{ 'hero.focus' | t }}</p>
+
+    <div class="hero__tags" aria-label="Core technologies">
+      <span>Java</span>
+      <span>Angular</span>
+      <span>Node.js</span>
+      <span>Python</span>
+      <span>REST APIs</span>
+    </div>
+
+    <p class="hero__rotator">
       <span class="rotator" [attr.data-items]="'hero.rotator' | t"></span>
     </p>
 
     <div class="hero__cta">
-      <a class="btn btn-outline-light ms-2" href="#portfolio">{{ 'hero.projects' | t }}</a>
-      <a href="https://github.com/souleymanetimbidiallo" target="_blank" class="btn btn-outline-light">
-        <i class="bi bi-github"></i> GitHub
-      </a>
-      <a href="https://linkedin.com/in/souleymanetimbidiallo" target="_blank" class="btn btn-outline-light">
-        <i class="bi bi-linkedin"></i> LinkedIn
-      </a>
+      <a class="btn btn-primary" href="#portfolio">{{ 'hero.projects' | t }}</a>
+      <a class="btn btn-outline-light" href="#contact">{{ 'hero.contact' | t }}</a>
       <a
-        class="btn btn-outline-primary"
+        class="btn btn-outline-light"
         [href]="cvUrl"
         [attr.download]="cvDownloadName"
       >
         {{ 'hero.cv' | t }}
+      </a>
+    </div>
+
+    <div class="hero__socials" aria-label="Professional links">
+      <a href="https://github.com/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
       </a>
     </div>
   </div>

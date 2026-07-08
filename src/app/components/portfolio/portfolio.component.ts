@@ -1,5 +1,5 @@
-import { Component, Inject, PLATFORM_ID, effect } from '@angular/core';
-import { NgFor, NgIf, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { Component, effect } from '@angular/core';
+import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
 import { PROJECTS, Project, ProjectCategory } from '../../data/projects.data';
@@ -7,7 +7,7 @@ import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
-type Stat = { label: string; end: number; value: number };
+type ProofPoint = { icon: string; label: { fr: string; en: string }; detail: { fr: string; en: string } };
 type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
 
 @Component({
@@ -26,7 +26,6 @@ type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
 })
 export class PortfolioComponent {
   constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
     public languageService: LanguageService,
     private router: Router
   ) {
@@ -36,31 +35,37 @@ export class PortfolioComponent {
     });
   }
 
-  allProjects: Project[] = PROJECTS;
+  allProjects: Project[] = [...PROJECTS].sort(
+    (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
+  );
   filteredProjects: Project[] = [...this.allProjects];
+  featuredProjects: Project[] = this.allProjects.filter((project) => project.featured);
 
   selectedCategory: CategoryKey = 'all';
   readonly categories: CategoryKey[] = ['all', 'web', 'mobile', 'data'];
 
-  private readonly statsFr: Stat[] = [
-    { label: 'TRAVAUX FINIS', end: 15, value: 10 },
-    { label: 'ANNÉES D’EXPÉRIENCE', end: 7, value: 4 },
-    { label: 'CLIENTS', end: 10, value: 5 },
-    { label: 'CERTIFICATIONS', end: 5, value: 5 },
+  readonly proofPoints: ProofPoint[] = [
+    {
+      icon: 'bi-layers',
+      label: { fr: 'Full-stack', en: 'Full-stack' },
+      detail: { fr: 'Angular, Java, Node.js', en: 'Angular, Java, Node.js' },
+    },
+    {
+      icon: 'bi-braces',
+      label: { fr: 'API & backend', en: 'API & backend' },
+      detail: { fr: 'REST, données, intégrations', en: 'REST, data, integrations' },
+    },
+    {
+      icon: 'bi-bar-chart',
+      label: { fr: 'Data', en: 'Data' },
+      detail: { fr: 'Python, nettoyage, visualisation', en: 'Python, cleaning, visualization' },
+    },
+    {
+      icon: 'bi-geo-alt',
+      label: { fr: 'Remote-ready', en: 'Remote-ready' },
+      detail: { fr: 'Collaboration internationale', en: 'International collaboration' },
+    },
   ];
-
-  private readonly statsEn: Stat[] = [
-    { label: 'COMPLETED WORK', end: 15, value: 10 },
-    { label: 'YEARS OF EXPERIENCE', end: 7, value: 4 },
-    { label: 'CLIENTS', end: 10, value: 5 },
-    { label: 'CERTIFICATIONS', end: 5, value: 5 },
-  ];
-
-  private animated = false;
-
-  get stats(): Stat[] {
-    return this.languageService.language() === 'fr' ? this.statsFr : this.statsEn;
-  }
 
   filterByCategory(category: CategoryKey): void {
     this.selectedCategory = category;
@@ -120,45 +125,11 @@ export class PortfolioComponent {
     return project.description[this.languageService.language()];
   }
 
-  onCountersVisible(el: HTMLElement): void {
-    if (this.animated || !isPlatformBrowser(this.platformId)) return;
+  getProjectImpact(project: Project): string {
+    return project.impact[this.languageService.language()];
+  }
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          this.animated = true;
-
-          const dur = 1000;
-          const start = performance.now();
-          const from = this.stats.map((s) => s.value);
-
-          const tick = (t: number) => {
-            const k = Math.min(1, (t - start) / dur);
-            const target = this.stats;
-
-            const next = target.map((s, i) => ({
-              ...s,
-              value: Math.floor(from[i] + k * (s.end - from[i])),
-            }));
-
-            if (this.languageService.language() === 'fr') {
-              this.statsFr.splice(0, this.statsFr.length, ...next);
-            } else {
-              this.statsEn.splice(0, this.statsEn.length, ...next);
-            }
-
-            if (k < 1) {
-              requestAnimationFrame(tick);
-            }
-          };
-
-          requestAnimationFrame(tick);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    io.observe(el);
+  getProjectRole(project: Project): string {
+    return project.role[this.languageService.language()];
   }
 }

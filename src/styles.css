@@ -1,11 +1,3 @@
-/**
-* Template Name: DevFolio
-* Updated: Jul 27 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -1047,27 +1039,6 @@ body {
     padding-top: 40px;
   }
   
-  .portfolio-details .portfolio-details-slider img {
-    width: 100%;
-  }
-  
-  .portfolio-details .portfolio-details-slider .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-  }
-  
-  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    opacity: 1;
-    border: 1px solid #0078ff;
-  }
-  
-  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #0078ff;
-  }
-  
   .portfolio-details .portfolio-info {
     padding: 30px;
     box-shadow: 0px 0 30px rgba(78, 78, 78, 0.08);
@@ -1106,77 +1077,6 @@ body {
   }
   
   /*--------------------------------------------------------------
-  # Testimonials
-  --------------------------------------------------------------*/
-  .testimonial-box {
-    color: #fff;
-    text-align: center;
-  }
-  
-  .testimonial-box .author-test {
-    margin-top: 1rem;
-  }
-  
-  .testimonial-box .author-test img {
-    margin: 0 auto;
-  }
-  
-  .testimonial-box .author {
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: 1rem 0;
-    display: block;
-    font-size: 1.4rem;
-  }
-  
-  .testimonial-box .comit {
-    font-size: 2rem;
-    color: #0078ff;
-    background-color: #fff;
-    width: 52px;
-    height: 52px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-    line-height: 1.6;
-  }
-  
-  @media (min-width: 768px) {
-    .testimonial-box .description {
-      padding: 0 5rem;
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .testimonial-box .description {
-      padding: 0 8rem;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .testimonial-box .description {
-      padding: 0 13rem;
-    }
-  }
-  
-  .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-  }
-  
-  .swiper-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.4);
-    opacity: 1;
-  }
-  
-  .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #fff;
-  }
-  
-  /*--------------------------------------------------------------
   # Contact
   --------------------------------------------------------------*/
   .footer-paralax {
@@ -1191,86 +1091,6 @@ body {
     .contact-mf .box-pl2 {
       margin-top: 3rem;
       padding-left: 0rem;
-    }
-  }
-  
-  .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-  }
-  
-  .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-  }
-  
-  .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    animation: animate-loading 1s linear infinite;
-  }
-  
-  .php-email-form input,
-  .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-  }
-  
-  .php-email-form input:focus,
-  .php-email-form textarea:focus {
-    border-color: #0078ff;
-  }
-  
-  .php-email-form input {
-    padding: 10px 15px;
-  }
-  
-  .php-email-form textarea {
-    padding: 12px 15px;
-    margin-bottom: 0;
-  }
-  
-  .php-email-form button[type=submit] {
-    background: #0078ff;
-    border: 0;
-    padding: 10px 24px;
-    color: #fff;
-    transition: 0.4s;
-  }
-  
-  .php-email-form button[type=submit]:hover {
-    background: #3393ff;
-  }
-  
-  @keyframes animate-loading {
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      transform: rotate(360deg);
     }
   }
   

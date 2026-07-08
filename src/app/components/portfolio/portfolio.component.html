@@ -1,26 +1,18 @@
 <div
-  class="section-counter bg-cover"
+  class="proof-strip bg-cover"
   style="background-image: url('assets/img/counters-bg.jpg')"
 >
   <div class="overlay"></div>
 
-  <div
-    class="container position-relative"
-    #counters
-    (cdkObserveContent)="onCountersVisible(counters)"
-  >
+  <div class="container position-relative">
     <div class="row g-3 text-center">
-      <div class="col-6 col-lg-3" *ngFor="let s of stats">
-        <div class="counter-box">
-          <div class="counter-ico">
-            <span class="ico-circle">
-              <i class="bi bi-check" aria-hidden="true"></i>
-            </span>
-          </div>
-          <div class="counter-num">
-            <p class="counter">{{ s.value }}</p>
-            <span class="counter-text">{{ s.label }}</span>
-          </div>
+      <div class="col-6 col-lg-3" *ngFor="let item of proofPoints">
+        <div class="proof-box">
+          <span class="proof-icon">
+            <i class="bi" [class]="item.icon" aria-hidden="true"></i>
+          </span>
+          <h3>{{ item.label[languageService.language()] }}</h3>
+          <p>{{ item.detail[languageService.language()] }}</p>
         </div>
       </div>
     </div>
@@ -33,6 +25,59 @@
       <h3 class="title-a">{{ 'portfolio.title' | t }}</h3>
       <p class="subtitle-a">{{ 'portfolio.subtitle' | t }}</p>
     </div>
+
+    <section class="featured-projects" *ngIf="featuredProjects.length">
+      <div class="section-heading">
+        <p class="eyebrow">
+          {{ languageService.language() === 'fr' ? 'Sélection' : 'Selection' }}
+        </p>
+        <h4>
+          {{ languageService.language() === 'fr' ? 'Projets phares' : 'Featured projects' }}
+        </h4>
+      </div>
+
+      <div class="featured-grid">
+        <article
+          class="featured-card featured-card--main project-card-link"
+          appReveal
+          *ngFor="let project of featuredProjects; let i = index"
+          [class.featured-card--compact]="i > 0"
+          [routerLink]="['/projets', project.slug]"
+          tabindex="0"
+          role="link"
+          [attr.aria-label]="('portfolio.see' | t) + ' ' + getProjectTitle(project)"
+          (keydown.enter)="goToProject(project.slug)"
+          (keydown.space)="goToProject(project.slug); $event.preventDefault()"
+        >
+          <div class="featured-media">
+            <img
+              class="img-cover"
+              [ngSrc]="project.image"
+              width="760"
+              height="480"
+              [alt]="getProjectTitle(project)"
+            />
+          </div>
+
+          <div class="featured-content">
+            <div class="project-topline">
+              <span class="role">{{ getProjectRole(project) }}</span>
+              <span class="featured">
+                {{ languageService.language() === 'fr' ? 'Projet phare' : 'Featured' }}
+              </span>
+            </div>
+
+            <h5>{{ getProjectTitle(project) }}</h5>
+            <p class="featured-desc">{{ getProjectDescription(project) }}</p>
+            <p class="featured-impact">{{ getProjectImpact(project) }}</p>
+
+            <div class="stack" *ngIf="project.stack?.length">
+              <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <div class="filters">
       <button
@@ -73,6 +118,13 @@
         </div>
 
         <div class="meta">
+          <div class="project-topline">
+            <span class="role">{{ getProjectRole(project) }}</span>
+            <span class="featured" *ngIf="project.featured">
+              {{ languageService.language() === 'fr' ? 'Projet phare' : 'Featured' }}
+            </span>
+          </div>
+
           <h4 class="title">{{ getProjectTitle(project) }}</h4>
 
           <div class="sub">
@@ -87,6 +139,10 @@
 
           <div class="tags" *ngIf="project.tags?.length">
             <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+          </div>
+
+          <div class="stack" *ngIf="project.stack?.length">
+            <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
           </div>
 
           <div class="links" *ngIf="project.demo || project.repo">

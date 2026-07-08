@@ -1,26 +1,47 @@
 <section id="contact" class="contact section">
   <div class="container">
-    <div class="text-center">
-      <h2>{{ 'contact.title' | t }}</h2>
-      <p class="lead">
-        {{ 'contact.lead' | t }} 
-      </p>
+    <div class="contact-panel">
+      <div class="contact-copy">
+        <p class="eyebrow">Contact</p>
+        <h2>{{ 'contact.title' | t }}</h2>
+        <p class="lead">{{ 'contact.lead' | t }}</p>
 
-      <!-- Call-to-action -->
-      <div class="cta">
-        <a class="btn btn-primary" href="mailto:souleymanetimbidiallo@gmail.com">
-          {{ 'contact.email' | t }}
-        </a>
-        <a class="btn btn-outline" href="tel:+33751457133">
-          {{ 'contact.call' | t }}
-        </a>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:souleymanetimbidiallo@gmail.com">
+            <i class="bi bi-envelope" aria-hidden="true"></i>
+            {{ 'contact.email' | t }}
+          </a>
+          <a
+            class="btn btn-outline"
+            href="https://www.linkedin.com/in/souleymanetimbidiallo/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
+            {{ 'contact.linkedin' | t }}
+          </a>
+        </div>
       </div>
 
-      <!-- Réseaux sociaux -->
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/souleymanetimbidiallo/" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/souleymanetimbidiallo" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://twitter.com/SouleymaneTm" target="_blank"><i class="bi bi-twitter"></i></a>
+      <div class="contact-card">
+        <div class="contact-item">
+          <span>{{ 'contact.availabilityLabel' | t }}</span>
+          <strong>{{ 'contact.availability' | t }}</strong>
+        </div>
+        <div class="contact-item">
+          <span>{{ 'contact.focusLabel' | t }}</span>
+          <strong>{{ 'contact.focus' | t }}</strong>
+        </div>
+
+        <a
+          class="github-link"
+          href="https://github.com/souleymanetimbidiallo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-github" aria-hidden="true"></i>
+          {{ 'contact.github' | t }}
+        </a>
       </div>
     </div>
   </div>

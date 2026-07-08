@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, effect } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -13,7 +13,7 @@ import { LanguageService } from '../core/i18n/language.service';
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css'],
 })
-export class ProjectDetailComponent implements AfterViewInit {
+export class ProjectDetailComponent {
   project?: Project;
 
   constructor(
@@ -38,6 +38,43 @@ export class ProjectDetailComponent implements AfterViewInit {
     return this.project.description[this.languageService.language()];
   }
 
+  get projectRole(): string {
+    if (!this.project) return '';
+    return this.project.role[this.languageService.language()];
+  }
+
+  get projectImpact(): string {
+    if (!this.project) return '';
+    return this.project.impact[this.languageService.language()];
+  }
+
+  get projectHighlights(): string[] {
+    if (!this.project) return [];
+    const lang = this.languageService.language();
+    return this.project.highlights.map((highlight) => highlight[lang]);
+  }
+
+  get projectCaseStudy(): { title: string; items: string[] }[] {
+    if (!this.project?.caseStudy) return [];
+    const lang = this.languageService.language();
+
+    return this.project.caseStudy.map((section) => ({
+      title: section.title[lang],
+      items: section.items.map((item) => item[lang]),
+    }));
+  }
+
+  get projectProofBlocks(): { title: string; variant: string; lines: string[] }[] {
+    if (!this.project?.proofBlocks) return [];
+    const lang = this.languageService.language();
+
+    return this.project.proofBlocks.map((block) => ({
+      title: block.title[lang],
+      variant: block.variant,
+      lines: block.lines.map((line) => line[lang]),
+    }));
+  }
+
   get projectCategoryLabel(): string {
     if (!this.project) return '';
 
@@ -50,17 +87,4 @@ export class ProjectDetailComponent implements AfterViewInit {
     return labels[this.project.category][this.languageService.language()];
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      if (window.initPortfolioSwiper) {
-        window.initPortfolioSwiper();
-      }
-    }, 0);
-  }
-}
-
-declare global {
-  interface Window {
-    initPortfolioSwiper: () => void;
-  }
 }
