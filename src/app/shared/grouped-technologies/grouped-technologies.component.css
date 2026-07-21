@@ -1,0 +1,5 @@
+.technology-groups { display: grid; gap: .55rem; }
+.technology-group { display: grid; gap: .3rem; }
+.technology-group__label { color: #64748b; font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+.technology-group__items { display: flex; flex-wrap: wrap; gap: .35rem; }
+.technology-group__items span { background: rgba(37,99,235,.08); border: 1px solid rgba(37,99,235,.15); border-radius: 999px; color: #334155; font-size: .78rem; font-weight: 700; padding: .3rem .55rem; }

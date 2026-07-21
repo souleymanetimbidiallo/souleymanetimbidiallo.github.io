@@ -2,25 +2,89 @@
   <h3 class="title-a text-center mb-5">{{ 'timeline.title' | t }}</h3>
 
   <ol class="timeline">
-    <li *ngFor="let item of experiences; let i = index"
-        class="timeline-item"
-        [class.right]="i % 2 === 1"
-        [style.--stagger]="(i * 0.08) + 's'">
-
+    <li
+      *ngFor="let item of experiences; let i = index"
+      class="timeline-item"
+      [class.right]="i % 2 === 1"
+      [style.--stagger]="(i * 0.08) + 's'"
+    >
       <div class="dot" aria-hidden="true"></div>
 
       <article class="card shadow-sm p-3 timeline-card card-sd" appReveal>
         <div class="d-flex align-items-center mb-2 gap-3">
-          <img *ngIf="item.image" [src]="item.image" alt="{{ item.titre }}" class="timeline-img me-2">
+          <img
+            *ngIf="item.companyImage"
+            [src]="item.companyImage"
+            [alt]="item.company"
+            class="timeline-img me-2"
+          />
           <div>
-            <small class="text-muted">{{ item.date }}</small>
-            <h5 class="fw-bold mt-1 mb-0">{{ item.titre }}</h5>
-            <h6 class="text-muted">{{ item.lieu }}</h6>
+            <small class="text-muted">
+              {{ localized(item.startDate) }} – {{ localized(item.endDate) }}
+            </small>
+            <h5 class="fw-bold mt-1 mb-0">{{ localized(item.role) }}</h5>
+            <h6 class="text-muted">{{ item.company }}, {{ localized(item.location) }}</h6>
           </div>
         </div>
-        <p class="mb-0">{{ item.description }}</p>
-      </article>
 
+        <p class="mb-0">{{ localized(item.summary) }}</p>
+
+        <div class="engagements" *ngIf="item.engagements.length">
+          <h6>{{ 'timeline.professionalProjects' | t }}</h6>
+          <section class="engagement" *ngFor="let engagement of item.engagements">
+            <h6>{{ localized(engagement.displayTitle) }}</h6>
+            <p class="project-name" *ngIf="engagement.internalProjectName">
+              {{ 'timeline.internalProjectName' | t }}: {{ engagement.internalProjectName }}
+            </p>
+            <p class="project-name" *ngIf="!engagement.internalProjectName">
+              {{ engagement.projectName }}
+            </p>
+            <p>{{ localized(engagement.context) }}</p>
+
+            <app-grouped-technologies
+              [technologyIds]="engagement.technologies"
+            ></app-grouped-technologies>
+
+            <ul *ngIf="engagement.responsibilities.length">
+              <li *ngFor="let responsibility of engagement.responsibilities">
+                {{ localized(responsibility) }}
+              </li>
+            </ul>
+
+            <small *ngIf="engagement.confidentiality === 'confidential'">
+              {{ 'timeline.confidential' | t }}
+            </small>
+          </section>
+        </div>
+      </article>
+    </li>
+
+    <li
+      *ngFor="let item of education; let i = index"
+      class="timeline-item education-item"
+      [class.right]="(experiences.length + i) % 2 === 1"
+    >
+      <div class="dot" aria-hidden="true"></div>
+
+      <article class="card shadow-sm p-3 timeline-card card-sd education-card" appReveal>
+        <p class="timeline-kind">{{ 'timeline.education' | t }}</p>
+        <div class="d-flex align-items-center mb-2 gap-3">
+          <img
+            *ngIf="item.image"
+            [src]="item.image"
+            [alt]="localized(item.institution)"
+            class="timeline-img me-2"
+          />
+          <div>
+            <small class="text-muted">{{ item.startDate }} – {{ item.endDate }}</small>
+            <h5 class="fw-bold mt-1 mb-0">{{ localized(item.degree) }}</h5>
+            <h6 class="text-muted">
+              {{ localized(item.institution) }}, {{ localized(item.location) }}
+            </h6>
+          </div>
+        </div>
+        <p class="mb-0">{{ localized(item.description) }}</p>
+      </article>
     </li>
   </ol>
 </section>

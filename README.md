@@ -22,10 +22,10 @@ Avec plusieurs années d’expérience en entreprise et en freelance, j’ai tra
 ## 🏢 Expériences récentes
 
 - **Ingénieur logiciel** – Inetum, Rennes *(2023 – Présent)*  
-  Développement d’une plateforme web pour la gestion des infractions routières (Java, Spring, Angular, ElasticSearch, Docker, CI/CD).
+  Contribution à la plateforme nationale française de gestion des infractions routières, nom interne PHENIX (Java, Spring, Angular, Oracle, MariaDB, Elasticsearch, Docker, GitLab CI/CD).
 
 - **Ingénieur logiciel** – Capgemini, Nantes *(2021 – 2023)*  
-  Missions pour plusieurs clients : StaffingCGN, DPGT, Les Bons Clics, DIE-Immosonnic (Java, Spring Boot, Angular, Symfony, Drupal).
+  Missions : StaffingCGN (Java, Spring Boot, Angular), Les Bons Clics (PHP, Symfony, Twig), DPGT (Drupal 9, PHP, Symfony Components) et DIE / Immosonnic (PHP, Symfony, Drupal).
 
 - **Développeur Web Freelance** – Pellel Consulting *(2020, 2022)*  
   Projet PellelCall : application de visioconférence (Django, Bootstrap).
@@ -56,9 +56,12 @@ Avec plusieurs années d’expérience en entreprise et en freelance, j’ai tra
 
 - **Gui-Plus** : Plateforme communautaire & médias en Guinée  
 - **Guinea Roads** : Application mobile pour le transport en commun (Flutter)  
-- **Citoy-Kaidi** : Application web de gestion des documents administratifs  
+- **CitoyKaidi** : plateforme de technologie civique en PHP, avec une modernisation technique planifiée
 - **API Guinée Geo** : API open-source fournissant des données géographiques  
 - **Soodou Shop** : Application e-commerce en PHP  
+- **KAGLOB ERP** : ERP modulaire de gestion de flotte et de location de véhicules
+- **Yiidein** : plateforme SaaS multi-domaines de prise de rendez-vous
+- **CEE 2026** : application d’analyse et de visualisation des résultats des examens nationaux guinéens 2026
 
 *(Détails disponibles dans le portfolio)*
 

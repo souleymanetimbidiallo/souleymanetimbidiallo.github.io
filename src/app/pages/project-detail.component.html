@@ -26,7 +26,7 @@
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="project-gallery">
-              <figure *ngFor="let image of project.images">
+              <figure *ngFor="let image of project.gallery">
                 <img [src]="image" [alt]="projectTitle" />
               </figure>
             </div>
@@ -37,22 +37,32 @@
               <h3>{{ 'project.info' | t }}</h3>
 
               <ul>
-                <li>
+                <li *ngIf="projectRole">
                   <strong>{{ languageService.language() === 'fr' ? 'Rôle' : 'Role' }}</strong>:
                   {{ projectRole }}
                 </li>
 
                 <li>
-                  <strong>{{ 'project.category' | t }}</strong>:
-                  {{ projectCategoryLabel }}
+                  <strong>{{ 'project.type' | t }}</strong>:
+                  {{ projectTypeKey | t }}
                 </li>
 
                 <li>
+                  <strong>{{ 'project.context' | t }}</strong>:
+                  {{ contextKey | t }}
+                </li>
+
+                <li *ngIf="project.status">
+                  <strong>{{ 'project.status' | t }}</strong>:
+                  <app-project-status [status]="project.status"></app-project-status>
+                </li>
+
+                <li *ngIf="project.client">
                   <strong>{{ 'project.client' | t }}</strong>:
                   {{ project.client }}
                 </li>
 
-                <li>
+                <li *ngIf="project.date">
                   <strong>{{ 'project.date' | t }}</strong>:
                   {{ project.date }}
                 </li>
@@ -64,10 +74,10 @@
                   </a>
                 </li>
 
-                <li *ngIf="project.repo">
+                <li *ngIf="project.repository">
                   <strong>{{ 'project.repo' | t }}</strong>:
-                  <a [href]="project.repo" target="_blank" rel="noopener noreferrer">
-                    {{ project.repo }}
+                  <a [href]="project.repository" target="_blank" rel="noopener noreferrer">
+                    {{ project.repository }}
                   </a>
                 </li>
               </ul>
@@ -77,7 +87,27 @@
               <h2>{{ projectTitle }}</h2>
               <p>{{ projectDescription }}</p>
 
-              <div class="case-section">
+              <div class="stack-section" *ngIf="project.currentTechnologies.length">
+                <h3>{{ 'project.currentStack' | t }}</h3>
+                <app-grouped-technologies
+                  [technologyIds]="project.currentTechnologies"
+                ></app-grouped-technologies>
+              </div>
+
+              <div class="planned-stack" *ngIf="project.plannedTechnologies.length">
+                <h3>{{ 'project.plannedModernization' | t }}</h3>
+                <p>{{ 'project.plannedDisclaimer' | t }}</p>
+                <app-grouped-technologies
+                  [technologyIds]="project.plannedTechnologies"
+                ></app-grouped-technologies>
+              </div>
+
+              <div class="case-section" *ngFor="let section of editorialSections">
+                <h3>{{ section.labelKey | t }}</h3>
+                <p>{{ section.content }}</p>
+              </div>
+
+              <div class="case-section" *ngIf="projectImpact">
                 <h3>{{ languageService.language() === 'fr' ? 'Impact' : 'Impact' }}</h3>
                 <p>{{ projectImpact }}</p>
               </div>
@@ -125,13 +155,30 @@
                 </div>
               </div>
 
-              <div class="tags" *ngIf="project.tags?.length">
-                <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+              <div class="case-grid" *ngIf="project.capabilityGroups?.length">
+                <section class="case-card" *ngFor="let group of project.capabilityGroups">
+                  <h3>{{ localized(group.title) }}</h3>
+                  <ul>
+                    <li *ngFor="let capability of group.items">{{ localized(capability) }}</li>
+                  </ul>
+                </section>
               </div>
 
-              <div class="stack" *ngIf="project.stack?.length">
-                <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
+              <div class="case-section" *ngIf="!project.capabilityGroups?.length && project.capabilities.length">
+                <h3>{{ 'project.capabilities' | t }}</h3>
+                <ul class="highlights">
+                  <li *ngFor="let capability of project.capabilities">
+                    {{ localized(capability) }}
+                  </li>
+                </ul>
               </div>
+
+              <div class="tags" *ngIf="project.domains.length">
+                <span class="tag" *ngFor="let domain of project.domains">
+                  {{ localized(domain) }}
+                </span>
+              </div>
+
             </div>
           </div>
         </div>

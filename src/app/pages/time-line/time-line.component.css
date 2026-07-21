@@ -64,9 +64,64 @@
   transition-delay: var(--stagger, 0s);
 }
 
-.timeline-card.reveal {
+.timeline-card.reveal-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.engagements {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  text-align: left;
+}
+
+.engagement + .engagement {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+}
+
+.engagement h6,
+.engagement p {
+  margin-bottom: 0.4rem;
+}
+
+.project-name {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.engagement ul {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.technology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.technology-tags span,
+.timeline-kind {
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 999px;
+  color: #1d4ed8;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+}
+
+.timeline-kind {
+  margin-bottom: 0.75rem;
+}
+
+.education-card {
+  border-color: rgba(34, 197, 94, 0.22);
 }
 
 /* Images */

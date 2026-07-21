@@ -1,15 +1,19 @@
-import { Component, effect } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 
-import { PROJECTS, Project, ProjectCategory } from '../data/projects.data';
+import { findProjectBySlug, Project } from '../data/projects.data';
+import { LocalizedText } from '../models/localized-text.model';
+import { GroupedTechnologiesComponent } from '../shared/grouped-technologies/grouped-technologies.component';
+import { ProjectStatusComponent } from '../shared/project-status/project-status.component';
+import { getEditorialSections } from '../shared/project-content.util';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
 import { LanguageService } from '../core/i18n/language.service';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [NgFor, NgIf, RouterModule, TranslatePipe],
+  imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe],
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css'],
 })
@@ -21,11 +25,7 @@ export class ProjectDetailComponent {
     public languageService: LanguageService
   ) {
     const slug = this.route.snapshot.paramMap.get('slug');
-    this.project = PROJECTS.find((p) => p.slug === slug);
-
-    effect(() => {
-      this.languageService.language();
-    });
+    this.project = findProjectBySlug(slug);
   }
 
   get projectTitle(): string {
@@ -35,17 +35,18 @@ export class ProjectDetailComponent {
 
   get projectDescription(): string {
     if (!this.project) return '';
-    return this.project.description[this.languageService.language()];
+    const summary = this.project.detailSummary ?? this.project.description;
+    return summary[this.languageService.language()];
   }
 
   get projectRole(): string {
     if (!this.project) return '';
-    return this.project.role[this.languageService.language()];
+    return this.project.role?.[this.languageService.language()] ?? '';
   }
 
   get projectImpact(): string {
     if (!this.project) return '';
-    return this.project.impact[this.languageService.language()];
+    return this.project.impact?.[this.languageService.language()] ?? '';
   }
 
   get projectHighlights(): string[] {
@@ -77,14 +78,25 @@ export class ProjectDetailComponent {
 
   get projectCategoryLabel(): string {
     if (!this.project) return '';
+    return this.localized(this.project.category);
+  }
 
-    const labels: Record<ProjectCategory, { fr: string; en: string }> = {
-      web: { fr: 'Application web', en: 'Web application' },
-      mobile: { fr: 'Mobile', en: 'Mobile' },
-      data: { fr: 'Data', en: 'Data' },
-    };
+  localized(value: LocalizedText): string {
+    return value[this.languageService.language()];
+  }
 
-    return labels[this.project.category][this.languageService.language()];
+  get contextKey(): string {
+    return this.project ? `project.context.${this.project.context}` : '';
+  }
+
+  get projectTypeKey(): string {
+    return this.project ? `project.type.${this.project.projectType}` : '';
+  }
+
+  get editorialSections(): { labelKey: string; content: string }[] {
+    return this.project
+      ? getEditorialSections(this.project, this.languageService.language())
+      : [];
   }
 
 }

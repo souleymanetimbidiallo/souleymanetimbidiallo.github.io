@@ -3,9 +3,12 @@ import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
 import { PROJECTS, Project, ProjectCategory } from '../../data/projects.data';
+import { getTechnologyLabel } from '../../data/technologies.data';
+import { LocalizedText } from '../../models/localized-text.model';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { ProjectStatusComponent } from '../../shared/project-status/project-status.component';
 
 type ProofPoint = { icon: string; label: { fr: string; en: string }; detail: { fr: string; en: string } };
 type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
@@ -19,6 +22,7 @@ type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
     RouterModule,
     NgOptimizedImage,
     RevealOnScrollDirective,
+    ProjectStatusComponent,
     TranslatePipe,
   ],
   templateUrl: './portfolio.component.html',
@@ -83,7 +87,7 @@ export class PortfolioComponent {
     }
 
     this.filteredProjects = this.allProjects.filter(
-      (project) => this.getProjectCategoryKey(project.category) === this.selectedCategory
+      (project) => this.getProjectCategoryKey(project.portfolioFilter) === this.selectedCategory
     );
   }
 
@@ -117,19 +121,32 @@ export class PortfolioComponent {
     return this.getCategoryLabel(this.getProjectCategoryKey(category));
   }
 
+  localized(value: LocalizedText): string {
+    return value[this.languageService.language()];
+  }
+
+  getTechnologyLabel(id: string): string {
+    return getTechnologyLabel(id);
+  }
+
+  getStatusLabel(project: Project): string {
+    return `project.status.${project.status}`;
+  }
+
   getProjectTitle(project: Project): string {
     return project.title[this.languageService.language()];
   }
 
   getProjectDescription(project: Project): string {
-    return project.description[this.languageService.language()];
+    const summary = project.cardSummary ?? project.description;
+    return summary[this.languageService.language()];
   }
 
   getProjectImpact(project: Project): string {
-    return project.impact[this.languageService.language()];
+    return project.impact?.[this.languageService.language()] ?? '';
   }
 
   getProjectRole(project: Project): string {
-    return project.role[this.languageService.language()];
+    return project.role?.[this.languageService.language()] ?? '';
   }
 }

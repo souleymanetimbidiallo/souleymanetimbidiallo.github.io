@@ -180,3 +180,45 @@
   font-weight: 700;
   padding: 0.35rem 0.65rem;
 }
+
+.stack-title {
+  flex-basis: 100%;
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+
+.planned-stack {
+  border-top: 1px solid rgba(2, 6, 23, 0.08);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.stack-section {
+  border-top: 1px solid rgba(2, 6, 23, 0.08);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.stack-section > h3,
+.planned-stack > h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.planned-stack > p {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.planned-stack > h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.planned-stack .stack {
+  border-top: 0;
+  margin-top: 0.5rem;
+  padding-top: 0;
+}

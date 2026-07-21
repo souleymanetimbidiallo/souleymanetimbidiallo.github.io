@@ -51,8 +51,9 @@
         >
           <div class="featured-media">
             <img
+              *ngIf="project.coverImage"
               class="img-cover"
-              [ngSrc]="project.image"
+              [ngSrc]="project.coverImage"
               width="760"
               height="480"
               [alt]="getProjectTitle(project)"
@@ -61,18 +62,18 @@
 
           <div class="featured-content">
             <div class="project-topline">
-              <span class="role">{{ getProjectRole(project) }}</span>
-              <span class="featured">
-                {{ languageService.language() === 'fr' ? 'Projet phare' : 'Featured' }}
-              </span>
+              <span class="role" *ngIf="getProjectRole(project)">{{ getProjectRole(project) }}</span>
+              <app-project-status [status]="project.status"></app-project-status>
             </div>
 
             <h5>{{ getProjectTitle(project) }}</h5>
             <p class="featured-desc">{{ getProjectDescription(project) }}</p>
-            <p class="featured-impact">{{ getProjectImpact(project) }}</p>
+            <p class="featured-impact" *ngIf="getProjectImpact(project)">{{ getProjectImpact(project) }}</p>
 
-            <div class="stack" *ngIf="project.stack?.length">
-              <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
+            <div class="stack" *ngIf="project.currentTechnologies.length">
+              <span class="stack-item" *ngFor="let tech of project.currentTechnologies">
+                {{ getTechnologyLabel(tech) }}
+              </span>
             </div>
           </div>
         </article>
@@ -109,8 +110,9 @@
       >
         <div class="thumb card-zoom ratio-16x10">
           <img
+            *ngIf="project.coverImage"
             class="img-cover"
-            [ngSrc]="project.image"
+            [ngSrc]="project.coverImage"
             width="640"
             height="400"
             [alt]="getProjectTitle(project)"
@@ -119,7 +121,7 @@
 
         <div class="meta">
           <div class="project-topline">
-            <span class="role">{{ getProjectRole(project) }}</span>
+            <span class="role" *ngIf="getProjectRole(project)">{{ getProjectRole(project) }}</span>
             <span class="featured" *ngIf="project.featured">
               {{ languageService.language() === 'fr' ? 'Projet phare' : 'Featured' }}
             </span>
@@ -128,7 +130,7 @@
           <h4 class="title">{{ getProjectTitle(project) }}</h4>
 
           <div class="sub">
-            <span class="cat">{{ getProjectCategoryLabel(project.category) }}</span>
+            <span class="cat">{{ localized(project.category) }}</span>
             <span class="dot">·</span>
             <span class="date">{{ project.date }}</span>
           </div>
@@ -137,15 +139,19 @@
             {{ getProjectDescription(project) }}
           </p>
 
-          <div class="tags" *ngIf="project.tags?.length">
-            <span class="tag" *ngFor="let t of project.tags">{{ t }}</span>
+          <app-project-status [status]="project.status"></app-project-status>
+
+          <div class="tags" *ngIf="project.domains.length">
+            <span class="tag" *ngFor="let domain of project.domains">{{ localized(domain) }}</span>
           </div>
 
-          <div class="stack" *ngIf="project.stack?.length">
-            <span class="stack-item" *ngFor="let tech of project.stack">{{ tech }}</span>
+          <div class="stack" *ngIf="project.currentTechnologies.length">
+            <span class="stack-item" *ngFor="let tech of project.currentTechnologies">
+              {{ getTechnologyLabel(tech) }}
+            </span>
           </div>
 
-          <div class="links" *ngIf="project.demo || project.repo">
+          <div class="links" *ngIf="project.demo || project.repository">
             <a
               *ngIf="project.demo"
               [href]="project.demo"
@@ -158,8 +164,8 @@
             </a>
 
             <a
-              *ngIf="project.repo"
-              [href]="project.repo"
+              *ngIf="project.repository"
+              [href]="project.repository"
               target="_blank"
               rel="noopener noreferrer"
               class="project-link"
