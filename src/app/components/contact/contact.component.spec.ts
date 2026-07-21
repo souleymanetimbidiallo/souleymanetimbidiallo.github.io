@@ -20,4 +20,9 @@ describe('ContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('does not display an availability claim', () => {
+    expect((fixture.nativeElement.textContent as string).toLowerCase()).not.toContain('availability');
+    expect((fixture.nativeElement.textContent as string).toLowerCase()).not.toContain('disponibilité');
+  });
 });

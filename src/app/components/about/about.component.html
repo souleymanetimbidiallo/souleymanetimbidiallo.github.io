@@ -1,90 +1,43 @@
-<section id="about" class="about section">
+<section id="about" class="about section" aria-labelledby="about-title">
   <div class="container">
-    <div class="about-grid">
-      <div class="profile-card">
-        <img
-          src="assets/img/profil.jpeg"
-          alt="Souleymane Diallo"
-          class="avatar"
-        />
+    <div class="section-header">
+      <p class="section-eyebrow">{{ 'about.eyebrow' | t }}</p>
+      <h2 id="about-title">{{ 'about.title' | t }}</h2>
+      <p>{{ 'about.summary' | t }}</p>
+    </div>
 
-        <h3 class="name">Souleymane Diallo</h3>
-        <p class="role">{{ "about.role" | t }}</p>
+    <div class="summary-layout">
+      <figure class="portrait">
+        <img src="assets/img/profil.jpeg" alt="Souleymane Diallo" width="520" height="520" loading="lazy" decoding="async" />
+        <figcaption><strong>Souleymane Diallo</strong><span>{{ 'hero.role' | t }} · Columbus, Ohio</span></figcaption>
+      </figure>
 
-        <p class="location">
-          <i class="bi bi-geo-alt"></i>
-          Columbus, Ohio, USA
-        </p>
-
-        <p class="availability">{{ "about.availability" | t }}</p>
-
-        <div class="skills-block">
-          <h4>{{ "about.coreSkills" | t }}</h4>
-          <div class="tags">
-            <span class="tag">{{ "about.skills.fullstack" | t }}</span>
-            <span class="tag">{{ "about.skills.api" | t }}</span>
-            <span class="tag">{{ "about.skills.architecture" | t }}</span>
-            <span class="tag">{{ "about.skills.microservices" | t }}</span>
-            <span class="tag">{{ "about.skills.cloud" | t }}</span>
-          </div>
-        </div>
+      <div class="strengths" aria-label="Engineering strengths">
+        <article><span>01</span><h3>{{ 'about.enterprise.title' | t }}</h3><p>{{ 'about.enterprise.text' | t }}</p></article>
+        <article><span>02</span><h3>{{ 'about.php.title' | t }}</h3><p>{{ 'about.php.text' | t }}</p></article>
+        <article><span>03</span><h3>{{ 'about.product.title' | t }}</h3><p>{{ 'about.product.text' | t }}</p></article>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="content-card">
-        <div class="bio">
-          <h6 class="section-eyebrow">{{ "about.title" | t }}</h6>
-          <p>{{ "about.p1" | t }}</p>
-          <p>{{ "about.p2" | t }}</p>
-          <p>{{ "about.p3" | t }}</p>
-        </div>
+<section id="skills" class="skills section section--compact" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="section-header section-header--row">
+      <div><p class="section-eyebrow">{{ 'skills.eyebrow' | t }}</p><h2 id="skills-title">{{ 'skills.title' | t }}</h2></div>
+      <p>{{ 'skills.subtitle' | t }}</p>
+    </div>
 
-        <div class="tech-stack">
-          <div class="section-heading">
-            <h3>{{ "tech.title" | t }}</h3>
-            <p>{{ "tech.subtitle" | t }}</p>
-          </div>
+    <div class="core-stack" aria-label="Core expertise">
+      <span class="core-label">{{ 'about.coreSkills' | t }}</span>
+      <ul><li *ngFor="let technology of coreTechnologies">{{ technologyLabel(technology) }}</li></ul>
+    </div>
 
-          <div class="stack-grid">
-            <div class="stack-card">
-              <h4>
-                <i class="bi bi-window"></i>
-                {{ "tech.frontend.title" | t }}
-              </h4>
-              <p>{{ "tech.frontend.items" | t }}</p>
-            </div>
-
-            <div class="stack-card">
-              <h4>
-                <i class="bi bi-server"></i>
-                {{ "tech.backend.title" | t }}
-              </h4>
-              <p>{{ "tech.backend.items" | t }}</p>
-            </div>
-
-            <div class="stack-card">
-              <h4>
-                <i class="bi bi-database"></i> {{ "tech.database.title" | t }}
-              </h4>
-              <p>{{ "tech.database.items" | t }}</p>
-            </div>
-
-            <div class="stack-card">
-              <h4><i class="bi bi-gear"></i> {{ "tech.devops.title" | t }}</h4>
-              <p>{{ "tech.devops.items" | t }}</p>
-            </div>
-
-            <div class="stack-card">
-              <h4><i class="bi bi-cloud"></i> {{ "tech.cloud.title" | t }}</h4>
-              <p>{{ "tech.cloud.items" | t }}</p>
-            </div>
-
-            <div class="stack-card">
-              <h4><i class="bi bi-tools"></i> {{ "tech.tools.title" | t }}</h4>
-              <p>{{ "tech.tools.items" | t }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="skill-grid">
+      <section class="skill-group" *ngFor="let group of skillGroups">
+        <h3>{{ group.titleKey | t }}</h3>
+        <ul><li *ngFor="let technology of group.technologies">{{ technologyLabel(technology) }}</li></ul>
+      </section>
     </div>
   </div>
 </section>

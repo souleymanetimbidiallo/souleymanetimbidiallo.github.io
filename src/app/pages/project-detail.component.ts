@@ -15,7 +15,7 @@ import { LanguageService } from '../core/i18n/language.service';
   standalone: true,
   imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe],
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css'],
+  styleUrl: './project-detail.component.css',
 })
 export class ProjectDetailComponent {
   project?: Project;
@@ -47,6 +47,11 @@ export class ProjectDetailComponent {
   get projectImpact(): string {
     if (!this.project) return '';
     return this.project.impact?.[this.languageService.language()] ?? '';
+  }
+
+  get galleryImages(): string[] {
+    if (!this.project) return [];
+    return this.project.gallery.filter((image) => image !== this.project?.coverImage);
   }
 
   get projectHighlights(): string[] {

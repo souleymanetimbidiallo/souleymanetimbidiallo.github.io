@@ -1,47 +1,12 @@
-<section id="contact" class="contact section">
+<section id="contact" class="contact section" aria-labelledby="contact-title">
   <div class="container">
     <div class="contact-panel">
-      <div class="contact-copy">
-        <p class="eyebrow">Contact</p>
-        <h2>{{ 'contact.title' | t }}</h2>
-        <p class="lead">{{ 'contact.lead' | t }}</p>
-
-        <div class="cta">
-          <a class="btn btn-primary" href="mailto:souleymanetimbidiallo@gmail.com">
-            <i class="bi bi-envelope" aria-hidden="true"></i>
-            {{ 'contact.email' | t }}
-          </a>
-          <a
-            class="btn btn-outline"
-            href="https://www.linkedin.com/in/souleymanetimbidiallo/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="bi bi-linkedin" aria-hidden="true"></i>
-            {{ 'contact.linkedin' | t }}
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-item">
-          <span>{{ 'contact.availabilityLabel' | t }}</span>
-          <strong>{{ 'contact.availability' | t }}</strong>
-        </div>
-        <div class="contact-item">
-          <span>{{ 'contact.focusLabel' | t }}</span>
-          <strong>{{ 'contact.focus' | t }}</strong>
-        </div>
-
-        <a
-          class="github-link"
-          href="https://github.com/souleymanetimbidiallo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="bi bi-github" aria-hidden="true"></i>
-          {{ 'contact.github' | t }}
-        </a>
+      <div><p class="section-eyebrow">Contact</p><h2 id="contact-title">{{ 'contact.title' | t }}</h2><p>{{ 'contact.lead' | t }}</p></div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:souleymanetimbidiallo@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i>{{ 'contact.email' | t }}</a>
+        <a href="https://www.linkedin.com/in/souleymanetimbidiallo/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a href="https://github.com/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a [href]="resumeUrl" download>{{ 'contact.resume' | t }} <i class="bi bi-download" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>

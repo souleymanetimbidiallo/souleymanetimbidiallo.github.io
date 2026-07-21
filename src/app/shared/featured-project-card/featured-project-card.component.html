@@ -1,0 +1,22 @@
+<article class="featured-project" [class.featured-project--with-media]="project.coverImage">
+  <div class="project-media" *ngIf="project.coverImage">
+    <img [ngSrc]="project.coverImage" width="700" height="400" [alt]="title" loading="lazy" />
+  </div>
+  <div class="project-content">
+    <div class="project-topline"><span>{{ ('project.type.' + project.projectType) | t }}</span><app-project-status [status]="project.status"></app-project-status></div>
+    <h3>{{ title }}</h3>
+    <p class="summary">{{ summary }}</p>
+    <p class="role" *ngIf="role"><strong>{{ 'project.role' | t }}</strong> {{ role }}</p>
+    <ul class="stack" [attr.aria-label]="'project.currentStack' | t">
+      <li *ngFor="let technology of visibleTechnologies">{{ technologyLabel(technology) }}</li>
+      <li *ngIf="remainingTechnologyCount">+{{ remainingTechnologyCount }}</li>
+    </ul>
+    <div class="capability-preview" *ngIf="selectedCapabilities.length"><strong>{{ 'project.selectedCapabilities' | t }}</strong><ul><li *ngFor="let capability of selectedCapabilities">{{ capability }}</li></ul></div>
+    <p class="planned" *ngIf="project.plannedTechnologies.length"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>{{ 'project.plannedModernization' | t }}</p>
+    <div class="actions">
+      <a class="detail-link" [routerLink]="['/projets', project.slug]">{{ 'portfolio.viewDetails' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      <a *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'GitHub — ' + title">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+      <a *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer" [attr.aria-label]="('project.demo' | t) + ' — ' + title">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</article>

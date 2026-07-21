@@ -1,152 +1,34 @@
-import { Component, effect } from '@angular/core';
-import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
-
-import { PROJECTS, Project, ProjectCategory } from '../../data/projects.data';
-import { getTechnologyLabel } from '../../data/technologies.data';
-import { LocalizedText } from '../../models/localized-text.model';
-import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
+import { Component } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { PROJECTS } from '../../data/projects.data';
+import { Project } from '../../models/project.model';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
-import { ProjectStatusComponent } from '../../shared/project-status/project-status.component';
+import { FeaturedProjectCardComponent } from '../../shared/featured-project-card/featured-project-card.component';
+import { ProjectCardComponent } from '../../shared/project-card/project-card.component';
 
-type ProofPoint = { icon: string; label: { fr: string; en: string }; detail: { fr: string; en: string } };
 type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
+export const FEATURED_PROJECT_IDS = ['kaglob-erp', 'yiidein', 'cee-2026', 'citoykaidi'];
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [
-    NgFor,
-    NgIf,
-    RouterModule,
-    NgOptimizedImage,
-    RevealOnScrollDirective,
-    ProjectStatusComponent,
-    TranslatePipe,
-  ],
+  imports: [NgFor, NgIf, TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css'],
+  styleUrl: './portfolio.component.css',
 })
 export class PortfolioComponent {
-  constructor(
-    public languageService: LanguageService,
-    private router: Router
-  ) {
-    effect(() => {
-      this.languageService.language();
-      this.applyFilter();
-    });
-  }
-
-  allProjects: Project[] = [...PROJECTS].sort(
-    (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
-  );
-  filteredProjects: Project[] = [...this.allProjects];
-  featuredProjects: Project[] = this.allProjects.filter((project) => project.featured);
-
-  selectedCategory: CategoryKey = 'all';
+  readonly allProjects = PROJECTS;
   readonly categories: CategoryKey[] = ['all', 'web', 'mobile', 'data'];
+  selectedCategory: CategoryKey = 'all';
 
-  readonly proofPoints: ProofPoint[] = [
-    {
-      icon: 'bi-layers',
-      label: { fr: 'Full-stack', en: 'Full-stack' },
-      detail: { fr: 'Angular, Java, Node.js', en: 'Angular, Java, Node.js' },
-    },
-    {
-      icon: 'bi-braces',
-      label: { fr: 'API & backend', en: 'API & backend' },
-      detail: { fr: 'REST, données, intégrations', en: 'REST, data, integrations' },
-    },
-    {
-      icon: 'bi-bar-chart',
-      label: { fr: 'Data', en: 'Data' },
-      detail: { fr: 'Python, nettoyage, visualisation', en: 'Python, cleaning, visualization' },
-    },
-    {
-      icon: 'bi-geo-alt',
-      label: { fr: 'Remote-ready', en: 'Remote-ready' },
-      detail: { fr: 'Collaboration internationale', en: 'International collaboration' },
-    },
-  ];
+  constructor(public languageService: LanguageService) {}
 
-  filterByCategory(category: CategoryKey): void {
-    this.selectedCategory = category;
-    this.applyFilter();
+  get featuredProjects(): Project[] { return FEATURED_PROJECT_IDS.map((id) => this.allProjects.find((project) => project.id === id)).filter((project): project is Project => Boolean(project)); }
+  get displayedProjects(): Project[] {
+    if (this.selectedCategory !== 'all') return this.allProjects.filter((project) => project.portfolioFilter === this.selectedCategory);
+    return this.allProjects.filter((project) => !FEATURED_PROJECT_IDS.includes(project.id));
   }
-
-  goToProject(slug: string): void {
-    this.router.navigate(['/projets', slug]);
-  }
-
-  private applyFilter(): void {
-    if (this.selectedCategory === 'all') {
-      this.filteredProjects = [...this.allProjects];
-      return;
-    }
-
-    this.filteredProjects = this.allProjects.filter(
-      (project) => this.getProjectCategoryKey(project.portfolioFilter) === this.selectedCategory
-    );
-  }
-
-  private getProjectCategoryKey(category: ProjectCategory): CategoryKey {
-    switch (category) {
-      case 'web':
-        return 'web';
-      case 'mobile':
-        return 'mobile';
-      case 'data':
-        return 'data';
-      default:
-        return 'all';
-    }
-  }
-
-  getCategoryLabel(category: CategoryKey): string {
-    const lang = this.languageService.language();
-
-    const labels: Record<CategoryKey, { fr: string; en: string }> = {
-      all: { fr: 'Tous', en: 'All' },
-      web: { fr: 'Application web', en: 'Web application' },
-      mobile: { fr: 'Mobile', en: 'Mobile' },
-      data: { fr: 'Data', en: 'Data' },
-    };
-
-    return labels[category][lang];
-  }
-
-  getProjectCategoryLabel(category: ProjectCategory): string {
-    return this.getCategoryLabel(this.getProjectCategoryKey(category));
-  }
-
-  localized(value: LocalizedText): string {
-    return value[this.languageService.language()];
-  }
-
-  getTechnologyLabel(id: string): string {
-    return getTechnologyLabel(id);
-  }
-
-  getStatusLabel(project: Project): string {
-    return `project.status.${project.status}`;
-  }
-
-  getProjectTitle(project: Project): string {
-    return project.title[this.languageService.language()];
-  }
-
-  getProjectDescription(project: Project): string {
-    const summary = project.cardSummary ?? project.description;
-    return summary[this.languageService.language()];
-  }
-
-  getProjectImpact(project: Project): string {
-    return project.impact?.[this.languageService.language()] ?? '';
-  }
-
-  getProjectRole(project: Project): string {
-    return project.role?.[this.languageService.language()] ?? '';
-  }
+  filterByCategory(category: CategoryKey): void { this.selectedCategory = category; }
+  getCategoryLabel(category: CategoryKey): string { return ({ all: { fr:'Tous',en:'All' }, web:{ fr:'Web',en:'Web' }, mobile:{ fr:'Mobile',en:'Mobile' }, data:{ fr:'Données',en:'Data' } }[category])[this.languageService.language()]; }
 }

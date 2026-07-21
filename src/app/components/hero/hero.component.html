@@ -1,48 +1,30 @@
-<section id="hero" class="hero" aria-label="Hero">
-  <div class="hero__overlay"></div>
+<section id="hero" class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="hero__eyebrow">{{ 'hero.engineeringFocus' | t }}</p>
+      <h1 id="hero-title" class="hero__title">Souleymane Diallo</h1>
+      <p class="hero__role">{{ 'hero.role' | t }}</p>
+      <p class="hero__lead">{{ 'hero.lead' | t }}</p>
 
-  <div class="container hero__content">
-    <p class="hero__kicker">{{ 'hero.kicker' | t }}</p>
+      <div class="hero__cta">
+        <a class="btn btn-primary" href="#portfolio">{{ 'hero.projects' | t }}</a>
+        <a class="btn btn-secondary" href="#contact">{{ 'hero.contact' | t }}</a>
+      </div>
 
-    <h1 class="hero__title">Souleymane Diallo</h1>
-
-    <p class="hero__lead">
-      {{ 'hero.lead' | t }}
-    </p>
-
-    <p class="hero__focus">{{ 'hero.focus' | t }}</p>
-
-    <div class="hero__tags" aria-label="Core technologies">
-      <span>Java</span>
-      <span>Angular</span>
-      <span>Node.js</span>
-      <span>Python</span>
-      <span>REST APIs</span>
+      <nav class="hero__links" [attr.aria-label]="'hero.professionalLinks' | t">
+        <a href="https://github.com/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/souleymanetimbidiallo/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a [href]="cvUrl" [attr.download]="cvDownloadName">{{ 'hero.cv' | t }} <i class="bi bi-download" aria-hidden="true"></i></a>
+      </nav>
     </div>
 
-    <p class="hero__rotator">
-      <span class="rotator" [attr.data-items]="'hero.rotator' | t"></span>
-    </p>
-
-    <div class="hero__cta">
-      <a class="btn btn-primary" href="#portfolio">{{ 'hero.projects' | t }}</a>
-      <a class="btn btn-outline-light" href="#contact">{{ 'hero.contact' | t }}</a>
-      <a
-        class="btn btn-outline-light"
-        [href]="cvUrl"
-        [attr.download]="cvDownloadName"
-      >
-        {{ 'hero.cv' | t }}
-      </a>
-    </div>
-
-    <div class="hero__socials" aria-label="Professional links">
-      <a href="https://github.com/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <i class="bi bi-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <i class="bi bi-linkedin"></i>
-      </a>
-    </div>
+    <aside class="hero__identity" [attr.aria-label]="'hero.technicalIdentity' | t">
+      <p class="identity__label">{{ 'hero.primaryLabel' | t }}</p>
+      <p class="identity__primary">Java <span>/</span> Spring Boot <span>/</span> Angular</p>
+      <div class="identity__divider"></div>
+      <p class="identity__label">{{ 'hero.secondaryLabel' | t }}</p>
+      <p class="identity__secondary">PHP <span>/</span> Laravel <span>/</span> Symfony</p>
+      <div class="identity__location"><span class="identity__label">{{ 'hero.locationLabel' | t }}</span><strong><i class="bi bi-geo-alt" aria-hidden="true"></i> Columbus, Ohio, USA</strong></div>
+    </aside>
   </div>
 </section>

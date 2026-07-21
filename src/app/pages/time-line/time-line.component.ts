@@ -13,7 +13,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   standalone: true,
   imports: [NgFor, NgIf, RevealOnScrollDirective, GroupedTechnologiesComponent, TranslatePipe],
   templateUrl: './time-line.component.html',
-  styleUrls: ['./time-line.component.css'],
+  styleUrl: './time-line.component.css',
 })
 export class TimeLineComponent {
   readonly experiences = PROFESSIONAL_EXPERIENCES;

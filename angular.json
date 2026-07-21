@@ -39,7 +39,7 @@
             ],
             "styles": [
               "src/bootstrap-subset.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
+              "src/bootstrap-icons-subset.css",
               "src/styles.css"
             ],
             "scripts": []

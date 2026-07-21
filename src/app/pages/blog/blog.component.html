@@ -1,44 +1,11 @@
-<section id="blog" class="container my-5">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="title-box text-center">
-        <h3 class="title-a">BLOG</h3>
-        <p class="subtitle-a">
-          {{ 'blog.subtitle' | t }}
-        </p>
-        <div class="line-mf"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 mb-4" *ngFor="let post of articles">
-      <div class="card h-100 shadow">
-        <img
-          *ngIf="post.image"
-          [src]="post.image"
-          class="card-img-top"
-          [alt]="getArticleTitle(post)"
-        />
-
-        <div class="card-body">
-          <h5 class="card-title">{{ getArticleTitle(post) }}</h5>
-
-          <span class="badge bg-light text-dark mb-2">
-            {{ getArticleDate(post) }}
-          </span>
-
-          <p class="card-text">{{ getArticleSummary(post) }}</p>
-
-          <a
-            [routerLink]="['/blog', post.slug]"
-            class="btn btn-outline-primary btn-sm mt-2"
-          >
-            {{ 'blog.readMore' | t }}
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
+<section id="blog" class="writing section section--compact" aria-labelledby="writing-title">
+  <div class="container">
+    <div class="section-header section-header--row"><div><p class="section-eyebrow">{{ 'blog.eyebrow' | t }}</p><h2 id="writing-title">{{ 'blog.sectionTitle' | t }}</h2></div><p>{{ 'blog.subtitle' | t }}</p></div>
+    <div class="article-grid">
+      <article *ngFor="let post of articles">
+        <img *ngIf="post.image" [src]="post.image" [alt]="getArticleTitle(post)" width="700" height="400" loading="lazy" decoding="async" />
+        <div class="article-content"><p class="article-date">{{ getArticleDate(post) }}</p><h3>{{ getArticleTitle(post) }}</h3><p>{{ getArticleSummary(post) }}</p><a [routerLink]="['/blog', post.slug]">{{ 'blog.readMore' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
+      </article>
     </div>
   </div>
 </section>

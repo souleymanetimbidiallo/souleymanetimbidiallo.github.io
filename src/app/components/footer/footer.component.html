@@ -1,19 +1,8 @@
-<!-- ======= Footer ======= -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="copyright-box">
-                    <p class="copyright">&copy; Copyright <strong>Souleymane D.</strong>. {{ 'footer.rights' | t }}</p>
-                    <div class="credits">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer><!-- End  Footer -->
-
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-</a>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>Souleymane Diallo</strong><p>{{ 'hero.role' | t }} · Columbus, Ohio, USA</p></div>
+    <nav aria-label="Footer"><a routerLink="/" fragment="timeline">{{ 'nav.timeline' | t }}</a><a routerLink="/" fragment="portfolio">{{ 'nav.projects' | t }}</a><a routerLink="/" fragment="contact">{{ 'nav.contact' | t }}</a></nav>
+    <div class="footer-social"><a href="https://github.com/souleymanetimbidiallo" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/souleymanetimbidiallo/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+  </div>
+  <div class="container copyright"><span>© {{ year }} Souleymane Diallo. {{ 'footer.rights' | t }}.</span><span>{{ 'footer.credit' | t }}</span></div>
+</footer>

@@ -1,197 +1,50 @@
-<div *ngIf="project">
-  <div
-    class="hero hero-single route bg-image"
-    style="background-image: url(assets/img/overlay-bg.jpg)"
-  >
-    <div class="overlay-mf"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <h2 class="hero-title mb-4">{{ projectTitle }}</h2>
-
-          <ol class="breadcrumb d-flex justify-content-center">
-            <li class="breadcrumb-item">
-              <a routerLink="/">{{ 'nav.home' | t }}</a>
-            </li>
-            <li class="breadcrumb-item active">{{ projectTitle }}</li>
-          </ol>
-        </div>
+<div class="project-page" *ngIf="project">
+  <header class="project-hero">
+    <div class="container">
+      <a class="back-link" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
+      <div class="project-heading">
+        <div><p class="section-eyebrow">{{ projectTypeKey | t }}</p><h1>{{ projectTitle }}</h1><p class="positioning">{{ projectDescription }}</p></div>
+        <app-project-status [status]="project.status"></app-project-status>
+      </div>
+      <dl class="project-meta">
+        <div><dt>{{ 'project.context' | t }}</dt><dd>{{ contextKey | t }}</dd></div>
+        <div *ngIf="projectRole"><dt>{{ 'project.role' | t }}</dt><dd>{{ projectRole }}</dd></div>
+        <div *ngIf="project.date"><dt>{{ 'project.date' | t }}</dt><dd>{{ project.date }}</dd></div>
+      </dl>
+      <div class="project-actions" *ngIf="project.repository || project.demo">
+        <a class="btn btn-primary" *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a class="btn btn-secondary" *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <main id="main">
-    <section class="portfolio-details">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-8">
-            <div class="project-gallery">
-              <figure *ngFor="let image of project.gallery">
-                <img [src]="image" [alt]="projectTitle" />
-              </figure>
-            </div>
+  <div class="project-main">
+    <div class="container">
+      <figure class="cover" *ngIf="project.coverImage"><img [src]="project.coverImage" [alt]="projectTitle" decoding="async" /></figure>
+      <div class="content-layout">
+        <aside class="architecture" aria-labelledby="current-stack-title">
+          <section *ngIf="project.currentTechnologies.length"><h2 id="current-stack-title">{{ 'project.currentStack' | t }}</h2><app-grouped-technologies [technologyIds]="project.currentTechnologies"></app-grouped-technologies></section>
+          <section class="planned" *ngIf="project.plannedTechnologies.length"><h2>{{ 'project.plannedModernization' | t }}</h2><p>{{ 'project.plannedDisclaimer' | t }}</p><app-grouped-technologies [technologyIds]="project.plannedTechnologies"></app-grouped-technologies></section>
+          <section *ngIf="project.domains.length"><h2>{{ 'project.domains' | t }}</h2><ul class="domain-list"><li *ngFor="let domain of project.domains">{{ localized(domain) }}</li></ul></section>
+        </aside>
+
+        <div class="project-story">
+          <section><h2>{{ 'project.overview' | t }}</h2><p>{{ projectDescription }}</p></section>
+          <section *ngFor="let section of editorialSections"><h2>{{ section.labelKey | t }}</h2><p>{{ section.content }}</p></section>
+          <section *ngIf="projectImpact"><h2>{{ 'project.impact' | t }}</h2><p>{{ projectImpact }}</p></section>
+          <section *ngIf="projectHighlights.length"><h2>{{ 'project.keyPoints' | t }}</h2><ul><li *ngFor="let highlight of projectHighlights">{{ highlight }}</li></ul></section>
+          <div class="capability-grid" *ngIf="project.capabilityGroups?.length">
+            <section *ngFor="let group of project.capabilityGroups"><h2>{{ localized(group.title) }}</h2><ul><li *ngFor="let capability of group.items">{{ localized(capability) }}</li></ul></section>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>{{ 'project.info' | t }}</h3>
-
-              <ul>
-                <li *ngIf="projectRole">
-                  <strong>{{ languageService.language() === 'fr' ? 'Rôle' : 'Role' }}</strong>:
-                  {{ projectRole }}
-                </li>
-
-                <li>
-                  <strong>{{ 'project.type' | t }}</strong>:
-                  {{ projectTypeKey | t }}
-                </li>
-
-                <li>
-                  <strong>{{ 'project.context' | t }}</strong>:
-                  {{ contextKey | t }}
-                </li>
-
-                <li *ngIf="project.status">
-                  <strong>{{ 'project.status' | t }}</strong>:
-                  <app-project-status [status]="project.status"></app-project-status>
-                </li>
-
-                <li *ngIf="project.client">
-                  <strong>{{ 'project.client' | t }}</strong>:
-                  {{ project.client }}
-                </li>
-
-                <li *ngIf="project.date">
-                  <strong>{{ 'project.date' | t }}</strong>:
-                  {{ project.date }}
-                </li>
-
-                <li *ngIf="project.demo">
-                  <strong>{{ 'project.demo' | t }}</strong>:
-                  <a [href]="project.demo" target="_blank" rel="noopener noreferrer">
-                    {{ project.demo }}
-                  </a>
-                </li>
-
-                <li *ngIf="project.repository">
-                  <strong>{{ 'project.repo' | t }}</strong>:
-                  <a [href]="project.repository" target="_blank" rel="noopener noreferrer">
-                    {{ project.repository }}
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="portfolio-description">
-              <h2>{{ projectTitle }}</h2>
-              <p>{{ projectDescription }}</p>
-
-              <div class="stack-section" *ngIf="project.currentTechnologies.length">
-                <h3>{{ 'project.currentStack' | t }}</h3>
-                <app-grouped-technologies
-                  [technologyIds]="project.currentTechnologies"
-                ></app-grouped-technologies>
-              </div>
-
-              <div class="planned-stack" *ngIf="project.plannedTechnologies.length">
-                <h3>{{ 'project.plannedModernization' | t }}</h3>
-                <p>{{ 'project.plannedDisclaimer' | t }}</p>
-                <app-grouped-technologies
-                  [technologyIds]="project.plannedTechnologies"
-                ></app-grouped-technologies>
-              </div>
-
-              <div class="case-section" *ngFor="let section of editorialSections">
-                <h3>{{ section.labelKey | t }}</h3>
-                <p>{{ section.content }}</p>
-              </div>
-
-              <div class="case-section" *ngIf="projectImpact">
-                <h3>{{ languageService.language() === 'fr' ? 'Impact' : 'Impact' }}</h3>
-                <p>{{ projectImpact }}</p>
-              </div>
-
-              <div class="case-section" *ngIf="projectHighlights.length">
-                <h3>{{ languageService.language() === 'fr' ? 'Points clés' : 'Key points' }}</h3>
-                <ul class="highlights">
-                  <li *ngFor="let highlight of projectHighlights">{{ highlight }}</li>
-                </ul>
-              </div>
-
-              <div class="case-grid" *ngIf="projectCaseStudy.length">
-                <section class="case-card" *ngFor="let section of projectCaseStudy">
-                  <h3>{{ section.title }}</h3>
-                  <ul>
-                    <li *ngFor="let item of section.items">{{ item }}</li>
-                  </ul>
-                </section>
-              </div>
-
-              <div class="proof-section" *ngIf="projectProofBlocks.length">
-                <h3>
-                  {{ languageService.language() === 'fr' ? 'Preuves techniques' : 'Technical proof' }}
-                </h3>
-
-                <div class="proof-grid">
-                  <section
-                    class="proof-card"
-                    *ngFor="let block of projectProofBlocks"
-                    [class.proof-card--code]="block.variant === 'code'"
-                    [class.proof-card--flow]="block.variant === 'flow'"
-                  >
-                    <h4>{{ block.title }}</h4>
-
-                    <pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre>
-
-                    <div class="proof-flow" *ngIf="block.variant === 'flow'">
-                      <span *ngFor="let line of block.lines">{{ line }}</span>
-                    </div>
-
-                    <ul *ngIf="block.variant === 'list'">
-                      <li *ngFor="let line of block.lines">{{ line }}</li>
-                    </ul>
-                  </section>
-                </div>
-              </div>
-
-              <div class="case-grid" *ngIf="project.capabilityGroups?.length">
-                <section class="case-card" *ngFor="let group of project.capabilityGroups">
-                  <h3>{{ localized(group.title) }}</h3>
-                  <ul>
-                    <li *ngFor="let capability of group.items">{{ localized(capability) }}</li>
-                  </ul>
-                </section>
-              </div>
-
-              <div class="case-section" *ngIf="!project.capabilityGroups?.length && project.capabilities.length">
-                <h3>{{ 'project.capabilities' | t }}</h3>
-                <ul class="highlights">
-                  <li *ngFor="let capability of project.capabilities">
-                    {{ localized(capability) }}
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tags" *ngIf="project.domains.length">
-                <span class="tag" *ngFor="let domain of project.domains">
-                  {{ localized(domain) }}
-                </span>
-              </div>
-
-            </div>
-          </div>
+          <section *ngIf="!project.capabilityGroups?.length && project.capabilities.length"><h2>{{ 'project.capabilities' | t }}</h2><ul><li *ngFor="let capability of project.capabilities">{{ localized(capability) }}</li></ul></section>
+          <div class="capability-grid" *ngIf="projectCaseStudy.length"><section *ngFor="let section of projectCaseStudy"><h2>{{ section.title }}</h2><ul><li *ngFor="let item of section.items">{{ item }}</li></ul></section></div>
+          <section *ngIf="projectProofBlocks.length"><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid"><article *ngFor="let block of projectProofBlocks"><h3>{{ block.title }}</h3><pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre><ul *ngIf="block.variant !== 'code'"><li *ngFor="let line of block.lines">{{ line }}</li></ul></article></div></section>
         </div>
       </div>
-    </section>
-  </main>
-</div>
-
-<div *ngIf="!project">
-  <div class="container mt-5">
-    <h3>{{ 'project.notFound' | t }}</h3>
-    <a routerLink="/" class="btn btn-primary mt-3">
-      {{ 'project.backHome' | t }}
-    </a>
+      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><img [src]="image" [alt]="projectTitle" loading="lazy" decoding="async" /></figure></div></section>
+      <a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
+    </div>
   </div>
 </div>
+
+<div class="not-found" *ngIf="!project"><div class="container"><h1>{{ 'project.notFound' | t }}</h1><a routerLink="/" class="btn btn-primary">{{ 'project.backHome' | t }}</a></div></div>

@@ -1,35 +1,26 @@
-<header id="header" class="fixed-top" [class.header-scrolled]="isScrolled">
-  <div class="container d-flex align-items-center justify-content-between">
-    <h1 class="logo"><a href="index.html">Souleymane Diallo</a></h1>
+<header id="header" class="site-header" [class.header-scrolled]="isScrolled">
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" fragment="hero" (click)="closeMobileNav()" aria-label="Souleymane Diallo — Home">
+      <span class="brand-mark" aria-hidden="true">SD</span>
+      <span>Souleymane Diallo</span>
+    </a>
 
-    <nav id="navbar" class="navbar" [class.navbar-mobile]="mobileNavOpen">
+    <button class="mobile-nav-toggle" type="button" [attr.aria-label]="(mobileNavOpen ? 'nav.close' : 'nav.open') | t" aria-controls="primary-navigation" [attr.aria-expanded]="mobileNavOpen" (click)="toggleMobileNav()">
+      <i class="bi" [ngClass]="mobileNavOpen ? 'bi-x-lg' : 'bi-list'" aria-hidden="true"></i>
+    </button>
+
+    <nav id="primary-navigation" class="navbar" [class.navbar-mobile]="mobileNavOpen" [attr.aria-label]="'nav.primary' | t">
       <ul>
-        <li><a class="nav-link scrollto active" routerLink="/" fragment="hero" (click)="closeMobileNav()">{{ 'nav.home' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="timeline" (click)="closeMobileNav()">{{ 'nav.timeline' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="services" (click)="closeMobileNav()">{{ 'nav.services' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="portfolio" (click)="closeMobileNav()">{{ 'nav.portfolio' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="blog" (click)="closeMobileNav()">{{ 'nav.blog' | t }}</a></li>
-        <li><a class="nav-link scrollto" routerLink="/" fragment="contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
-        <li class="lang-switch-item">
-          <button
-            class="lang-switch-btn"
-            type="button"
-            (click)="languageService.toggleLanguage()"
-            
-          >
-            {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
-          </button>
-        </li>
+        <li><a routerLink="/" fragment="hero" (click)="closeMobileNav()">{{ 'nav.home' | t }}</a></li>
+        <li><a routerLink="/" fragment="timeline" (click)="closeMobileNav()">{{ 'nav.timeline' | t }}</a></li>
+        <li><a routerLink="/" fragment="portfolio" (click)="closeMobileNav()">{{ 'nav.projects' | t }}</a></li>
+        <li><a routerLink="/" fragment="skills" (click)="closeMobileNav()">{{ 'nav.skills' | t }}</a></li>
+        <li><a routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
+        <li><a routerLink="/" fragment="contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
       </ul>
-      <button
-        class="mobile-nav-toggle bi"
-        [ngClass]="mobileNavOpen ? 'bi-x' : 'bi-list'"
-        type="button"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="mobileNavOpen"
-        (click)="toggleMobileNav()"
-      ></button>
+      <button class="lang-switch-btn" type="button" [attr.aria-label]="'nav.language' | t" (click)="languageService.toggleLanguage()">
+        {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
+      </button>
     </nav>
   </div>
 </header>

@@ -1,181 +1,20 @@
-<div
-  class="proof-strip bg-cover"
-  style="background-image: url('assets/img/counters-bg.jpg')"
->
-  <div class="overlay"></div>
-
-  <div class="container position-relative">
-    <div class="row g-3 text-center">
-      <div class="col-6 col-lg-3" *ngFor="let item of proofPoints">
-        <div class="proof-box">
-          <span class="proof-icon">
-            <i class="bi" [class]="item.icon" aria-hidden="true"></i>
-          </span>
-          <h3>{{ item.label[languageService.language()] }}</h3>
-          <p>{{ item.detail[languageService.language()] }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="portfolio" class="portfolio section">
+<section id="portfolio" class="portfolio section" aria-labelledby="projects-title">
   <div class="container">
-    <div class="text-center mb-4">
-      <h3 class="title-a">{{ 'portfolio.title' | t }}</h3>
-      <p class="subtitle-a">{{ 'portfolio.subtitle' | t }}</p>
+    <div class="section-header section-header--row">
+      <div><p class="section-eyebrow">{{ 'portfolio.eyebrow' | t }}</p><h2 id="projects-title">{{ 'portfolio.title' | t }}</h2></div>
+      <p>{{ 'portfolio.subtitle' | t }}</p>
     </div>
 
-    <section class="featured-projects" *ngIf="featuredProjects.length">
-      <div class="section-heading">
-        <p class="eyebrow">
-          {{ languageService.language() === 'fr' ? 'Sélection' : 'Selection' }}
-        </p>
-        <h4>
-          {{ languageService.language() === 'fr' ? 'Projets phares' : 'Featured projects' }}
-        </h4>
-      </div>
-
-      <div class="featured-grid">
-        <article
-          class="featured-card featured-card--main project-card-link"
-          appReveal
-          *ngFor="let project of featuredProjects; let i = index"
-          [class.featured-card--compact]="i > 0"
-          [routerLink]="['/projets', project.slug]"
-          tabindex="0"
-          role="link"
-          [attr.aria-label]="('portfolio.see' | t) + ' ' + getProjectTitle(project)"
-          (keydown.enter)="goToProject(project.slug)"
-          (keydown.space)="goToProject(project.slug); $event.preventDefault()"
-        >
-          <div class="featured-media">
-            <img
-              *ngIf="project.coverImage"
-              class="img-cover"
-              [ngSrc]="project.coverImage"
-              width="760"
-              height="480"
-              [alt]="getProjectTitle(project)"
-            />
-          </div>
-
-          <div class="featured-content">
-            <div class="project-topline">
-              <span class="role" *ngIf="getProjectRole(project)">{{ getProjectRole(project) }}</span>
-              <app-project-status [status]="project.status"></app-project-status>
-            </div>
-
-            <h5>{{ getProjectTitle(project) }}</h5>
-            <p class="featured-desc">{{ getProjectDescription(project) }}</p>
-            <p class="featured-impact" *ngIf="getProjectImpact(project)">{{ getProjectImpact(project) }}</p>
-
-            <div class="stack" *ngIf="project.currentTechnologies.length">
-              <span class="stack-item" *ngFor="let tech of project.currentTechnologies">
-                {{ getTechnologyLabel(tech) }}
-              </span>
-            </div>
-          </div>
-        </article>
-      </div>
+    <section class="featured" *ngIf="selectedCategory === 'all' && featuredProjects.length" aria-labelledby="featured-title">
+      <header class="subsection-header"><h3 id="featured-title">{{ 'portfolio.featured' | t }}</h3><p>{{ 'portfolio.featuredIntro' | t }}</p></header>
+      <div class="featured-list"><app-featured-project-card *ngFor="let project of featuredProjects" [project]="project"></app-featured-project-card></div>
     </section>
 
-    <div class="filters">
-      <button
-        *ngFor="let cat of categories"
-        class="pill"
-        [class.active]="selectedCategory === cat"
-        (click)="filterByCategory(cat)"
-        type="button"
-      >
-        {{ getCategoryLabel(cat) }}
-      </button>
-
-      <span class="count">
-        {{ filteredProjects.length }} {{ 'portfolio.count' | t }}
-      </span>
-    </div>
-
-    <div class="grid">
-      <article
-        class="card project card-sd project-card-link"
-        appReveal
-        *ngFor="let project of filteredProjects"
-        [routerLink]="['/projets', project.slug]"
-        tabindex="0"
-        role="link"
-        [attr.aria-label]="('portfolio.see' | t) + ' ' + getProjectTitle(project)"
-        (keydown.enter)="goToProject(project.slug)"
-        (keydown.space)="goToProject(project.slug); $event.preventDefault()"
-      >
-        <div class="thumb card-zoom ratio-16x10">
-          <img
-            *ngIf="project.coverImage"
-            class="img-cover"
-            [ngSrc]="project.coverImage"
-            width="640"
-            height="400"
-            [alt]="getProjectTitle(project)"
-          />
-        </div>
-
-        <div class="meta">
-          <div class="project-topline">
-            <span class="role" *ngIf="getProjectRole(project)">{{ getProjectRole(project) }}</span>
-            <span class="featured" *ngIf="project.featured">
-              {{ languageService.language() === 'fr' ? 'Projet phare' : 'Featured' }}
-            </span>
-          </div>
-
-          <h4 class="title">{{ getProjectTitle(project) }}</h4>
-
-          <div class="sub">
-            <span class="cat">{{ localized(project.category) }}</span>
-            <span class="dot">·</span>
-            <span class="date">{{ project.date }}</span>
-          </div>
-
-          <p class="desc">
-            {{ getProjectDescription(project) }}
-          </p>
-
-          <app-project-status [status]="project.status"></app-project-status>
-
-          <div class="tags" *ngIf="project.domains.length">
-            <span class="tag" *ngFor="let domain of project.domains">{{ localized(domain) }}</span>
-          </div>
-
-          <div class="stack" *ngIf="project.currentTechnologies.length">
-            <span class="stack-item" *ngFor="let tech of project.currentTechnologies">
-              {{ getTechnologyLabel(tech) }}
-            </span>
-          </div>
-
-          <div class="links" *ngIf="project.demo || project.repository">
-            <a
-              *ngIf="project.demo"
-              [href]="project.demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              (click)="$event.stopPropagation()"
-            >
-              Demo
-            </a>
-
-            <a
-              *ngIf="project.repository"
-              [href]="project.repository"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              (click)="$event.stopPropagation()"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
+    <section class="project-index" aria-labelledby="project-index-title">
+      <header class="index-header"><div><h3 id="project-index-title">{{ (selectedCategory === 'all' ? 'portfolio.selected' : 'portfolio.filtered') | t }}</h3><p>{{ 'portfolio.indexIntro' | t }}</p></div>
+        <div class="filters" role="group" [attr.aria-label]="'portfolio.filterLabel' | t"><button *ngFor="let category of categories" type="button" [class.active]="selectedCategory === category" [attr.aria-pressed]="selectedCategory === category" (click)="filterByCategory(category)">{{ getCategoryLabel(category) }}</button></div>
+      </header>
+      <div class="project-grid"><app-project-card *ngFor="let project of displayedProjects" [project]="project"></app-project-card></div>
+    </section>
   </div>
 </section>

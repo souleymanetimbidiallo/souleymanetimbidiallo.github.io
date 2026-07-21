@@ -1,8 +1,8 @@
 <div class="technology-groups">
-  <div class="technology-group" *ngFor="let group of groups">
+  <section class="technology-group" *ngFor="let group of groups">
     <span class="technology-group__label">{{ group.labelKey | t }}</span>
-    <div class="technology-group__items">
-      <span *ngFor="let technology of group.technologies">{{ technology.label }}</span>
-    </div>
-  </div>
+    <ul class="technology-group__items">
+      <li *ngFor="let technology of group.technologies">{{ technology.label }}</li>
+    </ul>
+  </section>
 </div>

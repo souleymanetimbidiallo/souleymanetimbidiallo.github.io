@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { AboutComponent } from '../../components/about/about.component';
-import { ServicesComponent } from '../../components/services/services.component';
 import { PortfolioComponent } from '../../components/portfolio/portfolio.component';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { TimeLineComponent } from '../time-line/time-line.component';
 import { BlogComponent } from "../blog/blog.component";
-import { ProcessComponent } from "../../components/process/process.component";
 
 @Component({
   selector: 'app-home',
@@ -15,13 +13,11 @@ import { ProcessComponent } from "../../components/process/process.component";
   imports: [
     HeroComponent,
     AboutComponent,
-    ServicesComponent,
     PortfolioComponent,
     ContactComponent,
     TimeLineComponent,
     FooterComponent,
-    BlogComponent,
-    ProcessComponent
+    BlogComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
