@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-critters-container>
+<html lang="fr" data-theme="light" data-critters-container>
 <head>
   <meta charset="utf-8">
   <title>Souleymane Diallo | Full-stack Software Engineer</title>
@@ -8,7 +8,11 @@
   <meta name="description" content="Portfolio de Souleymane Diallo, ingénieur logiciel full-stack spécialisé en applications web, APIs REST, data products, Java, Angular, Node.js et Python.">
   <meta name="author" content="Souleymane Diallo">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f8fafc">
+  <script>
+    (() => { try { const p = localStorage.getItem('portfolio-theme'); const d = p === 'dark' || (p !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches); const t = d ? 'dark' : 'light'; document.documentElement.dataset.theme = t; document.documentElement.style.colorScheme = t; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', d ? '#0b1220' : '#f8fafc'); } catch {} })();
+  </script>
   <link rel="canonical" href="https://souleymanetimbidiallo.github.io/">
 
   <meta property="og:type" content="website">
@@ -33,9 +37,9 @@
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<style>*,*:before,*:after{box-sizing:border-box}body{margin:0}body{background-color:#f5f5f5;color:#4e4e4e}:root{--primary:#2563eb;--muted:#64748b;--radius:16px}
-</style><link rel="stylesheet" href="styles-R36EJZZH.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-R36EJZZH.css"></noscript><link rel="modulepreload" href="chunk-ZTYEORHV.js"><link rel="modulepreload" href="chunk-WGIJHE5R.js"><link rel="modulepreload" href="chunk-74ZAIK7R.js"><link rel="modulepreload" href="chunk-XGSUBPCT.js"></head>
+<style>body{margin:0}:root{color-scheme:light;--color-page: #f8fafc;--color-surface: #ffffff;--color-surface-secondary: #f1f5f9;--color-surface-elevated: #ffffff;--color-secondary-surface: var(--color-surface-secondary);--color-text-primary: #0f172a;--color-text: var(--color-text-primary);--color-text-secondary: #475569;--color-text-muted: #5b687a;--color-border: #cbd5e1;--color-border-subtle: #e2e8f0;--color-accent: #1d4ed8;--color-accent-hover: #1e40af;--color-accent-soft: #eff6ff;--color-on-accent: #ffffff;--color-success: #15803d;--color-warning: #a16207;--color-warning-soft: #fffbeb;--color-danger: #b91c1c;--color-focus-ring: #0ea5e9;--color-focus: var(--color-focus-ring);--color-header-background: #f8fafce0;--color-contact-background: #0f172a;--color-footer-background: #080f1e;--color-footer-text: #cbd5e1;--color-footer-border: #1e293b;--color-code-background: #0f172a;--color-code-text: #e2e8f0;--color-selection-background: #bfdbfe;--color-selection-text: #0f172a;--color-logo-surface: #ffffff;--font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;--font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;--space-1: .25rem;--space-2: .5rem;--space-3: .75rem;--space-4: 1rem;--space-5: 1.5rem;--space-6: 2rem;--space-7: 2.5rem;--space-8: 3rem;--space-10: 4rem;--space-12: 6rem;--space-16: 7rem;--text-sm: .875rem;--text-xs: .75rem;--text-body: 1rem;--radius-sm: .5rem;--radius-md: .85rem;--radius-lg: 1.25rem;--shadow-sm: 0 8px 24px rgba(15, 23, 42, .06);--shadow-md: 0 18px 46px rgba(15, 23, 42, .1);--shadow-lg: 0 24px 64px rgba(15, 23, 42, .15);--shadow-small: var(--shadow-sm);--shadow-medium: var(--shadow-md);--shadow-large: var(--shadow-lg);--content-width: 1180px;--gutter: clamp(1rem, 4vw, 2rem);--header-height: 4.75rem;--primary: var(--color-accent);--muted: var(--color-text-muted)}*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 1rem)}body{background:var(--color-page);color:var(--color-text);font-family:var(--font-sans);font-size:var(--text-body);line-height:1.6;margin:0;overflow-x:hidden;text-rendering:optimizeLegibility}@media (max-width: 760px){:root{--space-16: 4.5rem;--space-12: 3.5rem;--header-height: 4.25rem}}@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style><link rel="stylesheet" href="styles-4X2WXE7S.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-4X2WXE7S.css"></noscript><link rel="modulepreload" href="chunk-X6HZMYBV.js"><link rel="modulepreload" href="chunk-GMH5AZ3Q.js"><link rel="modulepreload" href="chunk-Y4ZIJJSG.js"><link rel="modulepreload" href="chunk-QQBBBWPW.js"><link rel="modulepreload" href="chunk-O6MGGMK3.js"></head>
 <body>
   <app-root></app-root>
-<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-WDH2A6DB.js" type="module"></script></body>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-BSGNWFVZ.js" type="module"></script></body>
 </html>

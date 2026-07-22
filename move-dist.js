@@ -32,4 +32,7 @@ if (fs.existsSync(indexPath)) {
   console.log('✅ 404.html généré depuis index.html');
 }
 
+// GitHub Pages : désactive le traitement Jekyll pour les fichiers Angular.
+fs.writeFileSync(path.join(dst, '.nojekyll'), '');
+
 console.log('✅ Dossier "browser" déplacé dans "docs" avec succès.');
