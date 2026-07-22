@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="utf-8">
   <title>Souleymane Diallo | Full-stack Software Engineer</title>
@@ -8,7 +8,11 @@
   <meta name="description" content="Portfolio de Souleymane Diallo, ingénieur logiciel full-stack spécialisé en applications web, APIs REST, data products, Java, Angular, Node.js et Python.">
   <meta name="author" content="Souleymane Diallo">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f8fafc">
+  <script>
+    (() => { try { const p = localStorage.getItem('portfolio-theme'); const d = p === 'dark' || (p !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches); const t = d ? 'dark' : 'light'; document.documentElement.dataset.theme = t; document.documentElement.style.colorScheme = t; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', d ? '#0b1220' : '#f8fafc'); } catch {} })();
+  </script>
   <link rel="canonical" href="https://souleymanetimbidiallo.github.io/">
 
   <meta property="og:type" content="website">

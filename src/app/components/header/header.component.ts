@@ -3,6 +3,7 @@ import { Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/cor
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { ThemePreference, ThemeService } from '../../core/theme/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     public languageService: LanguageService,
+    public themeService: ThemeService,
     @Inject(DOCUMENT) private document: Document
   ) {}
 
@@ -48,6 +50,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeMobileNav(): void {
     this.mobileNavOpen = false;
     this.updateBodyScroll();
+  }
+
+  setTheme(event: Event): void {
+    this.themeService.setPreference((event.target as HTMLSelectElement).value as ThemePreference);
   }
 
   ngOnDestroy(): void { this.document.body.classList.remove('nav-open'); }

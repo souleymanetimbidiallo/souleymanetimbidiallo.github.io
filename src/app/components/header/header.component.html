@@ -18,9 +18,19 @@
         <li><a routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
         <li><a routerLink="/" fragment="contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
       </ul>
-      <button class="lang-switch-btn" type="button" [attr.aria-label]="'nav.language' | t" (click)="languageService.toggleLanguage()">
-        {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
-      </button>
+      <div class="header-controls">
+        <label class="theme-control" for="theme-preference">
+          <span>{{ 'theme.label' | t }}</span>
+          <select id="theme-preference" [value]="themeService.preference()" [attr.aria-label]="'theme.label' | t" (change)="setTheme($event)">
+            <option value="system">{{ 'theme.system' | t }}</option>
+            <option value="light">{{ 'theme.light' | t }}</option>
+            <option value="dark">{{ 'theme.dark' | t }}</option>
+          </select>
+        </label>
+        <button class="lang-switch-btn" type="button" [attr.aria-label]="'nav.language' | t" (click)="languageService.toggleLanguage()">
+          {{ languageService.language() === 'fr' ? 'EN' : 'FR' }}
+        </button>
+      </div>
     </nav>
   </div>
 </header>

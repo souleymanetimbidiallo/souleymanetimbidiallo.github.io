@@ -26,12 +26,12 @@ export const PROJECTS: Project[] = [
     portfolioFilter: 'web',
     category: { fr: 'Plateforme média numérique', en: 'Digital media platform' },
     domains: [{ fr: 'Médias numériques', en: 'Digital media' }],
-    currentTechnologies: ['angular', 'typescript', 'bootstrap'],
+    currentTechnologies: ['Wordpress', 'PHP', 'JS'],
     plannedTechnologies: [],
     capabilities: [{ fr: 'Publication de contenu', en: 'Content publishing' }],
     featured: false,
     client: 'Gui-Plus Group',
-    demo: 'https://guiplusgroup.com',
+    //demo: 'https://guiplusgroup.com',
     description: {
       fr: `Plateforme web de présentation et de publication pour Gui-Plus Group, pensée pour rendre les activités, services et contenus de l'organisation accessibles en ligne.`,
       en: `Presentation and publishing website for Gui-Plus Group, designed to make the organization's activities, services, and content accessible online.`,
@@ -197,7 +197,7 @@ export const PROJECTS: Project[] = [
     portfolioFilter: 'web',
     category: { fr: 'Site associatif', en: 'Association website' },
     domains: [{ fr: 'Vie associative', en: 'Community organization' }],
-    currentTechnologies: ['angular', 'typescript', 'bootstrap'],
+    currentTechnologies: ['symfony', 'php', 'twig', 'js'],
     plannedTechnologies: [],
     capabilities: [{ fr: 'Publication de contenu associatif', en: 'Community content publishing' }],
     featured: false,
@@ -248,6 +248,7 @@ export const PROJECTS: Project[] = [
       en: 'Guinea-Roads',
     },
     coverImage: 'assets/img/projects/guinea-roads.png',
+    repository: 'https://github.com/souleymanetimbidiallo/guinea_roads',
     date: '08/04/2024',
     context: 'personal',
     projectType: 'mobile-application',
@@ -396,7 +397,7 @@ export const PROJECTS: Project[] = [
       { fr: 'Visualisation de données', en: 'Data visualization' },
     ],
     client: 'Gui-Plus Group',
-    demo: 'https://guiplusgroup.com',
+    repository: 'https://github.com/souleymanetimbidiallo/examens-gn-2023',
     description: {
       fr: `Analyse des résultats des examens nationaux guinéens 2023 avec Python, nettoyage de données et visualisations pour rendre les tendances plus lisibles.`,
       en: `Analysis of Guinea’s 2023 national exam results using Python, data cleaning, and visualizations to make trends easier to read.`,
@@ -538,6 +539,7 @@ export const PROJECTS: Project[] = [
     ],
     client: 'Gui-Plus Group',
     demo: 'https://api-guinea-geo.vercel.app/',
+    repository: 'https://github.com/souleymanetimbidiallo/api-guinea-geo',
     description: {
       fr: `API publique donnant accès aux données géographiques de la Guinée afin d’aider les développeurs à créer plus rapidement des applications locales.`,
       en: `Public API exposing Guinea geographic data to help developers build local applications faster.`,
@@ -672,6 +674,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'KAGLOB ERP', en: 'KAGLOB ERP' },
+    coverImage: 'assets/img/projects/kaglob/kaglob-logo.png',
     description: {
       fr: 'Application métier modulaire pour la gestion de flotte et les opérations de location de véhicules.',
       en: 'Modular business application for fleet management and vehicle-rental operations.',
@@ -786,7 +789,10 @@ export const PROJECTS: Project[] = [
     },
     status: 'active-development',
     featured: false,
-    gallery: [],
+    gallery: [
+      'assets/img/projects/kaglob/kaglob1.png',
+      'assets/img/projects/kaglob/kaglob2.png',
+    ],
     highlights: [],
   },
   {
@@ -795,6 +801,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'Yiidein', en: 'Yiidein' },
+    coverImage: 'assets/img/projects/yiidein/cover.png',
     description: {
       fr: 'Plateforme SaaS réutilisable de prise de rendez-vous conçue pour plusieurs secteurs.',
       en: 'Reusable appointment-booking SaaS platform designed for multiple sectors.',
@@ -880,7 +887,12 @@ export const PROJECTS: Project[] = [
     },
     status: 'active-development',
     featured: false,
-    gallery: [],
+    
+    gallery: [
+      'assets/img/projects/yiidein/dashboard-admin.png',
+      'assets/img/projects/yiidein/dashboard-client.png',
+      'assets/img/projects/yiidein/homepage.png',
+    ],
     highlights: [],
   },
   {
@@ -889,6 +901,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'CEE 2026', en: 'CEE 2026' },
+    coverImage: 'assets/img/projects/cee-2026/cover.png',
     description: {
       fr: 'Application de traitement, d’analyse et de visualisation des résultats des examens nationaux de Guinée en 2026.',
       en: "Application for processing, analyzing, and visualizing Guinea's 2026 national examination results.",
@@ -910,6 +923,7 @@ export const PROJECTS: Project[] = [
       { fr: 'Données ouvertes', en: 'Open data' },
     ],
     currentTechnologies: ['python', 'streamlit', 'duckdb', 'pandas', 'plotly', 'parquet'],
+    demo: 'https://gn-exams-2026.streamlit.app/',
     plannedTechnologies: [],
     capabilities: [
       { fr: 'Analyse des résultats d’examens', en: 'Examination-result analysis' },

@@ -2,7 +2,7 @@
 .experience-list { display: grid; gap: var(--space-7); }
 .employer { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); border-radius: var(--radius-lg); padding: var(--space-7); }
 .employer-header { align-items: center; display: grid; gap: var(--space-4); grid-template-columns: auto 1fr auto; }
-.employer-header img, .education img { background: #fff; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); object-fit: contain; padding: .3rem; }
+.employer-header img, .education img { background: var(--color-logo-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); object-fit: contain; padding: .3rem; }
 .employer-title p, .education article div > p:first-child { color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); margin: 0 0 var(--space-1); }
 .employer-title h3 { font-size: 1.55rem; margin: 0; }
 .employer-title strong { color: var(--color-accent); font-size: var(--text-sm); }

@@ -15,6 +15,13 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'nav.open': { fr: 'Ouvrir la navigation', en: 'Open navigation' },
   'nav.close': { fr: 'Fermer la navigation', en: 'Close navigation' },
   'nav.language': { fr: 'Changer la langue', en: 'Change language' },
+  'theme.label': { fr: 'Thème', en: 'Theme' },
+  'theme.system': { fr: 'Système', en: 'System' },
+  'theme.light': { fr: 'Clair', en: 'Light' },
+  'theme.dark': { fr: 'Sombre', en: 'Dark' },
+  'theme.useSystem': { fr: 'Utiliser le thème du système', en: 'Use system theme' },
+  'theme.useLight': { fr: 'Utiliser le thème clair', en: 'Use light theme' },
+  'theme.useDark': { fr: 'Utiliser le thème sombre', en: 'Use dark theme' },
 
   /* HERO */
   'hero.kicker': {

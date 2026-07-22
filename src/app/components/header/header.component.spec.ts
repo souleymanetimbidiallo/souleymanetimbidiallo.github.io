@@ -35,4 +35,25 @@ describe('HeaderComponent', () => {
     component.onEscape();
     expect(component.mobileNavOpen).toBeFalse();
   });
+
+  it('exposes a localized, keyboard-accessible theme selector', () => {
+    const select = fixture.nativeElement.querySelector('#theme-preference') as HTMLSelectElement;
+    expect(select).not.toBeNull();
+    expect(select.getAttribute('aria-label')).toBeTruthy();
+    expect(Array.from(select.options).map((option) => option.value)).toEqual(['system', 'light', 'dark']);
+  });
+
+  it('changes the persisted theme preference through the header control', () => {
+    const select = fixture.nativeElement.querySelector('#theme-preference') as HTMLSelectElement;
+    select.value = 'dark';
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+    expect(component.themeService.preference()).toBe('dark');
+  });
+
+  it('keeps language switching functional', () => {
+    const initial = component.languageService.language();
+    component.languageService.toggleLanguage();
+    expect(component.languageService.language()).not.toBe(initial);
+  });
 });

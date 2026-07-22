@@ -1,9 +1,13 @@
-:root { color-scheme: light; }
-:root {
+:root,
+[data-theme='light'] {
+  color-scheme: light;
   --color-page: #f8fafc;
   --color-surface: #ffffff;
-  --color-secondary-surface: #f1f5f9;
-  --color-text: #0f172a;
+  --color-surface-secondary: #f1f5f9;
+  --color-surface-elevated: #ffffff;
+  --color-secondary-surface: var(--color-surface-secondary);
+  --color-text-primary: #0f172a;
+  --color-text: var(--color-text-primary);
   --color-text-secondary: #475569;
   --color-text-muted: #5b687a;
   --color-border: #cbd5e1;
@@ -11,10 +15,23 @@
   --color-accent: #1d4ed8;
   --color-accent-hover: #1e40af;
   --color-accent-soft: #eff6ff;
+  --color-on-accent: #ffffff;
   --color-success: #15803d;
   --color-warning: #a16207;
   --color-warning-soft: #fffbeb;
-  --color-focus: #0ea5e9;
+  --color-danger: #b91c1c;
+  --color-focus-ring: #0ea5e9;
+  --color-focus: var(--color-focus-ring);
+  --color-header-background: #f8fafce0;
+  --color-contact-background: #0f172a;
+  --color-footer-background: #080f1e;
+  --color-footer-text: #cbd5e1;
+  --color-footer-border: #1e293b;
+  --color-code-background: #0f172a;
+  --color-code-text: #e2e8f0;
+  --color-selection-background: #bfdbfe;
+  --color-selection-text: #0f172a;
+  --color-logo-surface: #ffffff;
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --space-1: .25rem;
@@ -37,6 +54,9 @@
   --shadow-sm: 0 8px 24px rgba(15, 23, 42, .06);
   --shadow-md: 0 18px 46px rgba(15, 23, 42, .1);
   --shadow-lg: 0 24px 64px rgba(15, 23, 42, .15);
+  --shadow-small: var(--shadow-sm);
+  --shadow-medium: var(--shadow-md);
+  --shadow-large: var(--shadow-lg);
   --content-width: 1180px;
   --gutter: clamp(1rem, 4vw, 2rem);
   --header-height: 4.75rem;
@@ -44,10 +64,52 @@
   --muted: var(--color-text-muted);
 }
 
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-page: #0b1220;
+  --color-surface: #111b2e;
+  --color-surface-secondary: #162238;
+  --color-surface-elevated: #1b2941;
+  --color-secondary-surface: var(--color-surface-secondary);
+  --color-text-primary: #f1f5f9;
+  --color-text: var(--color-text-primary);
+  --color-text-secondary: #c4cfdd;
+  --color-text-muted: #9cabc0;
+  --color-border: #3b4c65;
+  --color-border-subtle: #263750;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
+  --color-accent-soft: rgba(96, 165, 250, .12);
+  --color-on-accent: #07111f;
+  --color-success: #86efac;
+  --color-warning: #fbbf24;
+  --color-warning-soft: rgba(251, 191, 36, .1);
+  --color-danger: #fca5a5;
+  --color-focus-ring: #7dd3fc;
+  --color-focus: var(--color-focus-ring);
+  --color-header-background: rgba(11, 18, 32, .92);
+  --color-contact-background: #0e2038;
+  --color-footer-background: #070d18;
+  --color-footer-text: #cbd5e1;
+  --color-footer-border: #23324a;
+  --color-code-background: #07101f;
+  --color-code-text: #dbeafe;
+  --color-selection-background: #1d4ed8;
+  --color-selection-text: #f8fafc;
+  --color-logo-surface: #ffffff;
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, .16);
+  --shadow-md: 0 18px 46px rgba(0, 0, 0, .2);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, .24);
+  --shadow-small: var(--shadow-sm);
+  --shadow-medium: var(--shadow-md);
+  --shadow-large: var(--shadow-lg);
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 1rem); }
 body { background: var(--color-page); color: var(--color-text); font-family: var(--font-sans); font-size: var(--text-body); line-height: 1.6; margin: 0; overflow-x: hidden; text-rendering: optimizeLegibility; }
 body.nav-open { overflow: hidden; }
+::selection { background: var(--color-selection-background); color: var(--color-selection-text); }
 img { max-width: 100%; }
 h1, h2, h3, h4, h5, h6 { color: var(--color-text); font-weight: 750; letter-spacing: -.025em; }
 a { color: var(--color-accent); text-decoration: none; text-underline-offset: .2em; transition: color .18s ease; }
@@ -63,12 +125,13 @@ button, input, textarea, select { font: inherit; }
 .section-header > p, .section-header--row > p { color: var(--color-text-secondary); font-size: 1rem; line-height: 1.65; margin: 0; }
 .section-eyebrow { color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .1em; margin: 0 0 var(--space-3); text-transform: uppercase; }
 .btn { align-items: center; border: 1px solid transparent; border-radius: var(--radius-sm); display: inline-flex; font-size: .9rem; font-weight: 700; gap: var(--space-2); justify-content: center; min-height: 3rem; padding: .7rem 1.1rem; transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease; }
-.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
-.btn-primary:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); color: #fff; }
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
+.btn-primary:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); color: var(--color-on-accent); }
 .btn-secondary { background: var(--color-surface); border-color: var(--color-border); color: var(--color-text); }
 .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
 .title-a { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0; }.subtitle-a { color: var(--color-text-secondary); }
-.skip-link { background: var(--color-text); color: #fff; left: var(--space-4); padding: var(--space-3) var(--space-4); position: fixed; top: -5rem; z-index: 2000; }.skip-link:focus { top: var(--space-4); }
+.skip-link { background: var(--color-text); color: var(--color-page); left: var(--space-4); padding: var(--space-3) var(--space-4); position: fixed; top: -5rem; z-index: 2000; }.skip-link:focus { top: var(--space-4); }
+.site-header, section, article, aside, footer, nav, button, select, a { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease; }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }.reveal.reveal-in { opacity: 1; transform: none; }
 
 @media (max-width: 760px) {
