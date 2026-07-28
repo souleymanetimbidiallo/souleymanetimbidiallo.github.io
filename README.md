@@ -61,7 +61,7 @@ Avec plusieurs années d’expérience en entreprise et en freelance, j’ai tra
 - **Soodou Shop** : Application e-commerce en PHP  
 - **KAGLOB ERP** : ERP modulaire de gestion de flotte et de location de véhicules
 - **Yiidein** : plateforme SaaS multi-domaines de prise de rendez-vous
-- **CEE 2026** : application d’analyse et de visualisation des résultats des examens nationaux guinéens 2026
+- **GN Exams 2026** : application d’analyse et de visualisation des résultats des examens nationaux guinéens 2026 (BAC, BEPC, CEE)
 
 *(Détails disponibles dans le portfolio)*
 

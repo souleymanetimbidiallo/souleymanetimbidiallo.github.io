@@ -30,7 +30,7 @@ describe('PortfolioComponent', () => {
   });
 
   it('uses the refined featured project order', () => {
-    expect(component.featuredProjects.map((project) => project.id)).toEqual(['kaglob-erp', 'yiidein', 'cee-2026', 'citoykaidi']);
+    expect(component.featuredProjects.map((project) => project.id)).toEqual(['kaglob-erp', 'yiidein', 'gn-exams-2026', 'citoykaidi']);
   });
 
   it('keeps Web, Mobile and Data projects discoverable through filters', () => {

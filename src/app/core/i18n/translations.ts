@@ -66,7 +66,7 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'about.php.title': { fr: 'Écosystème PHP', en: 'PHP ecosystem' },
   'about.php.text': { fr: 'Expérience avec PHP, Symfony, Laravel et Drupal sur des applications web d’entreprise et des produits logiciels.', en: 'PHP, Symfony, Laravel, and Drupal experience across enterprise web applications and software products.' },
   'about.product.title': { fr: 'Produit et données', en: 'Product and data' },
-  'about.product.text': { fr: 'Conception de produits avec KAGLOB ERP et Yiidein, complétée par CEE 2026 et des projets civiques et open data.', en: 'Product work through KAGLOB ERP and Yiidein, complemented by CEE 2026 and civic and open-data projects.' },
+  'about.product.text': { fr: 'Conception de produits avec KAGLOB ERP et Yiidein, complétée par GN Exams 2026 et des projets civiques et open data.', en: 'Product work through KAGLOB ERP and Yiidein, complemented by GN Exams 2026 and civic and open-data projects.' },
   'skills.eyebrow': { fr: 'Capacités techniques', en: 'Engineering capabilities' },
   'skills.title': { fr: 'Compétences', en: 'Skills' },
   'skills.subtitle': { fr: 'Technologies utilisées dans les expériences et projets présentés, regroupées par écosystème.', en: 'Technologies used across the featured experience and projects, organized by engineering ecosystem.' },
@@ -200,6 +200,7 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'portfolio.see': { fr: 'Voir', en: 'View' },
   'portfolio.count': { fr: 'projet(s)', en: 'project(s)' },
   'project.demo': { fr: 'Démo', en: 'Demo' },
+  'project.demos': { fr: '3 démos', en: '3 demos' },
   'project.repo': { fr: 'Code source', en: 'Source code' },
 
   /* BLOG */

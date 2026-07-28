@@ -71,11 +71,11 @@ describe('Phase 2 editorial content', () => {
   it('classifies the enriched product and data projects', () => {
     expect(findProjectBySlug('yiidein')?.projectType).toBe('saas-platform');
     expect(findProjectBySlug('kaglob-erp')?.projectType).toBe('erp-platform');
-    expect(findProjectBySlug('cee-2026')?.projectType).toBe('data-analytics');
+    expect(findProjectBySlug('gn-exams-2026')?.projectType).toBe('data-analytics');
   });
 
-  it('does not label CEE 2026 as an AI project', () => {
-    const project = findProjectBySlug('cee-2026')!;
+  it('does not label GN Exams 2026 as an AI project', () => {
+    const project = findProjectBySlug('gn-exams-2026')!;
     const editorialText = JSON.stringify({
       title: project.title,
       description: project.description,

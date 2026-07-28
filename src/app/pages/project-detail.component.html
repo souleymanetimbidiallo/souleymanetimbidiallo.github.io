@@ -11,9 +11,10 @@
         <div *ngIf="projectRole"><dt>{{ 'project.role' | t }}</dt><dd>{{ projectRole }}</dd></div>
         <div *ngIf="project.date"><dt>{{ 'project.date' | t }}</dt><dd>{{ project.date }}</dd></div>
       </dl>
-      <div class="project-actions" *ngIf="project.repository || project.demo">
+      <div class="project-actions" *ngIf="project.repository || project.demo || project.demos?.length">
         <a class="btn btn-primary" *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         <a class="btn btn-secondary" *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a class="btn btn-secondary" *ngFor="let demo of project.demos" [href]="demo.url" target="_blank" rel="noopener noreferrer">{{ localized(demo.label) }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </header>

@@ -896,12 +896,12 @@ export const PROJECTS: Project[] = [
     highlights: [],
   },
   {
-    id: 'cee-2026',
-    slug: 'cee-2026',
+    id: 'gn-exams-2026',
+    slug: 'gn-exams-2026',
     legacySlugs: [],
     previousNames: [],
-    title: { fr: 'CEE 2026', en: 'CEE 2026' },
-    coverImage: 'assets/img/projects/cee-2026/cover.png',
+    title: { fr: 'GN Exams 2026', en: 'GN Exams 2026' },
+    coverImage: 'assets/img/projects/gn-exams-2026/cover-v2.png',
     description: {
       fr: 'Application de traitement, d’analyse et de visualisation des résultats des examens nationaux de Guinée en 2026.',
       en: "Application for processing, analyzing, and visualizing Guinea's 2026 national examination results.",
@@ -911,8 +911,8 @@ export const PROJECTS: Project[] = [
       en: 'Guinea national examination data analytics and visualization application.',
     },
     detailSummary: {
-      fr: 'CEE 2026 exploite des données de résultats d’examens pour produire des classements, des analyses par établissement, élève, région, genre et statut public ou privé.',
-      en: 'CEE 2026 uses examination-result data to produce rankings and analysis by school, student, region, gender, and public or private status.',
+      fr: 'GN Exams 2026 exploite des données de résultats d’examens pour produire des classements, des analyses par établissement, élève, région, genre et statut public ou privé.',
+      en: 'GN Exams 2026 uses examination-result data to produce rankings and analysis by school, student, region, gender, and public or private status.',
     },
     context: 'personal',
     projectType: 'data-analytics',
@@ -923,7 +923,20 @@ export const PROJECTS: Project[] = [
       { fr: 'Données ouvertes', en: 'Open data' },
     ],
     currentTechnologies: ['python', 'streamlit', 'duckdb', 'pandas', 'plotly', 'parquet'],
-    demo: 'https://gn-exams-2026.streamlit.app/',
+    demos: [
+      {
+        label: { fr: 'CEE 2026', en: 'CEE 2026' },
+        url: 'https://gn-cee-2026.streamlit.app/',
+      },
+      {
+        label: { fr: 'BEPC 2026', en: 'BEPC 2026' },
+        url: 'https://gn-bepc-2026.streamlit.app/',
+      },
+      {
+        label: { fr: 'BAC 2026', en: 'BAC 2026' },
+        url: 'https://gn-bac-2026.streamlit.app/',
+      },
+    ],
     plannedTechnologies: [],
     capabilities: [
       { fr: 'Analyse des résultats d’examens', en: 'Examination-result analysis' },
@@ -979,9 +992,13 @@ export const PROJECTS: Project[] = [
         en: 'Python and Streamlit application using DuckDB for analytical queries, Pandas for processing, Parquet for storage, and Plotly for visualizations.',
       },
     },
-    status: 'deployment-preparation',
+    status: 'completed',
     featured: false,
-    gallery: [],
+    gallery: [
+      'assets/img/projects/gn-exams-2026/cee-2026.png',
+      'assets/img/projects/gn-exams-2026/bepc-2026.png',
+      'assets/img/projects/gn-exams-2026/bac-2026.png',
+    ],
     highlights: [],
   },
 ];

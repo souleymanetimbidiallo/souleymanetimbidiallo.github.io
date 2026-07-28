@@ -40,6 +40,11 @@ export interface ProjectCapabilityGroup {
   items: LocalizedText[];
 }
 
+export interface ProjectDemo {
+  label: LocalizedText;
+  url: string;
+}
+
 export interface ProjectEditorialCaseStudy {
   overview?: LocalizedText;
   problem?: LocalizedText;
@@ -77,6 +82,7 @@ export interface Project {
   featured: boolean;
   repository?: string;
   demo?: string;
+  demos?: ProjectDemo[];
   coverImage?: string;
   gallery: string[];
   highlights: LocalizedText[];
