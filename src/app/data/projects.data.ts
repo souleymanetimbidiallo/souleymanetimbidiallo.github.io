@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
       fr: 'CitoyKaidi',
       en: 'CitoyKaidi',
     },
-    coverImage: 'assets/img/projects/gestion-demo.jpg',
+    coverImage: 'assets/img/projects/citoykaidi/home.png',
     date: '18 Sep. 2018',
     context: 'product',
     projectType: 'civic-tech-platform',
@@ -116,7 +116,13 @@ export const PROJECTS: Project[] = [
         en: 'A technical modernization is planned separately from the current PHP implementation.',
       },
     },
-    gallery: ['assets/img/projects/gestion-demo.jpg'],
+    gallery: [
+      'assets/img/projects/citoykaidi/connexion.png',
+      'assets/img/projects/citoykaidi/documents.png',
+      'assets/img/projects/citoykaidi/procedures.png',
+      'assets/img/projects/citoykaidi/admin-list.png',
+      'assets/img/projects/citoykaidi/admin-connexion.png'
+    ],
   },
   {
     id: 'soodou-shop',
