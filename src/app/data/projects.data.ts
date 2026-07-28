@@ -901,7 +901,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'GN Exams 2026', en: 'GN Exams 2026' },
-    coverImage: 'assets/img/projects/gn-exams-2026/cover-v2.png',
+    coverImage: 'assets/img/projects/gn-exams-2026/cover.png',
     description: {
       fr: 'Application de traitement, d’analyse et de visualisation des résultats des examens nationaux de Guinée en 2026.',
       en: "Application for processing, analyzing, and visualizing Guinea's 2026 national examination results.",

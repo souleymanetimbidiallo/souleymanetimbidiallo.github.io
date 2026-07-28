@@ -12,10 +12,10 @@
     <nav id="primary-navigation" class="navbar" [class.navbar-mobile]="mobileNavOpen" [attr.aria-label]="'nav.primary' | t">
       <ul>
         <li><a routerLink="/" fragment="hero" (click)="closeMobileNav()">{{ 'nav.home' | t }}</a></li>
+        <li><a routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
+        <li><a routerLink="/" fragment="skills" (click)="closeMobileNav()">{{ 'nav.skills' | t }}</a></li>
         <li><a routerLink="/" fragment="timeline" (click)="closeMobileNav()">{{ 'nav.timeline' | t }}</a></li>
         <li><a routerLink="/" fragment="portfolio" (click)="closeMobileNav()">{{ 'nav.projects' | t }}</a></li>
-        <li><a routerLink="/" fragment="skills" (click)="closeMobileNav()">{{ 'nav.skills' | t }}</a></li>
-        <li><a routerLink="/" fragment="about" (click)="closeMobileNav()">{{ 'nav.about' | t }}</a></li>
         <li><a routerLink="/" fragment="contact" (click)="closeMobileNav()">{{ 'nav.contact' | t }}</a></li>
       </ul>
       <div class="header-controls">
