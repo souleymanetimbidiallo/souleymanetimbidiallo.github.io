@@ -781,8 +781,8 @@ export const PROJECTS: Project[] = [
     ],
     editorialCaseStudy: {
       overview: {
-        fr: 'ERP produit pour organiser les activités de gestion de flotte et de location de véhicules.',
-        en: 'Product ERP for organizing fleet-management and vehicle-rental activities.',
+        fr: 'Je développe KAGLOB ERP autour des opérations de location de véhicules : suivre la flotte, gérer les contrats et regrouper les informations financières.',
+        en: 'I’m building KAGLOB ERP around vehicle rental operations: tracking the fleet, managing contracts and bringing financial information together.',
       },
       solution: {
         fr: 'L’application regroupe les opérations commerciales, de flotte, financières et administratives dans des modules fonctionnels.',
@@ -813,8 +813,8 @@ export const PROJECTS: Project[] = [
       en: 'Reusable appointment-booking SaaS platform designed for multiple sectors.',
     },
     cardSummary: {
-      fr: 'Plateforme SaaS multi-domaines de découverte de services et de prise de rendez-vous.',
-      en: 'Multi-domain SaaS platform for service discovery and appointment booking.',
+      fr: 'Trouver un service et réserver un créneau, avec des espaces dédiés aux clients et aux prestataires.',
+      en: 'Find a service and book a time slot, with separate spaces for clients and providers.',
     },
     detailSummary: {
       fr: 'Yiidein structure la découverte publique des organisations et services, la sélection de créneaux et des espaces distincts pour les clients, prestataires et administrateurs.',
@@ -879,8 +879,8 @@ export const PROJECTS: Project[] = [
     ],
     editorialCaseStudy: {
       overview: {
-        fr: 'Produit SaaS conçu comme une base réutilisable pour la prise de rendez-vous dans plusieurs secteurs.',
-        en: 'SaaS product designed as a reusable appointment-booking foundation for multiple sectors.',
+        fr: 'Je développe Yiidein pour réunir la recherche de services et la réservation de rendez-vous dans une même application, utilisable dans plusieurs secteurs.',
+        en: 'I’m building Yiidein to bring service search and appointment booking into one application that can serve several sectors.',
       },
       solution: {
         fr: 'Le produit sépare le parcours public des espaces client, prestataire et administration.',
@@ -913,13 +913,14 @@ export const PROJECTS: Project[] = [
       en: "Application for processing, analyzing, and visualizing Guinea's 2026 national examination results.",
     },
     cardSummary: {
-      fr: 'Application d’analyse et de visualisation des résultats des examens nationaux de Guinée.',
-      en: 'Guinea national examination data analytics and visualization application.',
+      fr: 'Explorer les résultats des examens guinéens par établissement et région, consulter les classements et partager des cartes.',
+      en: 'Explore Guinean examination results by school and region, view rankings and share result cards.',
     },
     detailSummary: {
       fr: 'GN Exams 2026 exploite des données de résultats d’examens pour produire des classements, des analyses par établissement, élève, région, genre et statut public ou privé.',
       en: 'GN Exams 2026 uses examination-result data to produce rankings and analysis by school, student, region, gender, and public or private status.',
     },
+    role: { fr: 'Développement de l’application, traitement et visualisation des données', en: 'Application development, data processing and visualization' },
     context: 'personal',
     projectType: 'data-analytics',
     portfolioFilter: 'data',
@@ -986,17 +987,36 @@ export const PROJECTS: Project[] = [
     ],
     editorialCaseStudy: {
       overview: {
-        fr: 'Application personnelle d’analyse des résultats des examens nationaux guinéens de 2026.',
-        en: "Personal data application for analyzing Guinea's 2026 national examination results.",
+        fr: 'Avec GN Exams 2026, je présente les résultats des examens nationaux guinéens sous forme de classements, de cartes et de vues par établissement.',
+        en: "With GN Exams 2026, I present Guinea’s national examination results through rankings, maps and school-level views.",
+      },
+      problem: {
+        fr: 'Au-delà d’un résultat individuel, le projet permet d’examiner les résultats à plusieurs échelles : un établissement, une région ou l’ensemble d’un examen. Ces vues servent aussi à comparer les résultats selon le genre et le statut public ou privé.',
+        en: 'Beyond an individual result, the project offers several levels of analysis: a school, a region or an entire examination. These views also support comparisons by gender and public or private school status.',
       },
       solution: {
-        fr: 'L’application réunit traitement des données, requêtes analytiques, visualisations interactives et supports partageables.',
-        en: 'The application combines data processing, analytical queries, interactive visualizations, and shareable outputs.',
+        fr: 'J’ai organisé l’application autour des classements, des vues par établissement et élève, et d’une carte interactive de la Guinée. Des cartes partageables permettent de présenter les résultats en dehors de l’application.',
+        en: 'I organized the application around rankings, school and student views, and an interactive map of Guinea. Shareable cards let people present results outside the application.',
       },
       architecture: {
         fr: 'Application Python et Streamlit utilisant DuckDB pour les requêtes analytiques, Pandas pour le traitement, Parquet pour le stockage et Plotly pour les visualisations.',
         en: 'Python and Streamlit application using DuckDB for analytical queries, Pandas for processing, Parquet for storage, and Plotly for visualizations.',
       },
+    },
+    caseStudy: [
+      {
+        title: { fr: 'Du fichier de données à la visualisation', en: 'From data files to visualizations' },
+        items: [
+          { fr: 'Pandas pour le traitement des données et Parquet pour leur stockage.', en: 'Pandas handles data processing, with Parquet for storage.' },
+          { fr: 'DuckDB pour les requêtes analytiques utilisées dans les classements et les comparaisons.', en: 'DuckDB handles the analytical queries used in rankings and comparisons.' },
+          { fr: 'Streamlit pour l’interface et Plotly pour les graphiques interactifs.', en: 'Streamlit provides the interface and Plotly the interactive charts.' },
+        ],
+      },
+    ],
+    galleryCaptions: {
+      'assets/img/projects/gn-exams-2026/cee-2026.png': { fr: 'CEE 2026 — aperçu de l’application consacrée aux résultats du certificat d’études élémentaires.', en: 'CEE 2026 — a look at the application for primary school certificate results.' },
+      'assets/img/projects/gn-exams-2026/bepc-2026.png': { fr: 'BEPC 2026 — aperçu de l’application consacrée aux résultats du brevet d’études du premier cycle.', en: 'BEPC 2026 — a look at the application for lower secondary examination results.' },
+      'assets/img/projects/gn-exams-2026/bac-2026.png': { fr: 'BAC 2026 — aperçu de l’application consacrée aux résultats du baccalauréat.', en: 'BAC 2026 — a look at the application for baccalaureate results.' },
     },
     status: 'completed',
     featured: false,

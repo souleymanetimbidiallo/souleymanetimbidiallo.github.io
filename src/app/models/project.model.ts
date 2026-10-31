@@ -85,6 +85,7 @@ export interface Project {
   demos?: ProjectDemo[];
   coverImage?: string;
   gallery: string[];
+  galleryCaptions?: Record<string, LocalizedText>;
   highlights: LocalizedText[];
   caseStudy?: ProjectCaseSection[];
   proofBlocks?: ProjectProofBlock[];

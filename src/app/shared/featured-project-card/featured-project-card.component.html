@@ -17,7 +17,7 @@
       <a class="detail-link" [routerLink]="['/projets', project.slug]">{{ 'portfolio.viewDetails' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
       <a *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'GitHub — ' + title">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       <a *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer" [attr.aria-label]="('project.demo' | t) + ' — ' + title">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-      <a *ngIf="project.demos?.length" [routerLink]="['/projets', project.slug]" [attr.aria-label]="('project.demos' | t) + ' — ' + title">{{ 'project.demos' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      <a *ngFor="let demo of project.demos" [href]="demo.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="demo.label[languageService.language()] + ' — ' + title">{{ demo.label[languageService.language()] }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </article>

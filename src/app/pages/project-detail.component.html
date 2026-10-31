@@ -30,7 +30,7 @@
         </aside>
 
         <div class="project-story">
-          <section><h2>{{ 'project.overview' | t }}</h2><p>{{ projectDescription }}</p></section>
+          <section *ngIf="!editorialSections.length"><h2>{{ 'project.overview' | t }}</h2><p>{{ projectDescription }}</p></section>
           <section *ngFor="let section of editorialSections"><h2>{{ section.labelKey | t }}</h2><p>{{ section.content }}</p></section>
           <section *ngIf="projectImpact"><h2>{{ 'project.impact' | t }}</h2><p>{{ projectImpact }}</p></section>
           <section *ngIf="projectHighlights.length"><h2>{{ 'project.keyPoints' | t }}</h2><ul><li *ngFor="let highlight of projectHighlights">{{ highlight }}</li></ul></section>
@@ -42,7 +42,7 @@
           <section *ngIf="projectProofBlocks.length"><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid"><article *ngFor="let block of projectProofBlocks"><h3>{{ block.title }}</h3><pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre><ul *ngIf="block.variant !== 'code'"><li *ngFor="let line of block.lines">{{ line }}</li></ul></article></div></section>
         </div>
       </div>
-      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><img [src]="image" [alt]="projectTitle" loading="lazy" decoding="async" /></figure></div></section>
+      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><img [src]="image" [alt]="galleryCaption(image) || projectTitle" loading="lazy" decoding="async" /><figcaption *ngIf="galleryCaption(image)">{{ galleryCaption(image) }}</figcaption></figure></div></section>
       <a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
     </div>
   </div>

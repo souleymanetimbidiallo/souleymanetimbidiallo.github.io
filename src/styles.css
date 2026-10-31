@@ -145,3 +145,10 @@ button, input, textarea, select { font: inherit; }
   .reveal, .reveal.reveal-in { opacity: 1 !important; transform: none !important; }
   .featured-project:hover, .card:hover { transform: none !important; }
 }
+
+app-project-detail .gallery figcaption {
+  padding: var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}

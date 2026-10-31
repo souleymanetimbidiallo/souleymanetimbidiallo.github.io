@@ -54,6 +54,11 @@ export class ProjectDetailComponent {
     return this.project.gallery.filter((image) => image !== this.project?.coverImage);
   }
 
+  galleryCaption(image: string): string {
+    const caption = this.project?.galleryCaptions?.[image];
+    return caption ? this.localized(caption) : '';
+  }
+
   get projectHighlights(): string[] {
     if (!this.project) return [];
     const lang = this.languageService.language();
