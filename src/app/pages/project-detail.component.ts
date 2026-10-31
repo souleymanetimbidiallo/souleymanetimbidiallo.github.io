@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 
+import { ImageViewerComponent } from '../shared/image-viewer/image-viewer.component';
 import { findProjectBySlug, Project } from '../data/projects.data';
 import { LocalizedText } from '../models/localized-text.model';
 import { GroupedTechnologiesComponent } from '../shared/grouped-technologies/grouped-technologies.component';
@@ -13,7 +14,7 @@ import { LanguageService } from '../core/i18n/language.service';
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe],
+  imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.css',
 })

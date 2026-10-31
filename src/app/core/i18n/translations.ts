@@ -300,7 +300,16 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   },
   'project.backHome': { fr: 'Retour à l’accueil', en: 'Back to home' },
 
+  'imageViewer.title': { fr: 'Aperçu de l’image', en: 'Image preview' },
+  'imageViewer.open': { fr: 'Agrandir l’image', en: 'Enlarge image' },
+  'imageViewer.close': { fr: 'Fermer', en: 'Close' },
+  'imageViewer.zoomIn': { fr: 'Zoomer', en: 'Zoom in' },
+  'imageViewer.zoomOut': { fr: 'Dézoomer', en: 'Zoom out' },
+  'imageViewer.pan': { fr: 'Image agrandie, utilisez les flèches pour faire défiler', en: 'Enlarged image, use arrow keys to scroll' },
+
   /* ARTICLE */
+  'article.loading': { fr: 'Chargement du contenu…', en: 'Loading article…' },
+  'article.loadError': { fr: 'Le contenu de cet article est indisponible pour le moment. Veuillez réessayer plus tard.', en: 'This article’s content is currently unavailable. Please try again later.' },
   'article.published': {
     fr: 'Publié sur le blog personnel',
     en: 'Published on my personal blog',

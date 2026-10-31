@@ -1,3 +1,4 @@
+<app-image-viewer #imageViewer></app-image-viewer>
 <div class="project-page" *ngIf="project">
   <header class="project-hero">
     <div class="container">
@@ -21,7 +22,7 @@
 
   <div class="project-main">
     <div class="container">
-      <figure class="cover" *ngIf="project.coverImage"><img [src]="project.coverImage" [alt]="projectTitle" decoding="async" /></figure>
+      <figure class="cover" *ngIf="project.coverImage"><button class="project-image-button" type="button" (click)="imageViewer.open(project.coverImage, projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + projectTitle"><img [src]="project.coverImage" [alt]="projectTitle" decoding="async" /><span class="project-image-hint">{{ 'imageViewer.open' | t }} ↗</span></button></figure>
       <div class="content-layout">
         <aside class="architecture" aria-labelledby="current-stack-title">
           <section *ngIf="project.currentTechnologies.length"><h2 id="current-stack-title">{{ 'project.currentStack' | t }}</h2><app-grouped-technologies [technologyIds]="project.currentTechnologies"></app-grouped-technologies></section>
@@ -42,7 +43,7 @@
           <section *ngIf="projectProofBlocks.length"><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid"><article *ngFor="let block of projectProofBlocks"><h3>{{ block.title }}</h3><pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre><ul *ngIf="block.variant !== 'code'"><li *ngFor="let line of block.lines">{{ line }}</li></ul></article></div></section>
         </div>
       </div>
-      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><img [src]="image" [alt]="galleryCaption(image) || projectTitle" loading="lazy" decoding="async" /><figcaption *ngIf="galleryCaption(image)">{{ galleryCaption(image) }}</figcaption></figure></div></section>
+      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><button class="project-image-button" type="button" (click)="imageViewer.open(image, galleryCaption(image) || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (galleryCaption(image) || projectTitle)"><img [src]="image" [alt]="galleryCaption(image) || projectTitle" loading="lazy" decoding="async" /><span class="project-image-hint">{{ 'imageViewer.open' | t }} ↗</span></button><figcaption *ngIf="galleryCaption(image)">{{ galleryCaption(image) }}</figcaption></figure></div></section>
       <a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
     </div>
   </div>

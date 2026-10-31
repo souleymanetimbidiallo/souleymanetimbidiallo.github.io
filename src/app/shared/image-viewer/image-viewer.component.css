@@ -1,0 +1,13 @@
+.image-viewer { background: transparent; border: 0; color: var(--color-text); max-height: 96dvh; max-width: 96vw; padding: 0; width: 1400px; }
+.image-viewer::backdrop { background: rgba(0, 0, 0, .85); }
+.viewer-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+.viewer-toolbar { align-items: center; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: space-between; padding: .65rem 1rem; }
+.viewer-toolbar > span { font-weight: 700; }
+.viewer-controls { align-items: center; display: flex; gap: .5rem; }
+.viewer-controls button { background: var(--color-surface-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-text); cursor: pointer; min-height: 44px; min-width: 44px; padding: .4rem .7rem; }
+.viewer-controls button:disabled { cursor: default; opacity: .4; }
+.viewer-controls output { font-size: .875rem; min-width: 3.5rem; text-align: center; }
+.viewer-viewport { background: var(--color-page); height: 72dvh; overflow: auto; overscroll-behavior: contain; }
+.viewer-viewport img { display: block; height: auto; margin-inline: auto; max-width: none; }
+.viewer-caption { font-size: .875rem; line-height: 1.5; margin: 0; max-height: 12dvh; overflow: auto; padding: .65rem 1rem; }
+@media (max-width: 540px) { .viewer-toolbar > span { display: none; }.viewer-controls { justify-content: space-between; width: 100%; }.viewer-viewport { height: 65dvh; } }

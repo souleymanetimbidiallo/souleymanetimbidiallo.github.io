@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgIf } from '@angular/common';
-import { catchError, of } from 'rxjs';
+import { catchError, of, switchMap } from 'rxjs';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
 import { BLOG_ARTICLES, BlogArticle } from '../../data/articles.data';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -16,10 +17,12 @@ import { LanguageService } from '../../core/i18n/language.service';
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })
-export class ArticleDetailComponent implements OnInit {
+export class ArticleDetailComponent {
   slug: string | null;
   article?: BlogArticle;
   articleContent = '';
+  loading = false;
+  loadError = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,16 +31,28 @@ export class ArticleDetailComponent implements OnInit {
   ) {
     this.slug = this.route.snapshot.paramMap.get('slug');
     this.article = BLOG_ARTICLES.find((a) => a.slug === this.slug);
-  }
 
-  ngOnInit(): void {
     if (!this.article) return;
 
-    this.http
-      .get(this.markdownSrc, { responseType: 'text' })
-      .pipe(catchError(() => of('')))
+    toObservable(this.languageService.language)
+      .pipe(
+        switchMap(() => {
+          this.articleContent = '';
+          this.loading = true;
+          this.loadError = false;
+          return this.http.get(this.markdownSrc, { responseType: 'text' }).pipe(
+            catchError(() => {
+              this.loadError = true;
+              return of('');
+            })
+          );
+        }),
+        takeUntilDestroyed()
+      )
       .subscribe((content) => {
         this.articleContent = content;
+        this.loading = false;
+        this.loadError = this.loadError || !content.trim();
       });
   }
 
@@ -53,6 +68,7 @@ export class ArticleDetailComponent implements OnInit {
 
   get markdownSrc(): string {
     if (!this.article) return '';
-    return `assets/articles/${this.article.slug}.md`;
+    const suffix = this.languageService.language() === 'en' ? '.en' : '';
+    return `assets/articles/${this.article.slug}${suffix}.md`;
   }
 }

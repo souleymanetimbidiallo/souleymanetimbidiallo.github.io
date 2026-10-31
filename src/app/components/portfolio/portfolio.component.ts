@@ -8,7 +8,7 @@ import { FeaturedProjectCardComponent } from '../../shared/featured-project-card
 import { ProjectCardComponent } from '../../shared/project-card/project-card.component';
 
 type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
-export const FEATURED_PROJECT_IDS = ['gn-exams-2026', 'kaglob-erp', 'yiidein', 'citoykaidi'];
+export const FEATURED_PROJECT_IDS = ['gn-exams-2026', 'api-guinea-geo', 'kaglob-erp', 'yiidein'];
 
 @Component({
   selector: 'app-portfolio',

@@ -522,157 +522,188 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: 'api-guinea-geo',
-    slug: 'api-guinea-geo',
-    legacySlugs: [],
-    previousNames: [],
-    title: {
-      fr: 'API Guinée Geo',
-      en: 'Guinea Geo API',
+    "id": "api-guinea-geo",
+    "slug": "api-guinea-geo",
+    "legacySlugs": [],
+    "previousNames": [],
+    "title": {
+      "fr": "Guinea Geo API",
+      "en": "Guinea Geo API"
     },
-    coverImage: 'assets/img/projects/api-guinea-geo.png',
-    date: '10 Avr. 2024',
-    context: 'personal',
-    projectType: 'developer-api',
-    portfolioFilter: 'data',
-    category: { fr: 'API publique de données géographiques', en: 'Public geodata API' },
-    domains: [{ fr: 'Données géographiques ouvertes', en: 'Open geodata' }],
-    currentTechnologies: ['node-js', 'vercel'],
-    plannedTechnologies: [],
-    capabilities: [
-      { fr: 'API REST', en: 'REST API' },
-      { fr: 'Données géographiques', en: 'Geodata' },
+    "coverImage": "assets/img/projects/api-guinea-geo-cover-premium-v2.png",
+    "date": "10 Avr. 2024",
+    "context": "personal",
+    "projectType": "developer-api",
+    "portfolioFilter": "data",
+    "category": {
+      "fr": "API et explorateur de données géographiques",
+      "en": "Geographic data API and explorer"
+    },
+    "domains": [
+      {
+        "fr": "Données géographiques ouvertes",
+        "en": "Open geodata"
+      }
     ],
-    client: 'Gui-Plus Group',
-    demo: 'https://api-guinea-geo.vercel.app/',
-    repository: 'https://github.com/souleymanetimbidiallo/api-guinea-geo',
-    description: {
-      fr: `API publique donnant accès aux données géographiques de la Guinée afin d’aider les développeurs à créer plus rapidement des applications locales.`,
-      en: `Public API exposing Guinea geographic data to help developers build local applications faster.`,
-    },
-    cardSummary: {
-      fr: 'API publique donnant accès aux régions, préfectures et données géographiques de la Guinée.',
-      en: 'Public API providing access to Guinea regions, prefectures, and geographic data.',
-    },
-    role: {
-      fr: 'Concepteur API et développeur backend',
-      en: 'API designer and backend developer',
-    },
-    impact: {
-      fr: 'Réduit la friction pour intégrer les régions, préfectures et données géographiques guinéennes dans des produits numériques.',
-      en: 'Reduces friction when integrating Guinean regions, prefectures, and geographic data into digital products.',
-    },
-    highlights: [
-      {
-        fr: 'Conception d’endpoints lisibles pour exposer les données géographiques.',
-        en: 'Designed clear endpoints to expose geographic data.',
-      },
-      {
-        fr: 'Documentation et exemples pour faciliter l’intégration par d’autres développeurs.',
-        en: 'Added documentation and examples to simplify integration for other developers.',
-      },
-      {
-        fr: 'Déploiement public pour rendre l’API consultable et testable en ligne.',
-        en: 'Public deployment to make the API browsable and testable online.',
-      },
+    "currentTechnologies": [
+      "javascript",
+      "node-js",
+      "swagger",
+      "vercel"
     ],
-    caseStudy: [
+    "plannedTechnologies": [],
+    "capabilities": [
       {
-        title: { fr: 'Problème', en: 'Problem' },
-        items: [
-          {
-            fr: 'Les développeurs qui construisent des produits liés à la Guinée ont besoin de données géographiques fiables et faciles à intégrer.',
-            en: 'Developers building products related to Guinea need reliable geographic data that is easy to integrate.',
-          },
-          {
-            fr: 'Sans API dédiée, ces données doivent souvent être recréées, copiées manuellement ou intégrées de manière non standardisée.',
-            en: 'Without a dedicated API, this data often has to be recreated, copied manually, or integrated in a non-standard way.',
-          },
-        ],
+        "fr": "Exploration des subdivisions et recherche par nom",
+        "en": "Subdivision explorer and name search"
       },
       {
-        title: { fr: 'Décisions techniques', en: 'Technical decisions' },
-        items: [
-          {
-            fr: 'Concevoir des endpoints REST simples, explicites et testables depuis un navigateur ou un client API.',
-            en: 'Designed simple, explicit REST endpoints testable from a browser or API client.',
-          },
-          {
-            fr: 'Organiser les données pour faciliter la recherche par régions, préfectures et informations associées.',
-            en: 'Organized data to simplify lookup by regions, prefectures, and related information.',
-          },
-          {
-            fr: 'Déployer publiquement l’API avec une documentation accessible pour accélérer l’adoption.',
-            en: 'Deployed the API publicly with accessible documentation to speed up adoption.',
-          },
-        ],
+        "fr": "Copie et téléchargement des données JSON",
+        "en": "Copy and download JSON data"
       },
       {
-        title: { fr: 'Livrables', en: 'Deliverables' },
-        items: [
-          {
-            fr: 'API REST publique avec endpoints consultables.',
-            en: 'Public REST API with browsable endpoints.',
-          },
-          {
-            fr: 'Documentation et exemples d’utilisation pour les développeurs.',
-            en: 'Documentation and usage examples for developers.',
-          },
-        ],
-      },
+        "fr": "Documentation et requêtes interactives",
+        "en": "Documentation and interactive requests"
+      }
     ],
-    proofBlocks: [
-      {
-        title: { fr: 'Endpoints exposés', en: 'Exposed endpoints' },
-        variant: 'code',
-        lines: [
-          { fr: 'GET /api/regions', en: 'GET /api/regions' },
-          { fr: 'GET /api/prefectures', en: 'GET /api/prefectures' },
-          { fr: 'GET /api/regions/:id', en: 'GET /api/regions/:id' },
-        ],
-      },
-      {
-        title: { fr: 'Exemple de réponse JSON', en: 'Sample JSON response' },
-        variant: 'code',
-        lines: [
-          { fr: '{', en: '{' },
-          { fr: '  "id": "conakry",', en: '  "id": "conakry",' },
-          { fr: '  "name": "Conakry",', en: '  "name": "Conakry",' },
-          { fr: '  "type": "region",', en: '  "type": "region",' },
-          { fr: '  "prefectures": ["Conakry"]', en: '  "prefectures": ["Conakry"]' },
-          { fr: '}', en: '}' },
-        ],
-      },
-      {
-        title: { fr: 'Parcours d’intégration', en: 'Integration path' },
-        variant: 'flow',
-        lines: [
-          { fr: 'Requête HTTP', en: 'HTTP request' },
-          { fr: 'Données géographiques', en: 'Geographic data' },
-          { fr: 'Application locale', en: 'Local app' },
-        ],
-      },
-    ],
-    editorialCaseStudy: {
-      overview: {
-        fr: 'API publique destinée à rendre les données géographiques guinéennes plus faciles à intégrer dans des applications.',
-        en: 'Public API intended to make Guinea geographic data easier to integrate into applications.',
-      },
-      solution: {
-        fr: 'Des endpoints REST exposent les régions, préfectures et informations géographiques associées avec une documentation d’utilisation.',
-        en: 'REST endpoints expose regions, prefectures, and related geographic information with usage documentation.',
-      },
-      architecture: {
-        fr: 'API REST Node.js déployée sur Vercel.',
-        en: 'Node.js REST API deployed on Vercel.',
-      },
+    "demo": "https://api-guinea-geo.vercel.app/",
+    "repository": "https://github.com/souleymanetimbidiallo/api-guinea-geo",
+    "description": {
+      "fr": "Une API REST et un site pour explorer les subdivisions de la Guinée, rechercher un lieu et récupérer ses données en JSON.",
+      "en": "A REST API and website to explore Guinea’s subdivisions, search for a place and retrieve its data as JSON."
     },
-    gallery: [
-      'assets/img/projects/api-guinea-geo.png',
-      'assets/img/projects/api-guinea-geo/docs-api.jpg',
-      'assets/img/projects/api-guinea-geo/test-api.jpg',
+    "cardSummary": {
+      "fr": "Explorer les régions et leurs subdivisions, rechercher un lieu et essayer les requêtes avant de les intégrer à une application.",
+      "en": "Explore regions and their subdivisions, search for places and try requests before integrating them into an application."
+    },
+    "role": {
+      "fr": "Conception de l’API et développement du site d’exploration",
+      "en": "API design and explorer website development"
+    },
+    "highlights": [],
+    "featured": true,
+    "editorialCaseStudy": {
+      "overview": {
+        "fr": "Je développe Guinea Geo API pour proposer un point d’accès commun aux données territoriales guinéennes. Le site permet de parcourir les données sans écrire de code ; l’API permet de les intégrer dans une application.",
+        "en": "I develop Guinea Geo API as a shared entry point to Guinean territorial data. The website lets visitors browse without writing code; the API makes the data available to applications."
+      },
+      "solution": {
+        "fr": "L’explorateur propose cinq niveaux : régions, préfectures, sous-préfectures, communes et quartiers. Il combine recherche par nom, consultation des subdivisions, copie et téléchargement JSON. Un espace permet aussi d’exécuter des exemples de requêtes.",
+        "en": "The explorer offers five levels: regions, prefectures, sub-prefectures, communes and neighborhoods. It combines name search, subdivision browsing, and JSON copying and downloads. A separate area lets visitors run sample requests."
+      },
+      "architecture": {
+        "fr": "API Node.js avec Express et documentation Swagger, déployée sur Vercel. Le site utilise JavaScript et Leaflet pour les repères cartographiques des chefs-lieux.",
+        "en": "Node.js API with Express and Swagger documentation, deployed on Vercel. The website uses JavaScript and Leaflet for map markers showing regional capitals."
+      },
+      "nextSteps": {
+        "fr": "La couverture des communes et quartiers reste partielle. Les populations RGPH-4 correspondent au recensement de 2025, avant la réforme territoriale de 2026. Les superficies et certains rattachements restent à vérifier ; le site signale ces limites.",
+        "en": "Commune and neighborhood coverage remains partial. RGPH-4 populations refer to the 2025 census, before the 2026 territorial reform. Areas and some administrative relationships still need verification; the website identifies these limitations."
+      }
+    },
+    "caseStudy": [
+      {
+        "title": {
+          "fr": "Deux façons d’utiliser le projet",
+          "en": "Two ways to use the project"
+        },
+        "items": [
+          {
+            "fr": "Explorer le territoire depuis le navigateur, puis copier ou télécharger les données utiles.",
+            "en": "Explore the territory in the browser, then copy or download the data you need."
+          },
+          {
+            "fr": "Utiliser directement les endpoints REST et consulter les paramètres dans la documentation Swagger.",
+            "en": "Use the REST endpoints directly and find their parameters in the Swagger documentation."
+          }
+        ]
+      }
     ],
-    featured: true,
+    "proofBlocks": [
+      {
+        "title": {
+          "fr": "Requêtes proposées sur le site",
+          "en": "Requests available on the website"
+        },
+        "variant": "code",
+        "lines": [
+          {
+            "fr": "GET /regions",
+            "en": "GET /regions"
+          },
+          {
+            "fr": "GET /prefectures",
+            "en": "GET /prefectures"
+          },
+          {
+            "fr": "GET /sous-prefectures",
+            "en": "GET /sous-prefectures"
+          },
+          {
+            "fr": "GET /regions/search?name=Kankan",
+            "en": "GET /regions/search?name=Kankan"
+          },
+          {
+            "fr": "GET /regions/stats",
+            "en": "GET /regions/stats"
+          }
+        ]
+      },
+      {
+        "title": {
+          "fr": "Réponse réelle : Kankan (extrait)",
+          "en": "Actual response: Kankan (excerpt)"
+        },
+        "variant": "code",
+        "lines": [
+          {
+            "fr": "{",
+            "en": "{"
+          },
+          {
+            "fr": "  \"name\": \"Kankan\",",
+            "en": "  \"name\": \"Kankan\","
+          },
+          {
+            "fr": "  \"zone\": \"Est\",",
+            "en": "  \"zone\": \"Est\","
+          },
+          {
+            "fr": "  \"administrativeStatus\": \"active\",",
+            "en": "  \"administrativeStatus\": \"active\","
+          },
+          {
+            "fr": "  \"metricsStatus\": \"legacy-unverified\",",
+            "en": "  \"metricsStatus\": \"legacy-unverified\","
+          },
+          {
+            "fr": "  \"populationReferenceYear\": 2025,",
+            "en": "  \"populationReferenceYear\": 2025,"
+          },
+          {
+            "fr": "  \"populationStatus\": \"preliminary\"",
+            "en": "  \"populationStatus\": \"preliminary\""
+          },
+          {
+            "fr": "}",
+            "en": "}"
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      "assets/img/projects/api-guinea-geo/conakry-detail.png",
+      "assets/img/projects/api-guinea-geo/kankan-api-response.png"
+    ],
+    "galleryCaptions": {
+      "assets/img/projects/api-guinea-geo/conakry-detail.png": {
+        "fr": "Fiche de Conakry dans l’explorateur : données de population référencées, sources, limites de validité et accès aux communes. Les données peuvent être copiées ou téléchargées en JSON.",
+        "en": "Conakry in the explorer: referenced population data, sources, validity limitations and access to communes. Data can be copied or downloaded as JSON."
+      },
+      "assets/img/projects/api-guinea-geo/kankan-api-response.png": {
+        "fr": "Requête GET /regions/search?name=Kankan exécutée depuis le site : réponse HTTP 200 et données JSON consultables directement dans l’interface.",
+        "en": "GET /regions/search?name=Kankan executed from the website: an HTTP 200 response and JSON data viewable directly in the interface."
+      }
+    }
   },
   {
     id: 'kaglob-erp',

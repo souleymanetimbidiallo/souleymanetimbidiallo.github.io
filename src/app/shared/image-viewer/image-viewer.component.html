@@ -1,0 +1,17 @@
+<dialog #dialog class="image-viewer" [attr.aria-label]="'imageViewer.title' | t" (click)="onBackdropClick($event)" (close)="onClosed()">
+  <div class="viewer-panel">
+    <header class="viewer-toolbar">
+      <span>{{ 'imageViewer.title' | t }}</span>
+      <div class="viewer-controls">
+        <button type="button" (click)="changeZoom(-0.5)" [disabled]="zoom <= 1" [attr.aria-label]="'imageViewer.zoomOut' | t">−</button>
+        <output aria-live="polite">{{ zoom * 100 }} %</output>
+        <button type="button" (click)="changeZoom(0.5)" [disabled]="zoom >= 3" [attr.aria-label]="'imageViewer.zoomIn' | t">+</button>
+        <button type="button" (click)="close()" autofocus>{{ 'imageViewer.close' | t }} ×</button>
+      </div>
+    </header>
+    <div #viewport class="viewer-viewport" tabindex="0" [attr.aria-label]="'imageViewer.pan' | t">
+      <img #fullImage *ngIf="image" [src]="image" [alt]="caption" [style.width.px]="fittedWidth ? fittedWidth * zoom : null" (load)="fitImage()" />
+    </div>
+    <p class="viewer-caption" *ngIf="caption">{{ caption }}</p>
+  </div>
+</dialog>
