@@ -1,1 +1,0 @@
-Le freelance offre liberté et flexibilité, mais nécessite rigueur.
