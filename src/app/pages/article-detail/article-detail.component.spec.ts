@@ -37,11 +37,21 @@ describe('ArticleDetailComponent', () => {
     language.language.set('en');
     fixture.detectChanges();
     expect(component.loading).toBeTrue();
-    expect(component.articleContent).toBe('');
+    expect(component.articleContent).toBe('Contenu français');
     http.expectOne(`${articlePath}.en.md`).flush('English content');
     expect(component.articleContent).toBe('English content');
     expect(component.articleTitle).toBe('Designing a Geographic API for Guinea');
     expect(component.loading).toBeFalse();
+  });
+
+  it('sets the page title and canonical URL for the article', () => {
+    fixture.detectChanges();
+    http.expectOne(`${articlePath}.md`).flush('Contenu français');
+    expect(document.title).toBe('Concevoir une API géographique pour la Guinée | Souleymane Diallo');
+    language.language.set('en');
+    fixture.detectChanges();
+    http.expectOne(`${articlePath}.en.md`).flush('English content');
+    expect(document.title).toBe('Designing a Geographic API for Guinea | Souleymane Diallo');
   });
 
   it('loads English directly when English is already selected', () => {

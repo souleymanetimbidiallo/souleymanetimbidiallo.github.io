@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
@@ -9,6 +9,7 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { BLOG_ARTICLES, BlogArticle } from '../../data/articles.data';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { LanguageService } from '../../core/i18n/language.service';
+import { PageMetaService } from '../../core/seo/page-meta.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -23,6 +24,7 @@ export class ArticleDetailComponent {
   articleContent = '';
   loading = false;
   loadError = false;
+  private readonly pageMeta = inject(PageMetaService);
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +39,8 @@ export class ArticleDetailComponent {
     toObservable(this.languageService.language)
       .pipe(
         switchMap(() => {
-          this.articleContent = '';
+          // Keep the previous language's content visible until the new one arrives.
+          this.updatePageMeta();
           this.loading = true;
           this.loadError = false;
           return this.http.get(this.markdownSrc, { responseType: 'text' }).pipe(
@@ -54,6 +57,15 @@ export class ArticleDetailComponent {
         this.loading = false;
         this.loadError = this.loadError || !content.trim();
       });
+  }
+
+  private updatePageMeta() {
+    if (!this.article) return;
+    this.pageMeta.set({
+      title: this.articleTitle,
+      description: this.article.summary[this.languageService.language()],
+      path: `/blog/${this.article.slug}`,
+    });
   }
 
   get articleTitle(): string {

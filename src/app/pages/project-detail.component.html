@@ -10,7 +10,7 @@
       <dl class="project-meta">
         <div><dt>{{ 'project.context' | t }}</dt><dd>{{ contextKey | t }}</dd></div>
         <div *ngIf="projectRole"><dt>{{ 'project.role' | t }}</dt><dd>{{ projectRole }}</dd></div>
-        <div *ngIf="project.date"><dt>{{ 'project.date' | t }}</dt><dd>{{ project.date }}</dd></div>
+        <div *ngIf="project.date"><dt>{{ 'project.date' | t }}</dt><dd><time [attr.datetime]="project.date">{{ projectDate }}</time></dd></div>
       </dl>
       <div class="project-actions" *ngIf="project.repository || project.demo || project.demos?.length">
         <a class="btn btn-primary" *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
@@ -22,7 +22,7 @@
 
   <div class="project-main">
     <div class="container">
-      <figure class="cover" *ngIf="project.coverImage"><button class="project-image-button" type="button" (click)="imageViewer.open(project.coverImage, projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + projectTitle"><img [src]="project.coverImage" [alt]="projectTitle" decoding="async" /><span class="project-image-hint">{{ 'imageViewer.open' | t }} ↗</span></button></figure>
+      <figure class="cover" *ngIf="project.coverImage"><button class="project-image-button" type="button" (click)="imageViewer.open(project.coverImage, projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + projectTitle"><img [src]="project.coverImage" alt="" decoding="async" fetchpriority="high" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button></figure>
       <div class="content-layout">
         <aside class="architecture" aria-labelledby="current-stack-title">
           <section *ngIf="project.currentTechnologies.length"><h2 id="current-stack-title">{{ 'project.currentStack' | t }}</h2><app-grouped-technologies [technologyIds]="project.currentTechnologies"></app-grouped-technologies></section>
@@ -43,7 +43,7 @@
           <section *ngIf="projectProofBlocks.length"><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid"><article *ngFor="let block of projectProofBlocks"><h3>{{ block.title }}</h3><pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre><ul *ngIf="block.variant !== 'code'"><li *ngFor="let line of block.lines">{{ line }}</li></ul></article></div></section>
         </div>
       </div>
-      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let image of galleryImages"><button class="project-image-button" type="button" (click)="imageViewer.open(image, galleryCaption(image) || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (galleryCaption(image) || projectTitle)"><img [src]="image" [alt]="galleryCaption(image) || projectTitle" loading="lazy" decoding="async" /><span class="project-image-hint">{{ 'imageViewer.open' | t }} ↗</span></button><figcaption *ngIf="galleryCaption(image)">{{ galleryCaption(image) }}</figcaption></figure></div></section>
+      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let item of galleryItems"><button class="project-image-button" type="button" (click)="imageViewer.open(item.src, item.caption || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (item.caption || projectTitle)"><img [src]="item.src" alt="" loading="lazy" decoding="async" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button><figcaption *ngIf="item.caption">{{ item.caption }}</figcaption></figure></div></section>
       <a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
     </div>
   </div>

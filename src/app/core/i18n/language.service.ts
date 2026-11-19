@@ -1,10 +1,16 @@
-import { Injectable, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Injectable, inject, signal } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 export type AppLanguage = 'fr' | 'en';
+
+const OG_LOCALES: Record<AppLanguage, string> = { fr: 'fr_FR', en: 'en_US' };
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   private readonly storageKey = 'app_lang';
+  private readonly document = inject(DOCUMENT);
+  private readonly meta = inject(Meta);
   readonly language = signal<AppLanguage>('fr');
 
   constructor() {
@@ -14,10 +20,12 @@ export class LanguageService {
         this.language.set(saved);
       }
     }
+    this.syncDocumentLanguage(this.language());
   }
 
   setLanguage(lang: AppLanguage) {
     this.language.set(lang);
+    this.syncDocumentLanguage(lang);
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(this.storageKey, lang);
     }
@@ -25,5 +33,12 @@ export class LanguageService {
 
   toggleLanguage() {
     this.setLanguage(this.language() === 'fr' ? 'en' : 'fr');
+  }
+
+  private syncDocumentLanguage(lang: AppLanguage) {
+    this.document.documentElement.lang = lang;
+    const other: AppLanguage = lang === 'fr' ? 'en' : 'fr';
+    this.meta.updateTag({ property: 'og:locale', content: OG_LOCALES[lang] });
+    this.meta.updateTag({ property: 'og:locale:alternate', content: OG_LOCALES[other] });
   }
 }

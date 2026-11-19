@@ -23,9 +23,9 @@ describe('BlogComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('presents the homepage section as technical writing', () => {
+  it('presents the homepage writing section title', () => {
     component.languageService.setLanguage('en');
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('h2').textContent).toContain('Technical Writing');
+    expect(fixture.nativeElement.querySelector('h2').textContent).toContain('What I learn and share');
   });
 });

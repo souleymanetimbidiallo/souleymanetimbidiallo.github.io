@@ -9,6 +9,9 @@ export interface BlogArticle {
   date: LocalizedText;
   summary: LocalizedText;
   image?: string;
+  /** Intrinsic size of `image`, so the page reserves its space before it loads. */
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
@@ -23,7 +26,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: 'Couverture partielle, populations datées, sources et périmètres : comment le code distingue une donnée vérifiée d’une valeur encore incertaine.',
       en: 'Partial coverage, dated populations, sources and boundaries: how the code distinguishes verified data from values that remain uncertain.',
     },
-    image: 'assets/img/projects/api-guinea-geo-cover-premium-v2.png',
+    image: 'assets/img/projects/api-guinea-geo-cover-premium-v2.webp',
+    imageWidth: 1600,
+    imageHeight: 900,
   },
   {
     slug: 'gn-exams-excel-graphiques-python',
@@ -36,7 +41,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: 'Dans le code de la version CEE : lecture du classeur, normalisation des mentions, stockage Parquet, requêtes DuckDB et graphiques Plotly.',
       en: 'Inside the CEE version: workbook loading, distinction normalization, Parquet storage, DuckDB queries and Plotly charts.',
     },
-    image: 'assets/img/projects/gn-exams-2026/cover.png',
+    image: 'assets/img/projects/gn-exams-2026/cover.webp',
+    imageWidth: 1600,
+    imageHeight: 900,
   },
   {
     slug: 'stabiliser-portfolio-angular-github-pages',
@@ -53,6 +60,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: 'A practical breakdown of template cleanup, SEO, performance, and static generation for the portfolio.',
     },
     image: 'assets/img/og-souleymane-diallo.jpg',
+    imageWidth: 1200,
+    imageHeight: 630,
   },
   {
     slug: 'concevoir-api-geographique-guinee',
@@ -68,6 +77,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: 'Comment structurer une API REST utile, documentée et simple à tester autour des régions et préfectures.',
       en: 'How to structure a useful, documented, and testable REST API around regions and prefectures.',
     },
-    image: 'assets/img/projects/api-guinea-geo-cover-premium-v2.png',
+    image: 'assets/img/projects/api-guinea-geo-cover-premium-v2.webp',
+    imageWidth: 1600,
+    imageHeight: 900,
   },
 ];

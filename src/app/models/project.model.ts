@@ -90,6 +90,7 @@ export interface Project {
   caseStudy?: ProjectCaseSection[];
   proofBlocks?: ProjectProofBlock[];
   editorialCaseStudy?: ProjectEditorialCaseStudy;
+  /** ISO date (yyyy-mm-dd), formatted for the active language in the UI. */
   date?: string;
   client?: string;
 }

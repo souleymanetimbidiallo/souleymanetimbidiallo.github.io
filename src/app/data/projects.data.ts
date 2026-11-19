@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
       en: 'Gui-Plus',
     },
     coverImage: 'assets/img/projects/guiplus224.jpg',
-    date: '19/04/2019',
+    date: '2019-04-19',
     context: 'personal',
     projectType: 'media-platform',
     portfolioFilter: 'web',
@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
       },
     ],
     gallery: [
-      'assets/img/projects/guiplus/guiplus1.png',
+      'assets/img/projects/guiplus/guiplus1.webp',
       'assets/img/projects/guiplus/guiplus2.png',
       'assets/img/projects/guiplus/guiplus3.png',
     ],
@@ -80,8 +80,8 @@ export const PROJECTS: Project[] = [
       fr: 'CitoyKaidi',
       en: 'CitoyKaidi',
     },
-    coverImage: 'assets/img/projects/citoykaidi/home.png',
-    date: '18 Sep. 2018',
+    coverImage: 'assets/img/projects/citoykaidi/home.webp',
+    date: '2018-09-18',
     context: 'product',
     projectType: 'civic-tech-platform',
     portfolioFilter: 'web',
@@ -117,8 +117,8 @@ export const PROJECTS: Project[] = [
       },
     },
     gallery: [
-      'assets/img/projects/citoykaidi/connexion.png',
-      'assets/img/projects/citoykaidi/documents.png',
+      'assets/img/projects/citoykaidi/connexion.webp',
+      'assets/img/projects/citoykaidi/documents.webp',
       'assets/img/projects/citoykaidi/procedures.png',
       'assets/img/projects/citoykaidi/admin-list.png',
       'assets/img/projects/citoykaidi/admin-connexion.png'
@@ -134,7 +134,7 @@ export const PROJECTS: Project[] = [
       en: 'Soodou Shop',
     },
     coverImage: 'assets/img/projects/soodou-shop.png',
-    date: '05/05/2020',
+    date: '2020-05-05',
     context: 'personal',
     projectType: 'e-commerce',
     portfolioFilter: 'web',
@@ -196,8 +196,8 @@ export const PROJECTS: Project[] = [
       fr: "Association Guinéenne d'Ille-et-Vilaine (AG35)",
       en: "Guinean Association of Ille-et-Vilaine (AG35)",
     },
-    coverImage: 'assets/img/projects/ag35.png',
-    date: '19/04/2023',
+    coverImage: 'assets/img/projects/ag35.webp',
+    date: '2023-04-19',
     context: 'personal',
     projectType: 'corporate-website',
     portfolioFilter: 'web',
@@ -240,7 +240,7 @@ export const PROJECTS: Project[] = [
       },
     ],
     gallery: [
-      'assets/img/projects/ag35.png',
+      'assets/img/projects/ag35.webp',
       'assets/img/projects/ag35/ag35_2.png',
     ],
   },
@@ -255,7 +255,7 @@ export const PROJECTS: Project[] = [
     },
     coverImage: 'assets/img/projects/guinea-roads.png',
     repository: 'https://github.com/souleymanetimbidiallo/guinea_roads',
-    date: '08/04/2024',
+    date: '2024-04-08',
     context: 'personal',
     projectType: 'mobile-application',
     portfolioFilter: 'mobile',
@@ -390,7 +390,7 @@ export const PROJECTS: Project[] = [
       en: 'Guinea National Exams 2023',
     },
     coverImage: 'assets/img/projects/examens_gn.jpeg',
-    date: '18 Sep. 2023',
+    date: '2023-09-18',
     context: 'personal',
     projectType: 'data-analytics',
     portfolioFilter: 'data',
@@ -522,188 +522,188 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    "id": "api-guinea-geo",
-    "slug": "api-guinea-geo",
-    "legacySlugs": [],
-    "previousNames": [],
-    "title": {
-      "fr": "Guinea Geo API",
-      "en": "Guinea Geo API"
+    id: 'api-guinea-geo',
+    slug: 'api-guinea-geo',
+    legacySlugs: [],
+    previousNames: [],
+    title: {
+      fr: 'Guinea Geo API',
+      en: 'Guinea Geo API',
     },
-    "coverImage": "assets/img/projects/api-guinea-geo-cover-premium-v2.png",
-    "date": "10 Avr. 2024",
-    "context": "personal",
-    "projectType": "developer-api",
-    "portfolioFilter": "data",
-    "category": {
-      "fr": "API et explorateur de données géographiques",
-      "en": "Geographic data API and explorer"
+    coverImage: 'assets/img/projects/api-guinea-geo-cover-premium-v2.webp',
+    date: '2024-04-10',
+    context: 'personal',
+    projectType: 'developer-api',
+    portfolioFilter: 'data',
+    category: {
+      fr: 'API et explorateur de données géographiques',
+      en: 'Geographic data API and explorer',
     },
-    "domains": [
+    domains: [
       {
-        "fr": "Données géographiques ouvertes",
-        "en": "Open geodata"
-      }
+        fr: 'Données géographiques ouvertes',
+        en: 'Open geodata',
+      },
     ],
-    "currentTechnologies": [
-      "javascript",
-      "node-js",
-      "swagger",
-      "vercel"
+    currentTechnologies: [
+      'javascript',
+      'node-js',
+      'swagger',
+      'vercel',
     ],
-    "plannedTechnologies": [],
-    "capabilities": [
+    plannedTechnologies: [],
+    capabilities: [
       {
-        "fr": "Exploration des subdivisions et recherche par nom",
-        "en": "Subdivision explorer and name search"
+        fr: 'Exploration des subdivisions et recherche par nom',
+        en: 'Subdivision explorer and name search',
       },
       {
-        "fr": "Copie et téléchargement des données JSON",
-        "en": "Copy and download JSON data"
+        fr: 'Copie et téléchargement des données JSON',
+        en: 'Copy and download JSON data',
       },
       {
-        "fr": "Documentation et requêtes interactives",
-        "en": "Documentation and interactive requests"
-      }
+        fr: 'Documentation et requêtes interactives',
+        en: 'Documentation and interactive requests',
+      },
     ],
-    "demo": "https://api-guinea-geo.vercel.app/",
-    "repository": "https://github.com/souleymanetimbidiallo/api-guinea-geo",
-    "description": {
-      "fr": "Une API REST et un site pour explorer les subdivisions de la Guinée, rechercher un lieu et récupérer ses données en JSON.",
-      "en": "A REST API and website to explore Guinea’s subdivisions, search for a place and retrieve its data as JSON."
+    demo: 'https://api-guinea-geo.vercel.app/',
+    repository: 'https://github.com/souleymanetimbidiallo/api-guinea-geo',
+    description: {
+      fr: 'Une API REST et un site pour explorer les subdivisions de la Guinée, rechercher un lieu et récupérer ses données en JSON.',
+      en: 'A REST API and website to explore Guinea’s subdivisions, search for a place and retrieve its data as JSON.',
     },
-    "cardSummary": {
-      "fr": "Explorer les régions et leurs subdivisions, rechercher un lieu et essayer les requêtes avant de les intégrer à une application.",
-      "en": "Explore regions and their subdivisions, search for places and try requests before integrating them into an application."
+    cardSummary: {
+      fr: 'Explorer les régions et leurs subdivisions, rechercher un lieu et essayer les requêtes avant de les intégrer à une application.',
+      en: 'Explore regions and their subdivisions, search for places and try requests before integrating them into an application.',
     },
-    "role": {
-      "fr": "Conception de l’API et développement du site d’exploration",
-      "en": "API design and explorer website development"
+    role: {
+      fr: 'Conception de l’API et développement du site d’exploration',
+      en: 'API design and explorer website development',
     },
-    "highlights": [],
-    "featured": true,
-    "editorialCaseStudy": {
-      "overview": {
-        "fr": "Je développe Guinea Geo API pour proposer un point d’accès commun aux données territoriales guinéennes. Le site permet de parcourir les données sans écrire de code ; l’API permet de les intégrer dans une application.",
-        "en": "I develop Guinea Geo API as a shared entry point to Guinean territorial data. The website lets visitors browse without writing code; the API makes the data available to applications."
+    highlights: [],
+    featured: true,
+    editorialCaseStudy: {
+      overview: {
+        fr: 'Je développe Guinea Geo API pour proposer un point d’accès commun aux données territoriales guinéennes. Le site permet de parcourir les données sans écrire de code ; l’API permet de les intégrer dans une application.',
+        en: 'I develop Guinea Geo API as a shared entry point to Guinean territorial data. The website lets visitors browse without writing code; the API makes the data available to applications.',
       },
-      "solution": {
-        "fr": "L’explorateur propose cinq niveaux : régions, préfectures, sous-préfectures, communes et quartiers. Il combine recherche par nom, consultation des subdivisions, copie et téléchargement JSON. Un espace permet aussi d’exécuter des exemples de requêtes.",
-        "en": "The explorer offers five levels: regions, prefectures, sub-prefectures, communes and neighborhoods. It combines name search, subdivision browsing, and JSON copying and downloads. A separate area lets visitors run sample requests."
+      solution: {
+        fr: 'L’explorateur propose cinq niveaux : régions, préfectures, sous-préfectures, communes et quartiers. Il combine recherche par nom, consultation des subdivisions, copie et téléchargement JSON. Un espace permet aussi d’exécuter des exemples de requêtes.',
+        en: 'The explorer offers five levels: regions, prefectures, sub-prefectures, communes and neighborhoods. It combines name search, subdivision browsing, and JSON copying and downloads. A separate area lets visitors run sample requests.',
       },
-      "architecture": {
-        "fr": "API Node.js avec Express et documentation Swagger, déployée sur Vercel. Le site utilise JavaScript et Leaflet pour les repères cartographiques des chefs-lieux.",
-        "en": "Node.js API with Express and Swagger documentation, deployed on Vercel. The website uses JavaScript and Leaflet for map markers showing regional capitals."
+      architecture: {
+        fr: 'API Node.js avec Express et documentation Swagger, déployée sur Vercel. Le site utilise JavaScript et Leaflet pour les repères cartographiques des chefs-lieux.',
+        en: 'Node.js API with Express and Swagger documentation, deployed on Vercel. The website uses JavaScript and Leaflet for map markers showing regional capitals.',
       },
-      "nextSteps": {
-        "fr": "La couverture des communes et quartiers reste partielle. Les populations RGPH-4 correspondent au recensement de 2025, avant la réforme territoriale de 2026. Les superficies et certains rattachements restent à vérifier ; le site signale ces limites.",
-        "en": "Commune and neighborhood coverage remains partial. RGPH-4 populations refer to the 2025 census, before the 2026 territorial reform. Areas and some administrative relationships still need verification; the website identifies these limitations."
-      }
+      nextSteps: {
+        fr: 'La couverture des communes et quartiers reste partielle. Les populations RGPH-4 correspondent au recensement de 2025, avant la réforme territoriale de 2026. Les superficies et certains rattachements restent à vérifier ; le site signale ces limites.',
+        en: 'Commune and neighborhood coverage remains partial. RGPH-4 populations refer to the 2025 census, before the 2026 territorial reform. Areas and some administrative relationships still need verification; the website identifies these limitations.',
+      },
     },
-    "caseStudy": [
+    caseStudy: [
       {
-        "title": {
-          "fr": "Deux façons d’utiliser le projet",
-          "en": "Two ways to use the project"
+        title: {
+          fr: 'Deux façons d’utiliser le projet',
+          en: 'Two ways to use the project',
         },
-        "items": [
+        items: [
           {
-            "fr": "Explorer le territoire depuis le navigateur, puis copier ou télécharger les données utiles.",
-            "en": "Explore the territory in the browser, then copy or download the data you need."
+            fr: 'Explorer le territoire depuis le navigateur, puis copier ou télécharger les données utiles.',
+            en: 'Explore the territory in the browser, then copy or download the data you need.',
           },
           {
-            "fr": "Utiliser directement les endpoints REST et consulter les paramètres dans la documentation Swagger.",
-            "en": "Use the REST endpoints directly and find their parameters in the Swagger documentation."
-          }
-        ]
-      }
+            fr: 'Utiliser directement les endpoints REST et consulter les paramètres dans la documentation Swagger.',
+            en: 'Use the REST endpoints directly and find their parameters in the Swagger documentation.',
+          },
+        ],
+      },
     ],
-    "proofBlocks": [
+    proofBlocks: [
       {
-        "title": {
-          "fr": "Requêtes proposées sur le site",
-          "en": "Requests available on the website"
+        title: {
+          fr: 'Requêtes proposées sur le site',
+          en: 'Requests available on the website',
         },
-        "variant": "code",
-        "lines": [
+        variant: 'code',
+        lines: [
           {
-            "fr": "GET /regions",
-            "en": "GET /regions"
+            fr: 'GET /regions',
+            en: 'GET /regions',
           },
           {
-            "fr": "GET /prefectures",
-            "en": "GET /prefectures"
+            fr: 'GET /prefectures',
+            en: 'GET /prefectures',
           },
           {
-            "fr": "GET /sous-prefectures",
-            "en": "GET /sous-prefectures"
+            fr: 'GET /sous-prefectures',
+            en: 'GET /sous-prefectures',
           },
           {
-            "fr": "GET /regions/search?name=Kankan",
-            "en": "GET /regions/search?name=Kankan"
+            fr: 'GET /regions/search?name=Kankan',
+            en: 'GET /regions/search?name=Kankan',
           },
           {
-            "fr": "GET /regions/stats",
-            "en": "GET /regions/stats"
-          }
-        ]
+            fr: 'GET /regions/stats',
+            en: 'GET /regions/stats',
+          },
+        ],
       },
       {
-        "title": {
-          "fr": "Réponse réelle : Kankan (extrait)",
-          "en": "Actual response: Kankan (excerpt)"
+        title: {
+          fr: 'Réponse réelle : Kankan (extrait)',
+          en: 'Actual response: Kankan (excerpt)',
         },
-        "variant": "code",
-        "lines": [
+        variant: 'code',
+        lines: [
           {
-            "fr": "{",
-            "en": "{"
+            fr: '{',
+            en: '{',
           },
           {
-            "fr": "  \"name\": \"Kankan\",",
-            "en": "  \"name\": \"Kankan\","
+            fr: '  "name": "Kankan",',
+            en: '  "name": "Kankan",',
           },
           {
-            "fr": "  \"zone\": \"Est\",",
-            "en": "  \"zone\": \"Est\","
+            fr: '  "zone": "Est",',
+            en: '  "zone": "Est",',
           },
           {
-            "fr": "  \"administrativeStatus\": \"active\",",
-            "en": "  \"administrativeStatus\": \"active\","
+            fr: '  "administrativeStatus": "active",',
+            en: '  "administrativeStatus": "active",',
           },
           {
-            "fr": "  \"metricsStatus\": \"legacy-unverified\",",
-            "en": "  \"metricsStatus\": \"legacy-unverified\","
+            fr: '  "metricsStatus": "legacy-unverified",',
+            en: '  "metricsStatus": "legacy-unverified",',
           },
           {
-            "fr": "  \"populationReferenceYear\": 2025,",
-            "en": "  \"populationReferenceYear\": 2025,"
+            fr: '  "populationReferenceYear": 2025,',
+            en: '  "populationReferenceYear": 2025,',
           },
           {
-            "fr": "  \"populationStatus\": \"preliminary\"",
-            "en": "  \"populationStatus\": \"preliminary\""
+            fr: '  "populationStatus": "preliminary"',
+            en: '  "populationStatus": "preliminary"',
           },
           {
-            "fr": "}",
-            "en": "}"
-          }
-        ]
-      }
-    ],
-    "gallery": [
-      "assets/img/projects/api-guinea-geo/conakry-detail.png",
-      "assets/img/projects/api-guinea-geo/kankan-api-response.png"
-    ],
-    "galleryCaptions": {
-      "assets/img/projects/api-guinea-geo/conakry-detail.png": {
-        "fr": "Fiche de Conakry dans l’explorateur : données de population référencées, sources, limites de validité et accès aux communes. Les données peuvent être copiées ou téléchargées en JSON.",
-        "en": "Conakry in the explorer: referenced population data, sources, validity limitations and access to communes. Data can be copied or downloaded as JSON."
+            fr: '}',
+            en: '}',
+          },
+        ],
       },
-      "assets/img/projects/api-guinea-geo/kankan-api-response.png": {
-        "fr": "Requête GET /regions/search?name=Kankan exécutée depuis le site : réponse HTTP 200 et données JSON consultables directement dans l’interface.",
-        "en": "GET /regions/search?name=Kankan executed from the website: an HTTP 200 response and JSON data viewable directly in the interface."
-      }
-    }
+    ],
+    gallery: [
+      'assets/img/projects/api-guinea-geo/conakry-detail.png',
+      'assets/img/projects/api-guinea-geo/kankan-api-response.png',
+    ],
+    galleryCaptions: {
+      'assets/img/projects/api-guinea-geo/conakry-detail.png': {
+        fr: 'Fiche de Conakry dans l’explorateur : données de population référencées, sources, limites de validité et accès aux communes. Les données peuvent être copiées ou téléchargées en JSON.',
+        en: 'Conakry in the explorer: referenced population data, sources, validity limitations and access to communes. Data can be copied or downloaded as JSON.',
+      },
+      'assets/img/projects/api-guinea-geo/kankan-api-response.png': {
+        fr: 'Requête GET /regions/search?name=Kankan exécutée depuis le site : réponse HTTP 200 et données JSON consultables directement dans l’interface.',
+        en: 'GET /regions/search?name=Kankan executed from the website: an HTTP 200 response and JSON data viewable directly in the interface.',
+      },
+    },
   },
   {
     id: 'kaglob-erp',
@@ -828,7 +828,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     gallery: [
       'assets/img/projects/kaglob/kaglob1.png',
-      'assets/img/projects/kaglob/kaglob2.png',
+      'assets/img/projects/kaglob/kaglob2.webp',
     ],
     highlights: [],
   },
@@ -838,7 +838,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'Yiidein', en: 'Yiidein' },
-    coverImage: 'assets/img/projects/yiidein/cover.png',
+    coverImage: 'assets/img/projects/yiidein/cover.webp',
     description: {
       fr: 'Plateforme SaaS réutilisable de prise de rendez-vous conçue pour plusieurs secteurs.',
       en: 'Reusable appointment-booking SaaS platform designed for multiple sectors.',
@@ -928,7 +928,7 @@ export const PROJECTS: Project[] = [
     gallery: [
       'assets/img/projects/yiidein/dashboard-admin.png',
       'assets/img/projects/yiidein/dashboard-client.png',
-      'assets/img/projects/yiidein/homepage.png',
+      'assets/img/projects/yiidein/homepage.webp',
     ],
     highlights: [],
   },
@@ -938,7 +938,7 @@ export const PROJECTS: Project[] = [
     legacySlugs: [],
     previousNames: [],
     title: { fr: 'GN Exams 2026', en: 'GN Exams 2026' },
-    coverImage: 'assets/img/projects/gn-exams-2026/cover.png',
+    coverImage: 'assets/img/projects/gn-exams-2026/cover.webp',
     description: {
       fr: 'Application de traitement, d’analyse et de visualisation des résultats des examens nationaux de Guinée en 2026.',
       en: "Application for processing, analyzing, and visualizing Guinea's 2026 national examination results.",

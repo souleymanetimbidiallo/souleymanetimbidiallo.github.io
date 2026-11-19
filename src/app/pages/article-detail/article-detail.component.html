@@ -3,8 +3,12 @@
     <img
       *ngIf="article.image"
       [src]="article.image"
-      class="card-img-top"
-      [alt]="articleTitle"
+      class="card-img-top article-hero"
+      [attr.width]="article.imageWidth"
+      [attr.height]="article.imageHeight"
+      alt=""
+      fetchpriority="high"
+      decoding="async"
     />
 
     <p class="mb-1">{{ articleDate }}</p>
@@ -27,7 +31,7 @@
 </div>
 
 <div class="container my-5" *ngIf="!article">
-  <h3>{{ 'article.notFound' | t }}</h3>
+  <h1>{{ 'article.notFound' | t }}</h1>
   <a routerLink="/" class="btn btn-primary mt-3">
     {{ 'article.backHome' | t }}
   </a>

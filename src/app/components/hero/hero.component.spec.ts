@@ -40,9 +40,9 @@ describe('HeroComponent', () => {
     expect(secondary).toContain('Symfony');
   });
 
-  it('displays the recruiter-oriented positioning sentence', () => {
+  it('displays the positioning sentence', () => {
     component.languageService.setLanguage('en');
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.hero__lead').textContent).toContain('Building enterprise applications and digital products');
+    expect(fixture.nativeElement.querySelector('.hero__lead').textContent).toContain('I build web applications, from APIs to user interfaces');
   });
 });

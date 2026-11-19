@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -10,6 +10,12 @@ import { ProjectStatusComponent } from '../shared/project-status/project-status.
 import { getEditorialSections } from '../shared/project-content.util';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
 import { LanguageService } from '../core/i18n/language.service';
+import { PageMetaService } from '../core/seo/page-meta.service';
+
+export interface GalleryItem {
+  src: string;
+  caption: string;
+}
 
 @Component({
   selector: 'app-project-detail',
@@ -20,6 +26,8 @@ import { LanguageService } from '../core/i18n/language.service';
 })
 export class ProjectDetailComponent {
   project?: Project;
+  private readonly pageMeta = inject(PageMetaService);
+  private galleryCache?: { project: Project; lang: string; items: GalleryItem[] };
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +35,25 @@ export class ProjectDetailComponent {
   ) {
     const slug = this.route.snapshot.paramMap.get('slug');
     this.project = findProjectBySlug(slug);
+
+    effect(() => {
+      this.languageService.language();
+      if (!this.project) return;
+      this.pageMeta.set({
+        title: this.projectTitle,
+        description: this.projectDescription,
+        path: `/projets/${this.project.slug}`,
+      });
+    });
+  }
+
+  /** Project date (ISO yyyy-mm-dd in the data) formatted for the active language. */
+  get projectDate(): string {
+    if (!this.project?.date) return '';
+    const date = new Date(`${this.project.date}T00:00:00Z`);
+    if (Number.isNaN(date.getTime())) return this.project.date;
+    const locale = this.languageService.language() === 'en' ? 'en-US' : 'fr-FR';
+    return new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
   }
 
   get projectTitle(): string {
@@ -53,6 +80,17 @@ export class ProjectDetailComponent {
   get galleryImages(): string[] {
     if (!this.project) return [];
     return this.project.gallery.filter((image) => image !== this.project?.coverImage);
+  }
+
+  /** Gallery images with their captions, recomputed only when the project or language changes. */
+  get galleryItems(): GalleryItem[] {
+    if (!this.project) return [];
+    const lang = this.languageService.language();
+    const cache = this.galleryCache;
+    if (cache && cache.project === this.project && cache.lang === lang) return cache.items;
+    const items = this.galleryImages.map((src) => ({ src, caption: this.galleryCaption(src) }));
+    this.galleryCache = { project: this.project, lang, items };
+    return items;
   }
 
   galleryCaption(image: string): string {

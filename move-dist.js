@@ -32,6 +32,31 @@ if (fs.existsSync(indexPath)) {
   console.log('✅ 404.html généré depuis index.html');
 }
 
+// SEO : une copie de index.html par route connue, pour que GitHub Pages réponde
+// en HTTP 200 (au lieu de passer par 404.html) sur les liens directs.
+if (fs.existsSync(indexPath)) {
+  const readSlugs = (file, pattern) => {
+    const source = fs.readFileSync(path.join(__dirname, 'src', 'app', 'data', file), 'utf8');
+    return [...source.matchAll(pattern)].map((match) => match[1]);
+  };
+  const projectSlugs = readSlugs('projects.data.ts', /^ {4}slug: '([a-z0-9-]+)',$/gm);
+  const legacySlugs = readSlugs('projects.data.ts', /^ {4}legacySlugs: \[([^\]]+)\],$/gm)
+    .flatMap((list) => [...list.matchAll(/'([a-z0-9-]+)'/g)].map((match) => match[1]));
+  const articleSlugs = readSlugs('articles.data.ts', /^ {4}slug: '([a-z0-9-]+)',$/gm);
+  const routes = [
+    'parcours',
+    'blog',
+    ...[...projectSlugs, ...legacySlugs].map((slug) => `projets/${slug}`),
+    ...articleSlugs.map((slug) => `blog/${slug}`),
+  ];
+  for (const route of routes) {
+    const dir = path.join(dst, route);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.copyFileSync(indexPath, path.join(dir, 'index.html'));
+  }
+  console.log(`✅ ${routes.length} pages de route générées (${projectSlugs.length} projets, ${articleSlugs.length} articles)`);
+}
+
 // GitHub Pages : désactive le traitement Jekyll pour les fichiers Angular.
 fs.writeFileSync(path.join(dst, '.nojekyll'), '');
 
