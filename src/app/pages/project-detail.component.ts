@@ -42,7 +42,7 @@ export class ProjectDetailComponent {
       this.pageMeta.set({
         title: this.projectTitle,
         description: this.projectDescription,
-        path: `/projets/${this.project.slug}`,
+        path: `/projets/${this.project.slug}/`,
       });
     });
   }

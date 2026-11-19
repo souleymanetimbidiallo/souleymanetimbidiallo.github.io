@@ -64,7 +64,7 @@ export class ArticleDetailComponent {
     this.pageMeta.set({
       title: this.articleTitle,
       description: this.article.summary[this.languageService.language()],
-      path: `/blog/${this.article.slug}`,
+      path: `/blog/${this.article.slug}/`,
     });
   }
 

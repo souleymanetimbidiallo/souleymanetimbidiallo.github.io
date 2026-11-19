@@ -9,7 +9,7 @@ const SITE_URL = 'https://souleymanetimbidiallo.github.io';
 export interface PageMeta {
   title: string;
   description: string;
-  /** Route path starting with "/", e.g. "/projets/api-guinea-geo". */
+  /** Route path with a trailing slash, matching the URL GitHub Pages serves, e.g. "/projets/api-guinea-geo/". */
   path: string;
 }
 
