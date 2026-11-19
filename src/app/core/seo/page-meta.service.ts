@@ -1,10 +1,18 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, effect, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
+import { LanguageService } from '../i18n/language.service';
+
 const SITE_URL = 'https://souleymanetimbidiallo.github.io';
+
+/** Description of the pages without their own metadata (home, blog, parcours), per language. */
+export const DEFAULT_DESCRIPTION = {
+  fr: 'Portfolio de Souleymane Diallo, ingénieur logiciel full-stack spécialisé en applications web, APIs REST, data products, Java, Angular, Node.js et Python.',
+  en: 'Portfolio of Souleymane Diallo, a full-stack software engineer specializing in web applications, REST APIs, data products, Java, Angular, Node.js and Python.',
+} as const;
 
 export interface PageMeta {
   title: string;
@@ -15,45 +23,50 @@ export interface PageMeta {
 
 interface DefaultMeta {
   title: string;
-  description: string;
   ogTitle: string;
-  ogDescription: string;
   ogUrl: string;
   twitterTitle: string;
-  twitterDescription: string;
   canonical: string;
 }
 
 /**
  * Sets per-page title, description, Open Graph, Twitter and canonical tags
  * (the share image stays the default JPEG, which every network supports),
- * and restores the defaults from index.html on every navigation.
+ * and restores the defaults on every navigation. The default description
+ * follows the active language.
  */
 @Injectable({ providedIn: 'root' })
 export class PageMetaService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
+  private readonly language = inject(LanguageService).language;
   private readonly defaults: DefaultMeta;
+  /** True while a page (project, article) has set its own metadata. */
+  private hasPageMeta = false;
 
   constructor() {
     this.defaults = {
       title: this.title.getTitle(),
-      description: this.readMeta('name="description"'),
       ogTitle: this.readMeta('property="og:title"'),
-      ogDescription: this.readMeta('property="og:description"'),
       ogUrl: this.readMeta('property="og:url"'),
       twitterTitle: this.readMeta('name="twitter:title"'),
-      twitterDescription: this.readMeta('name="twitter:description"'),
       canonical: this.canonicalLink()?.getAttribute('href') ?? `${SITE_URL}/`,
     };
 
     inject(Router)
       .events.pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => this.reset());
+
+    // Pages with their own metadata update it themselves on a language change.
+    effect(() => {
+      this.language();
+      if (!this.hasPageMeta) this.reset();
+    });
   }
 
   set(page: PageMeta) {
+    this.hasPageMeta = true;
     const title = `${page.title} | Souleymane Diallo`;
     const url = `${SITE_URL}${page.path}`;
 
@@ -69,13 +82,15 @@ export class PageMetaService {
 
   reset() {
     const d = this.defaults;
+    const description = DEFAULT_DESCRIPTION[this.language()];
+    this.hasPageMeta = false;
     this.title.setTitle(d.title);
-    this.meta.updateTag({ name: 'description', content: d.description });
+    this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ property: 'og:title', content: d.ogTitle });
-    this.meta.updateTag({ property: 'og:description', content: d.ogDescription });
+    this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:url', content: d.ogUrl });
     this.meta.updateTag({ name: 'twitter:title', content: d.twitterTitle });
-    this.meta.updateTag({ name: 'twitter:description', content: d.twitterDescription });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
     this.canonicalLink()?.setAttribute('href', d.canonical);
   }
 
