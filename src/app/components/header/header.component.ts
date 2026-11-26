@@ -1,16 +1,16 @@
-import { DOCUMENT, NgClass, isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { NgClass, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ThemePreference, ThemeService } from '../../core/theme/theme.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [NgClass, RouterModule, TranslatePipe],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+    imports: [NgClass, RouterModule, TranslatePipe],
+    templateUrl: './header.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   constructor(

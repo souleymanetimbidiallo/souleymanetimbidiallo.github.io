@@ -1,0 +1,8 @@
+{
+  "name": "marked-katex-extension",
+  "version": "5.0.0",
+  "private": true,
+  "description": "Empty stand-in: ngx-markdown lazy-imports this optional KaTeX extension, which the site doesn't use. Without it, Vite (ng serve, ng test) fails to resolve the import.",
+  "type": "module",
+  "main": "index.js"
+}

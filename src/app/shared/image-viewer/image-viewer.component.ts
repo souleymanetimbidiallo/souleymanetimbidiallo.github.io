@@ -1,13 +1,13 @@
-import { DOCUMENT, NgIf } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild } from '@angular/core';
+
+import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
-  selector: 'app-image-viewer',
-  standalone: true,
-  imports: [NgIf, TranslatePipe],
-  templateUrl: './image-viewer.component.html',
-  styleUrl: './image-viewer.component.css',
+    selector: 'app-image-viewer',
+    imports: [TranslatePipe],
+    templateUrl: './image-viewer.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './image-viewer.component.css'
 })
 export class ImageViewerComponent implements OnDestroy {
   @ViewChild('dialog', { static: true }) dialog!: ElementRef<HTMLDialogElement>;

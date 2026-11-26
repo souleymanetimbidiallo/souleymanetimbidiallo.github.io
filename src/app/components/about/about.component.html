@@ -30,14 +30,20 @@
 
     <div class="core-stack" aria-label="Core expertise">
       <span class="core-label">{{ 'about.coreSkills' | t }}</span>
-      <ul><li *ngFor="let technology of coreTechnologies">{{ technologyLabel(technology) }}</li></ul>
+      <ul>@for (technology of coreTechnologies; track $index) {
+        <li>{{ technologyLabel(technology) }}</li>
+      }</ul>
     </div>
 
     <div class="skill-grid">
-      <section class="skill-group" *ngFor="let group of skillGroups">
-        <h3>{{ group.titleKey | t }}</h3>
-        <ul><li *ngFor="let technology of group.technologies">{{ technologyLabel(technology) }}</li></ul>
-      </section>
+      @for (group of skillGroups; track $index) {
+        <section class="skill-group">
+          <h3>{{ group.titleKey | t }}</h3>
+          <ul>@for (technology of group.technologies; track $index) {
+            <li>{{ technologyLabel(technology) }}</li>
+          }</ul>
+        </section>
+      }
     </div>
   </div>
 </section>

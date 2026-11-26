@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgIf } from '@angular/common';
+
 import { catchError, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
@@ -12,11 +12,11 @@ import { LanguageService } from '../../core/i18n/language.service';
 import { PageMetaService } from '../../core/seo/page-meta.service';
 
 @Component({
-  selector: 'app-article-detail',
-  standalone: true,
-  imports: [MarkdownModule, NgIf, RouterModule, TranslatePipe],
-  templateUrl: './article-detail.component.html',
-  styleUrl: './article-detail.component.css',
+    selector: 'app-article-detail',
+    imports: [MarkdownModule, RouterModule, TranslatePipe],
+    templateUrl: './article-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './article-detail.component.css'
 })
 export class ArticleDetailComponent {
   slug: string | null;

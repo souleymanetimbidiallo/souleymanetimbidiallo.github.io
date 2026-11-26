@@ -75,7 +75,8 @@ Twitter : twitter.com/SouleymaneTm
 ```bash
 npm ci
 npm start            # serveur de dev
-npm test             # tests unitaires (Karma)
+npm test             # tests unitaires (Vitest + Chromium)
+                     # 1re fois : npx playwright install chromium
 npm run build        # build de prod + prerendering des pages dans docs/
 ```
 

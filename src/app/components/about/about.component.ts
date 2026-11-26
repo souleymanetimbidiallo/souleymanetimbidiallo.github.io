@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { getTechnologyLabel } from '../../data/technologies.data';
 
 interface SkillGroup { titleKey: string; technologies: string[]; }
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [NgFor, TranslatePipe],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+    selector: 'app-about',
+    imports: [TranslatePipe],
+    templateUrl: './about.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './about.component.css'
 })
 export class AboutComponent {
   readonly coreTechnologies = ['java', 'spring-boot', 'angular', 'php', 'laravel', 'symfony', 'docker', 'postgresql'];

@@ -6,38 +6,59 @@
     </div>
 
     <div class="experience-list">
-      <article class="employer" *ngFor="let item of experiences">
-        <header class="employer-header">
-          <img *ngIf="item.companyImage" [src]="item.companyImage" [alt]="item.company + ' logo'" width="64" height="64" loading="lazy" />
-          <div class="employer-title"><p>{{ localized(item.startDate) }} — {{ localized(item.endDate) }}</p><h3>{{ item.company }}</h3><strong>{{ localized(item.role) }}</strong></div>
-          <p class="employer-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ localized(item.location) }}</p>
-        </header>
-        <p class="employer-summary">{{ localized(item.summary) }}</p>
-
-        <div class="engagement-list" *ngIf="item.engagements.length">
-          <h4 class="engagement-list__title">{{ (item.engagements.length > 1 ? 'timeline.enterpriseEngagements' : 'timeline.selectedProject') | t }}</h4>
-          <article class="engagement" *ngFor="let engagement of item.engagements">
-            <div class="engagement-copy">
-              <p class="engagement-name">{{ engagement.projectName }}</p>
-              <h4>{{ localized(engagement.displayTitle) }}</h4>
-              <p *ngIf="engagement.internalProjectName" class="internal-name">{{ 'timeline.internalProjectName' | t }}: {{ engagement.internalProjectName }}</p>
-              <p class="engagement-context">{{ localized(engagement.context) }}</p>
-              <div class="contributions" *ngIf="engagement.responsibilities.length"><h5>{{ 'timeline.contributions' | t }}</h5><ul class="responsibilities"><li *ngFor="let responsibility of engagement.responsibilities">{{ localized(responsibility) }}</li></ul></div>
-              <p class="confidentiality" *ngIf="engagement.confidentiality === 'confidential'"><i class="bi bi-lock" aria-hidden="true"></i>{{ 'timeline.confidential' | t }}</p>
-            </div>
-            <div class="engagement-stack"><h5>{{ 'timeline.technologyStack' | t }}</h5><app-grouped-technologies [technologyIds]="engagement.technologies"></app-grouped-technologies></div>
-          </article>
-        </div>
+      @for (item of experiences; track $index) {
+        <article class="employer">
+          <header class="employer-header">
+            @if (item.companyImage) {
+              <img [src]="item.companyImage" [alt]="item.company + ' logo'" width="64" height="64" loading="lazy" />
+            }
+            <div class="employer-title"><p>{{ localized(item.startDate) }} — {{ localized(item.endDate) }}</p><h3>{{ item.company }}</h3><strong>{{ localized(item.role) }}</strong></div>
+            <p class="employer-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ localized(item.location) }}</p>
+          </header>
+          <p class="employer-summary">{{ localized(item.summary) }}</p>
+          @if (item.engagements.length) {
+            <div class="engagement-list">
+              <h4 class="engagement-list__title">{{ (item.engagements.length > 1 ? 'timeline.enterpriseEngagements' : 'timeline.selectedProject') | t }}</h4>
+              @for (engagement of item.engagements; track $index) {
+                <article class="engagement">
+                  <div class="engagement-copy">
+                    <p class="engagement-name">{{ engagement.projectName }}</p>
+                    <h4>{{ localized(engagement.displayTitle) }}</h4>
+                    @if (engagement.internalProjectName) {
+                      <p class="internal-name">{{ 'timeline.internalProjectName' | t }}: {{ engagement.internalProjectName }}</p>
+                    }
+                    <p class="engagement-context">{{ localized(engagement.context) }}</p>
+                    @if (engagement.responsibilities.length) {
+                      <div class="contributions"><h5>{{ 'timeline.contributions' | t }}</h5><ul class="responsibilities">@for (responsibility of engagement.responsibilities; track $index) {
+                      <li>{{ localized(responsibility) }}</li>
+                    }</ul></div>
+                  }
+                  @if (engagement.confidentiality === 'confidential') {
+                    <p class="confidentiality"><i class="bi bi-lock" aria-hidden="true"></i>{{ 'timeline.confidential' | t }}</p>
+                  }
+                </div>
+                <div class="engagement-stack"><h5>{{ 'timeline.technologyStack' | t }}</h5><app-grouped-technologies [technologyIds]="engagement.technologies"></app-grouped-technologies></div>
+              </article>
+            }
+          </div>
+        }
       </article>
-    </div>
+    }
+  </div>
 
-    <section class="education" *ngIf="education.length" aria-labelledby="education-title">
+  @if (education.length) {
+    <section class="education" aria-labelledby="education-title">
       <p class="section-eyebrow">{{ 'timeline.education' | t }}</p>
       <h3 id="education-title">{{ 'timeline.educationTitle' | t }}</h3>
-      <article *ngFor="let item of education">
-        <img *ngIf="item.image" [src]="item.image" [alt]="localized(item.institution) + ' logo'" width="56" height="56" loading="lazy" />
-        <div><p>{{ item.startDate }} — {{ item.endDate }}</p><h4>{{ localized(item.degree) }}</h4><span>{{ localized(item.institution) }} · {{ localized(item.location) }}</span><p>{{ localized(item.description) }}</p></div>
-      </article>
+      @for (item of education; track $index) {
+        <article>
+          @if (item.image) {
+            <img [src]="item.image" [alt]="localized(item.institution) + ' logo'" width="56" height="56" loading="lazy" />
+          }
+          <div><p>{{ item.startDate }} — {{ item.endDate }}</p><h4>{{ localized(item.degree) }}</h4><span>{{ localized(item.institution) }} · {{ localized(item.location) }}</span><p>{{ localized(item.description) }}</p></div>
+        </article>
+      }
     </section>
-  </div>
+  }
+</div>
 </section>

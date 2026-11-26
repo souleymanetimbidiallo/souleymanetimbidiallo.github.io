@@ -5,21 +5,41 @@
       <p>{{ 'portfolio.subtitle' | t }}</p>
     </div>
 
-    <section class="featured" *ngIf="selectedCategory === 'all' && featuredProjects.length" aria-labelledby="featured-title">
-      <header class="subsection-header"><h3 id="featured-title">{{ 'portfolio.featured' | t }}</h3><p>{{ 'portfolio.featuredIntro' | t }}</p></header>
-      <div class="featured-list"><app-featured-project-card *ngFor="let project of featuredProjects" [project]="project"></app-featured-project-card></div>
-    </section>
+    @if (selectedCategory === 'all' && featuredProjects.length) {
+      <section class="featured" aria-labelledby="featured-title">
+        <header class="subsection-header"><h3 id="featured-title">{{ 'portfolio.featured' | t }}</h3><p>{{ 'portfolio.featuredIntro' | t }}</p></header>
+        <div class="featured-list">
+          @for (project of featuredProjects; track project.id) {
+            <app-featured-project-card [project]="project"></app-featured-project-card>
+          }
+        </div>
+      </section>
+    }
 
     <section class="project-index" aria-labelledby="project-index-title">
       <header class="index-header"><div><h3 id="project-index-title">{{ (selectedCategory === 'all' ? 'portfolio.selected' : 'portfolio.filtered') | t }}</h3><p>{{ 'portfolio.indexIntro' | t }}</p></div>
-        <div class="filters" role="group" [attr.aria-label]="'portfolio.filterLabel' | t"><button *ngFor="let category of categories" type="button" [class.active]="selectedCategory === category" [attr.aria-pressed]="selectedCategory === category" (click)="filterByCategory(category)">{{ getCategoryLabel(category) }}</button></div>
+        <div class="filters" role="group" [attr.aria-label]="'portfolio.filterLabel' | t">
+          @for (category of categories; track category) {
+            <button type="button" [class.active]="selectedCategory === category" [attr.aria-pressed]="selectedCategory === category" (click)="filterByCategory(category)">{{ getCategoryLabel(category) }}</button>
+          }
+        </div>
       </header>
-      <div class="project-grid"><app-project-card *ngFor="let project of displayedProjects" [project]="project"></app-project-card></div>
+      <div class="project-grid">
+        @for (project of displayedProjects; track project.id) {
+          <app-project-card [project]="project"></app-project-card>
+        }
+      </div>
     </section>
 
-    <details class="archives" *ngIf="archivedProjects.length">
-      <summary><span>{{ 'portfolio.archives' | t }}</span> <small>{{ 'portfolio.archivesIntro' | t }}</small></summary>
-      <div class="project-grid"><app-project-card *ngFor="let project of archivedProjects" [project]="project"></app-project-card></div>
-    </details>
+    @if (archivedProjects.length) {
+      <details class="archives">
+        <summary><span>{{ 'portfolio.archives' | t }}</span> <small>{{ 'portfolio.archivesIntro' | t }}</small></summary>
+        <div class="project-grid">
+          @for (project of archivedProjects; track project.id) {
+            <app-project-card [project]="project"></app-project-card>
+          }
+        </div>
+      </details>
+    }
   </div>
 </section>

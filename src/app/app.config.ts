@@ -1,6 +1,6 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideMarkdown } from 'ngx-markdown';
 
@@ -8,6 +8,7 @@ import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection(),
     provideRouter(
       routes,
       withInMemoryScrolling({
@@ -15,7 +16,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       })
     ),
-    provideClientHydration(),
+    provideClientHydration(withNoIncrementalHydration()),
     // fetch lets the prerenderer serve the article Markdown from the build output.
     provideHttpClient(withFetch()),
     provideMarkdown(),

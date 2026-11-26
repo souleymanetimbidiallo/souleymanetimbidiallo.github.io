@@ -4,55 +4,55 @@ import { PortfolioComponent } from './portfolio.component';
 import { provideRouter } from '@angular/router';
 
 describe('PortfolioComponent', () => {
-  let component: PortfolioComponent;
-  let fixture: ComponentFixture<PortfolioComponent>;
+    let component: PortfolioComponent;
+    let fixture: ComponentFixture<PortfolioComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [PortfolioComponent],
-      providers: [provideRouter([])]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(PortfolioComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [PortfolioComponent],
+            providers: [provideRouter([])]
+        })
+            .compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        fixture = TestBed.createComponent(PortfolioComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('features KAGLOB ERP and Yiidein', () => {
-    const ids = component.featuredProjects.map((project) => project.id);
-    expect(ids).toContain('kaglob-erp');
-    expect(ids).toContain('yiidein');
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('uses the refined featured project order', () => {
-    expect(component.featuredProjects.map((project) => project.id)).toEqual(['gn-exams-2026', 'api-guinea-geo', 'kaglob-erp', 'yiidein']);
-  });
+    it('features KAGLOB ERP and Yiidein', () => {
+        const ids = component.featuredProjects.map((project) => project.id);
+        expect(ids).toContain('kaglob-erp');
+        expect(ids).toContain('yiidein');
+    });
 
-  it('keeps Web, Mobile and Data projects discoverable through filters', () => {
-    for (const category of ['web', 'mobile', 'data'] as const) {
-      component.filterByCategory(category);
-      expect(component.displayedProjects.length).toBeGreaterThan(0);
-      expect(component.displayedProjects.every((project) => project.portfolioFilter === category)).toBeTrue();
-    }
-  });
+    it('uses the refined featured project order', () => {
+        expect(component.featuredProjects.map((project) => project.id)).toEqual(['gn-exams-2026', 'api-guinea-geo', 'kaglob-erp', 'yiidein']);
+    });
 
-  it('moves early projects out of the main grid into the archives', () => {
-    const archived = ['gui-plus', 'soodou-shop', 'citoykaidi'];
-    expect(component.archivedProjects.map((project) => project.id)).toEqual(jasmine.arrayWithExactContents(archived));
-    for (const category of ['all', 'web', 'mobile', 'data'] as const) {
-      component.filterByCategory(category);
-      expect(component.displayedProjects.some((project) => archived.includes(project.id))).toBeFalse();
-    }
-  });
+    it('keeps Web, Mobile and Data projects discoverable through filters', () => {
+        for (const category of ['web', 'mobile', 'data'] as const) {
+            component.filterByCategory(category);
+            expect(component.displayedProjects.length).toBeGreaterThan(0);
+            expect(component.displayedProjects.every((project) => project.portfolioFilter === category)).toBe(true);
+        }
+    });
 
-  it('does not include enterprise engagements in the personal project inventory', () => {
-    const ids = component.allProjects.map((project) => project.id);
-    expect(ids).not.toContain('phenix');
-    expect(ids).not.toContain('staffing-cgn');
-  });
+    it('moves early projects out of the main grid into the archives', () => {
+        const archived = ['gui-plus', 'soodou-shop', 'citoykaidi'];
+        expect(component.archivedProjects.map((project) => project.id).sort()).toEqual([...archived].sort());
+        for (const category of ['all', 'web', 'mobile', 'data'] as const) {
+            component.filterByCategory(category);
+            expect(component.displayedProjects.some((project) => archived.includes(project.id))).toBe(false);
+        }
+    });
+
+    it('does not include enterprise engagements in the personal project inventory', () => {
+        const ids = component.allProjects.map((project) => project.id);
+        expect(ids).not.toContain('phenix');
+        expect(ids).not.toContain('staffing-cgn');
+    });
 });

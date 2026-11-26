@@ -10,8 +10,12 @@
       </div>
     </header>
     <div #viewport class="viewer-viewport" tabindex="0" [attr.aria-label]="'imageViewer.pan' | t">
-      <img #fullImage *ngIf="image" [src]="image" [alt]="caption" [style.width.px]="fittedWidth ? fittedWidth * zoom : null" (load)="fitImage()" />
+      @if (image) {
+        <img #fullImage [src]="image" [alt]="caption" [style.width.px]="fittedWidth ? fittedWidth * zoom : null" (load)="fitImage()" />
+      }
     </div>
-    <p class="viewer-caption" *ngIf="caption">{{ caption }}</p>
+    @if (caption) {
+      <p class="viewer-caption">{{ caption }}</p>
+    }
   </div>
 </dialog>

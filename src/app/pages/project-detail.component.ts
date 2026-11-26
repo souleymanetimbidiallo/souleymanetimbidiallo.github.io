@@ -1,6 +1,6 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+
 
 import { ImageViewerComponent } from '../shared/image-viewer/image-viewer.component';
 import { findProjectBySlug, Project } from '../data/projects.data';
@@ -18,11 +18,11 @@ export interface GalleryItem {
 }
 
 @Component({
-  selector: 'app-project-detail',
-  standalone: true,
-  imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
-  templateUrl: './project-detail.component.html',
-  styleUrl: './project-detail.component.css',
+    selector: 'app-project-detail',
+    imports: [RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
+    templateUrl: './project-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './project-detail.component.css'
 })
 export class ProjectDetailComponent {
   project?: Project;
