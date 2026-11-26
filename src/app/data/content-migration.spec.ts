@@ -17,6 +17,7 @@ describe('centralized portfolio content', () => {
         slugs.forEach((slug) => expect(findProjectBySlug(slug)).toBeDefined());
         expect(findProjectBySlug('citoykaidi')?.id).toBe('citoykaidi');
         expect(findProjectBySlug('gestion-demo')?.id).toBe('citoykaidi');
+        expect(findProjectBySlug('examens-gn')?.id).toBe('gn-exams-2026');
     });
 
     it('stores CitoyKaidi once and keeps its legacy identity as metadata', () => {

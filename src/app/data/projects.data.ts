@@ -416,147 +416,6 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: 'examens-gn',
-    slug: 'examens-gn',
-    legacySlugs: [],
-    previousNames: [],
-    title: {
-      fr: 'Examens nationaux GN 2023',
-      en: 'Guinea National Exams 2023',
-    },
-    coverImage: 'assets/img/projects/examens_gn.jpeg',
-    date: '2023-09-18',
-    context: 'personal',
-    projectType: 'data-analytics',
-    portfolioFilter: 'data',
-    category: { fr: 'Analyse de données', en: 'Data analysis' },
-    domains: [{ fr: 'Éducation', en: 'Education' }],
-    currentTechnologies: ['python', 'pandas'],
-    plannedTechnologies: [],
-    capabilities: [
-      { fr: 'Nettoyage de données', en: 'Data cleaning' },
-      { fr: 'Visualisation de données', en: 'Data visualization' },
-    ],
-    client: 'Gui-Plus Group',
-    repository: 'https://github.com/souleymanetimbidiallo/examens-gn-2023',
-    description: {
-      fr: `Analyse des résultats des examens nationaux guinéens 2023 avec Python, nettoyage de données et visualisations pour rendre les tendances plus lisibles.`,
-      en: `Analysis of Guinea’s 2023 national exam results using Python, data cleaning, and visualizations to make trends easier to read.`,
-    },
-    cardSummary: {
-      fr: 'Analyse Python des résultats des examens nationaux guinéens 2023 avec nettoyage et visualisation des données.',
-      en: 'Python analysis of Guinea’s 2023 national exam results with data cleaning and visualization.',
-    },
-    role: {
-      fr: 'Data analyst / développeur Python',
-      en: 'Data analyst / Python developer',
-    },
-    impact: {
-      fr: 'Transforme des résultats bruts en visualisations exploitables pour mieux comprendre la répartition des performances.',
-      en: 'Turns raw results into usable visualizations to better understand performance distribution.',
-    },
-    highlights: [
-      {
-        fr: 'Nettoyage et préparation des données avant analyse.',
-        en: 'Cleaned and prepared data before analysis.',
-      },
-      {
-        fr: 'Production de visualisations pour comparer les résultats et tendances.',
-        en: 'Produced visualizations to compare results and trends.',
-      },
-      {
-        fr: 'Mise en forme des conclusions pour une lecture non technique.',
-        en: 'Formatted findings for non-technical readers.',
-      },
-    ],
-    caseStudy: [
-      {
-        title: { fr: 'Problème', en: 'Problem' },
-        items: [
-          {
-            fr: 'Les résultats bruts sont difficiles à lire directement et ne permettent pas d’identifier rapidement les tendances importantes.',
-            en: 'Raw results are hard to read directly and do not make important trends easy to identify.',
-          },
-          {
-            fr: 'Le projet devait transformer ces données en supports plus accessibles pour l’analyse et la communication.',
-            en: 'The project needed to turn this data into more accessible material for analysis and communication.',
-          },
-        ],
-      },
-      {
-        title: { fr: 'Décisions techniques', en: 'Technical decisions' },
-        items: [
-          {
-            fr: 'Utiliser Python pour nettoyer, structurer et explorer les données avant visualisation.',
-            en: 'Used Python to clean, structure, and explore the data before visualization.',
-          },
-          {
-            fr: 'Séparer les étapes de préparation des données et de production des graphiques pour rendre l’analyse plus maintenable.',
-            en: 'Separated data preparation and chart generation steps to make the analysis easier to maintain.',
-          },
-          {
-            fr: 'Privilégier des visualisations compréhensibles par un public non technique.',
-            en: 'Prioritized visualizations understandable by non-technical readers.',
-          },
-        ],
-      },
-      {
-        title: { fr: 'Livrables', en: 'Deliverables' },
-        items: [
-          {
-            fr: 'Jeux de données nettoyés et prêts à être analysés.',
-            en: 'Cleaned datasets ready for analysis.',
-          },
-          {
-            fr: 'Graphiques et vues synthétiques pour comparer les résultats.',
-            en: 'Charts and summary views for comparing results.',
-          },
-        ],
-      },
-    ],
-    proofBlocks: [
-      {
-        title: { fr: 'Pipeline data', en: 'Data pipeline' },
-        variant: 'flow',
-        lines: [
-          { fr: 'Données brutes', en: 'Raw data' },
-          { fr: 'Nettoyage Python', en: 'Python cleaning' },
-          { fr: 'Analyse', en: 'Analysis' },
-          { fr: 'Visualisations', en: 'Visualizations' },
-        ],
-      },
-      {
-        title: { fr: 'Exemple de traitement', en: 'Processing example' },
-        variant: 'code',
-        lines: [
-          { fr: 'load results dataset', en: 'load results dataset' },
-          { fr: 'clean missing or inconsistent values', en: 'clean missing or inconsistent values' },
-          { fr: 'group by exam, region and performance level', en: 'group by exam, region and performance level' },
-          { fr: 'generate comparison charts', en: 'generate comparison charts' },
-        ],
-      },
-      {
-        title: { fr: 'Ce que l’analyse rend lisible', en: 'What the analysis makes readable' },
-        variant: 'list',
-        lines: [
-          {
-            fr: 'Comparer les tendances entre examens et zones géographiques.',
-            en: 'Compare trends between exams and geographic areas.',
-          },
-          {
-            fr: 'Identifier les écarts de performance de manière plus visuelle.',
-            en: 'Identify performance gaps in a more visual way.',
-          },
-        ],
-      },
-    ],
-    gallery: [
-      'assets/img/projects/examens-gn-2023/Capture.PNG',
-      'assets/img/projects/examens-gn-2023/demo2.PNG',
-    ],
-    featured: true,
-  },
-  {
     id: 'api-guinea-geo',
     slug: 'api-guinea-geo',
     legacySlugs: [],
@@ -970,7 +829,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'gn-exams-2026',
     slug: 'gn-exams-2026',
-    legacySlugs: [],
+    legacySlugs: ['examens-gn'],
     previousNames: [],
     title: { fr: 'GN Exams 2026', en: 'GN Exams 2026' },
     coverImage: 'assets/img/projects/gn-exams-2026/cover.webp',
@@ -1009,6 +868,11 @@ export const PROJECTS: Project[] = [
         label: { fr: 'BAC 2026', en: 'BAC 2026' },
         url: 'https://gn-bac-2026.streamlit.app/',
       },
+    ],
+    repositories: [
+      { label: { fr: 'CEE', en: 'CEE' }, url: 'https://github.com/souleymanetimbidiallo/gn-exams-cee-2026' },
+      { label: { fr: 'BEPC', en: 'BEPC' }, url: 'https://github.com/souleymanetimbidiallo/gn-exams-bepc-2026' },
+      { label: { fr: 'BAC', en: 'BAC' }, url: 'https://github.com/souleymanetimbidiallo/gn-exams-bac-2026' },
     ],
     plannedTechnologies: [],
     capabilities: [
@@ -1054,6 +918,7 @@ export const PROJECTS: Project[] = [
       { fr: 'Plus de 300 000 admis traités : environ 188 000 au CEE, 78 000 au BEPC et 34 000 au BAC.', en: 'More than 300,000 admitted candidates processed: about 188,000 for the CEE, 78,000 for the BEPC and 34,000 for the BAC.' },
       { fr: 'Des milliers d’établissements d’origine et plus de 250 centres d’examen classés pour le seul BAC.', en: 'Thousands of schools of origin, and more than 250 exam centres ranked for the BAC alone.' },
       { fr: 'Logique de classement et de statistiques couverte par des tests unitaires (BAC, BEPC).', en: 'Ranking and statistics logic covered by unit tests (BAC, BEPC).' },
+      { fr: 'Suite d’une première analyse des résultats 2023, réalisée avec Python et Pandas (dépôt examens-gn-2023 sur GitHub).', en: 'Follow-up to a first analysis of the 2023 results, built with Python and Pandas (examens-gn-2023 repository on GitHub).' },
     ],
     editorialCaseStudy: {
       overview: {

@@ -81,6 +81,8 @@ export interface Project {
   confidentiality?: ProjectConfidentiality;
   featured: boolean;
   repository?: string;
+  /** Several labelled repositories, for projects split across repos. */
+  repositories?: ProjectDemo[];
   demo?: string;
   demos?: ProjectDemo[];
   coverImage?: string;

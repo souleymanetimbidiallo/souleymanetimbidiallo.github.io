@@ -17,10 +17,13 @@
             <div><dt>{{ 'project.date' | t }}</dt><dd><time [attr.datetime]="project.date">{{ projectDate }}</time></dd></div>
           }
         </dl>
-        @if (project.repository || project.demo || project.demos?.length) {
+        @if (project.repository || project.repositories?.length || project.demo || project.demos?.length) {
           <div class="project-actions">
             @if (project.repository) {
               <a class="btn btn-primary" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            }
+            @for (repo of project.repositories; track $index) {
+              <a class="btn btn-primary" [href]="repo.url" target="_blank" rel="noopener noreferrer">GitHub {{ localized(repo.label) }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             }
             @if (project.demo) {
               <a class="btn btn-secondary" [href]="project.demo" target="_blank" rel="noopener noreferrer">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
