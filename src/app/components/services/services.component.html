@@ -6,28 +6,30 @@
     </div>
 
     <div class="grid">
-      <article class="service" *ngFor="let s of services">
-        <div class="icon">
-          <span class="ico-circle"><i class="bi" [ngClass]="s.icon"></i></span>
-        </div>
-
-        <h4 class="s-title">{{ s.title }}</h4>
-        <p class="s-desc">{{ s.desc }}</p>
-
-        <ul class="s-list">
-          <li *ngFor="let b of s.bullets">
-            <i class="bi bi-check2-circle"></i>{{ b }}
-          </li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag" *ngFor="let t of s.tags">{{ t }}</span>
-        </div>
-
-        <div class="s-cta">
-          <a href="#contact" class="btn btn-outline">{{ 'services.cta' | t }}</a>
-        </div>
-      </article>
+      @for (s of services; track $index) {
+        <article class="service">
+          <div class="icon">
+            <span class="ico-circle"><i class="bi" [ngClass]="s.icon"></i></span>
+          </div>
+          <h4 class="s-title">{{ s.title }}</h4>
+          <p class="s-desc">{{ s.desc }}</p>
+          <ul class="s-list">
+            @for (b of s.bullets; track $index) {
+              <li>
+                <i class="bi bi-check2-circle"></i>{{ b }}
+              </li>
+            }
+          </ul>
+          <div class="tags">
+            @for (t of s.tags; track $index) {
+              <span class="tag">{{ t }}</span>
+            }
+          </div>
+          <div class="s-cta">
+            <a href="#contact" class="btn btn-outline">{{ 'services.cta' | t }}</a>
+          </div>
+        </article>
+      }
     </div>
   </div>
 </section>

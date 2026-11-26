@@ -1,10 +1,10 @@
-import { NgIf } from '@angular/common';
+
 import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild, DOCUMENT } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
     selector: 'app-image-viewer',
-    imports: [NgIf, TranslatePipe],
+    imports: [TranslatePipe],
     templateUrl: './image-viewer.component.html',
     styleUrl: './image-viewer.component.css'
 })

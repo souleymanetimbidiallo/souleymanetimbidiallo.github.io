@@ -1,52 +1,120 @@
 <app-image-viewer #imageViewer></app-image-viewer>
-<div class="project-page" *ngIf="project">
-  <header class="project-hero">
-    <div class="container">
-      <a class="back-link" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
-      <div class="project-heading">
-        <div><p class="section-eyebrow">{{ projectTypeKey | t }}</p><h1>{{ projectTitle }}</h1><p class="positioning">{{ projectDescription }}</p></div>
-        <app-project-status [status]="project.status"></app-project-status>
-      </div>
-      <dl class="project-meta">
-        <div><dt>{{ 'project.context' | t }}</dt><dd>{{ contextKey | t }}</dd></div>
-        <div *ngIf="projectRole"><dt>{{ 'project.role' | t }}</dt><dd>{{ projectRole }}</dd></div>
-        <div *ngIf="project.date"><dt>{{ 'project.date' | t }}</dt><dd><time [attr.datetime]="project.date">{{ projectDate }}</time></dd></div>
-      </dl>
-      <div class="project-actions" *ngIf="project.repository || project.demo || project.demos?.length">
-        <a class="btn btn-primary" *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-        <a class="btn btn-secondary" *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-        <a class="btn btn-secondary" *ngFor="let demo of project.demos" [href]="demo.url" target="_blank" rel="noopener noreferrer">{{ localized(demo.label) }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <div class="project-main">
-    <div class="container">
-      <figure class="cover" *ngIf="project.coverImage"><button class="project-image-button" type="button" (click)="imageViewer.open(project.coverImage, projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + projectTitle"><img [src]="project.coverImage" alt="" decoding="async" fetchpriority="high" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button></figure>
-      <div class="content-layout">
-        <aside class="architecture" aria-labelledby="current-stack-title">
-          <section *ngIf="project.currentTechnologies.length"><h2 id="current-stack-title">{{ 'project.currentStack' | t }}</h2><app-grouped-technologies [technologyIds]="project.currentTechnologies"></app-grouped-technologies></section>
-          <section class="planned" *ngIf="project.plannedTechnologies.length"><h2>{{ 'project.plannedModernization' | t }}</h2><p>{{ 'project.plannedDisclaimer' | t }}</p><app-grouped-technologies [technologyIds]="project.plannedTechnologies"></app-grouped-technologies></section>
-          <section *ngIf="project.domains.length"><h2>{{ 'project.domains' | t }}</h2><ul class="domain-list"><li *ngFor="let domain of project.domains">{{ localized(domain) }}</li></ul></section>
-        </aside>
-
-        <div class="project-story">
-          <section *ngIf="!editorialSections.length"><h2>{{ 'project.overview' | t }}</h2><p>{{ projectDescription }}</p></section>
-          <section *ngFor="let section of editorialSections"><h2>{{ section.labelKey | t }}</h2><p>{{ section.content }}</p></section>
-          <section *ngIf="projectImpact"><h2>{{ 'project.impact' | t }}</h2><p>{{ projectImpact }}</p></section>
-          <section *ngIf="projectHighlights.length"><h2>{{ 'project.keyPoints' | t }}</h2><ul><li *ngFor="let highlight of projectHighlights">{{ highlight }}</li></ul></section>
-          <div class="capability-grid" *ngIf="project.capabilityGroups?.length">
-            <section *ngFor="let group of project.capabilityGroups"><h2>{{ localized(group.title) }}</h2><ul><li *ngFor="let capability of group.items">{{ localized(capability) }}</li></ul></section>
-          </div>
-          <section *ngIf="!project.capabilityGroups?.length && project.capabilities.length"><h2>{{ 'project.capabilities' | t }}</h2><ul><li *ngFor="let capability of project.capabilities">{{ localized(capability) }}</li></ul></section>
-          <div class="capability-grid" *ngIf="projectCaseStudy.length"><section *ngFor="let section of projectCaseStudy"><h2>{{ section.title }}</h2><ul><li *ngFor="let item of section.items">{{ item }}</li></ul></section></div>
-          <section *ngIf="projectProofBlocks.length"><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid"><article *ngFor="let block of projectProofBlocks"><h3>{{ block.title }}</h3><pre *ngIf="block.variant === 'code'"><code><span *ngFor="let line of block.lines">{{ line }}</span></code></pre><ul *ngIf="block.variant !== 'code'"><li *ngFor="let line of block.lines">{{ line }}</li></ul></article></div></section>
+@if (project) {
+  <div class="project-page">
+    <header class="project-hero">
+      <div class="container">
+        <a class="back-link" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
+        <div class="project-heading">
+          <div><p class="section-eyebrow">{{ projectTypeKey | t }}</p><h1>{{ projectTitle }}</h1><p class="positioning">{{ projectDescription }}</p></div>
+          <app-project-status [status]="project.status"></app-project-status>
         </div>
+        <dl class="project-meta">
+          <div><dt>{{ 'project.context' | t }}</dt><dd>{{ contextKey | t }}</dd></div>
+          @if (projectRole) {
+            <div><dt>{{ 'project.role' | t }}</dt><dd>{{ projectRole }}</dd></div>
+          }
+          @if (project.date) {
+            <div><dt>{{ 'project.date' | t }}</dt><dd><time [attr.datetime]="project.date">{{ projectDate }}</time></dd></div>
+          }
+        </dl>
+        @if (project.repository || project.demo || project.demos?.length) {
+          <div class="project-actions">
+            @if (project.repository) {
+              <a class="btn btn-primary" [href]="project.repository" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            }
+            @if (project.demo) {
+              <a class="btn btn-secondary" [href]="project.demo" target="_blank" rel="noopener noreferrer">{{ 'project.demo' | t }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            }
+            @for (demo of project.demos; track $index) {
+              <a class="btn btn-secondary" [href]="demo.url" target="_blank" rel="noopener noreferrer">{{ localized(demo.label) }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            }
+          </div>
+        }
       </div>
-      <section class="gallery" *ngIf="galleryImages.length" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div><figure *ngFor="let item of galleryItems"><button class="project-image-button" type="button" (click)="imageViewer.open(item.src, item.caption || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (item.caption || projectTitle)"><img [src]="item.src" alt="" loading="lazy" decoding="async" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button><figcaption *ngIf="item.caption">{{ item.caption }}</figcaption></figure></div></section>
-      <a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
-    </div>
-  </div>
+    </header>
+    <div class="project-main">
+      <div class="container">
+        @if (project.coverImage) {
+          <figure class="cover"><button class="project-image-button" type="button" (click)="imageViewer.open(project.coverImage, projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + projectTitle"><img [src]="project.coverImage" alt="" decoding="async" fetchpriority="high" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button></figure>
+        }
+        <div class="content-layout">
+          <aside class="architecture" aria-labelledby="current-stack-title">
+            @if (project.currentTechnologies.length) {
+              <section><h2 id="current-stack-title">{{ 'project.currentStack' | t }}</h2><app-grouped-technologies [technologyIds]="project.currentTechnologies"></app-grouped-technologies></section>
+            }
+            @if (project.plannedTechnologies.length) {
+              <section class="planned"><h2>{{ 'project.plannedModernization' | t }}</h2><p>{{ 'project.plannedDisclaimer' | t }}</p><app-grouped-technologies [technologyIds]="project.plannedTechnologies"></app-grouped-technologies></section>
+            }
+            @if (project.domains.length) {
+              <section><h2>{{ 'project.domains' | t }}</h2><ul class="domain-list">@for (domain of project.domains; track $index) {
+              <li>{{ localized(domain) }}</li>
+            }</ul></section>
+          }
+        </aside>
+        <div class="project-story">
+          @if (!editorialSections.length) {
+            <section><h2>{{ 'project.overview' | t }}</h2><p>{{ projectDescription }}</p></section>
+          }
+          @for (section of editorialSections; track $index) {
+            <section><h2>{{ section.labelKey | t }}</h2><p>{{ section.content }}</p></section>
+          }
+          @if (projectImpact) {
+            <section><h2>{{ 'project.impact' | t }}</h2><p>{{ projectImpact }}</p></section>
+          }
+          @if (projectHighlights.length) {
+            <section><h2>{{ 'project.keyPoints' | t }}</h2><ul>@for (highlight of projectHighlights; track $index) {
+            <li>{{ highlight }}</li>
+          }</ul></section>
+        }
+        @if (project.capabilityGroups?.length) {
+          <div class="capability-grid">
+            @for (group of project.capabilityGroups; track $index) {
+              <section><h2>{{ localized(group.title) }}</h2><ul>@for (capability of group.items; track $index) {
+              <li>{{ localized(capability) }}</li>
+            }</ul></section>
+          }
+        </div>
+      }
+      @if (!project.capabilityGroups?.length && project.capabilities.length) {
+        <section><h2>{{ 'project.capabilities' | t }}</h2><ul>@for (capability of project.capabilities; track $index) {
+        <li>{{ localized(capability) }}</li>
+      }</ul></section>
+    }
+    @if (projectCaseStudy.length) {
+      <div class="capability-grid">@for (section of projectCaseStudy; track $index) {
+        <section><h2>{{ section.title }}</h2><ul>@for (item of section.items; track $index) {
+        <li>{{ item }}</li>
+      }</ul></section>
+    }</div>
+  }
+  @if (projectProofBlocks.length) {
+    <section><h2>{{ 'project.technicalProof' | t }}</h2><div class="proof-grid">@for (block of projectProofBlocks; track $index) {
+    <article><h3>{{ block.title }}</h3>@if (block.variant === 'code') {
+    <pre><code>@for (line of block.lines; track $index) {
+      <span>{{ line }}</span>
+    }</code></pre>
+    }@if (block.variant !== 'code') {
+    <ul>@for (line of block.lines; track $index) {
+      <li>{{ line }}</li>
+    }</ul>
+  }</article>
+}</div></section>
+}
 </div>
+</div>
+@if (galleryImages.length) {
+  <section class="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div>@for (item of galleryItems; track $index) {
+  <figure><button class="project-image-button" type="button" (click)="imageViewer.open(item.src, item.caption || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (item.caption || projectTitle)"><img [src]="item.src" alt="" loading="lazy" decoding="async" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button>@if (item.caption) {
+  <figcaption>{{ item.caption }}</figcaption>
+}</figure>
+}</div></section>
+}
+<a class="back-link back-link--bottom" routerLink="/" fragment="portfolio"><i class="bi bi-arrow-left" aria-hidden="true"></i>{{ 'project.backProjects' | t }}</a>
+</div>
+</div>
+</div>
+}
 
-<div class="not-found" *ngIf="!project"><div class="container"><h1>{{ 'project.notFound' | t }}</h1><a routerLink="/" class="btn btn-primary">{{ 'project.backHome' | t }}</a></div></div>
+@if (!project) {
+  <div class="not-found"><div class="container"><h1>{{ 'project.notFound' | t }}</h1><a routerLink="/" class="btn btn-primary">{{ 'project.backHome' | t }}</a></div></div>
+}

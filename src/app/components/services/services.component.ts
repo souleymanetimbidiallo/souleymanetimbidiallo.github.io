@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
@@ -13,7 +13,7 @@ type Service = {
 
 @Component({
     selector: 'app-services',
-    imports: [NgFor, NgClass, TranslatePipe],
+    imports: [NgClass, TranslatePipe],
     templateUrl: './services.component.html',
     styleUrls: ['./services.component.css']
 })

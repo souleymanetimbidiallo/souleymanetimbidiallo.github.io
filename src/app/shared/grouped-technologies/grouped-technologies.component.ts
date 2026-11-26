@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { TechnologyId } from '../../models/technology.model';
 import { groupTechnologies, TechnologyGroup } from '../technology-group.util';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
     selector: 'app-grouped-technologies',
-    imports: [NgFor, TranslatePipe],
+    imports: [TranslatePipe],
     templateUrl: './grouped-technologies.component.html',
     styleUrl: './grouped-technologies.component.css'
 })

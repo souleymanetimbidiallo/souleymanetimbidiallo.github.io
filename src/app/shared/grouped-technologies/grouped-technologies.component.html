@@ -1,8 +1,12 @@
 <div class="technology-groups">
-  <section class="technology-group" *ngFor="let group of groups">
-    <span class="technology-group__label">{{ group.labelKey | t }}</span>
-    <ul class="technology-group__items">
-      <li *ngFor="let technology of group.technologies">{{ technology.label }}</li>
-    </ul>
-  </section>
+  @for (group of groups; track $index) {
+    <section class="technology-group">
+      <span class="technology-group__label">{{ group.labelKey | t }}</span>
+      <ul class="technology-group__items">
+        @for (technology of group.technologies; track $index) {
+          <li>{{ technology.label }}</li>
+        }
+      </ul>
+    </section>
+  }
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
@@ -7,7 +7,7 @@ type Step = { icon: string; title: string; desc: string; };
 
 @Component({
     selector: 'app-process',
-    imports: [NgFor, NgClass, TranslatePipe],
+    imports: [NgClass, TranslatePipe],
     templateUrl: './process.component.html',
     styleUrls: ['./process.component.css']
 })

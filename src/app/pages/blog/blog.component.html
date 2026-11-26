@@ -2,10 +2,14 @@
   <div class="container">
     <div class="section-header section-header--row"><div><p class="section-eyebrow">{{ 'blog.eyebrow' | t }}</p><h2 id="writing-title">{{ 'blog.sectionTitle' | t }}</h2></div><p>{{ 'blog.subtitle' | t }}</p></div>
     <div class="article-grid">
-      <article *ngFor="let post of articles">
-        <img *ngIf="post.image" [src]="post.image" [alt]="getArticleTitle(post)" width="700" height="400" loading="lazy" decoding="async" />
-        <div class="article-content"><p class="article-date">{{ getArticleDate(post) }}</p><h3>{{ getArticleTitle(post) }}</h3><p>{{ getArticleSummary(post) }}</p><a [routerLink]="['/blog', post.slug]">{{ 'blog.readMore' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-      </article>
+      @for (post of articles; track $index) {
+        <article>
+          @if (post.image) {
+            <img [src]="post.image" [alt]="getArticleTitle(post)" width="700" height="400" loading="lazy" decoding="async" />
+          }
+          <div class="article-content"><p class="article-date">{{ getArticleDate(post) }}</p><h3>{{ getArticleTitle(post) }}</h3><p>{{ getArticleSummary(post) }}</p><a [routerLink]="['/blog', post.slug]">{{ 'blog.readMore' | t }} <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
+        </article>
+      }
     </div>
   </div>
 </section>

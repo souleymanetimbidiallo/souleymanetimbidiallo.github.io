@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+
 import { PROJECTS } from '../../data/projects.data';
 import { Project } from '../../models/project.model';
 import { LanguageService } from '../../core/i18n/language.service';
@@ -14,7 +14,7 @@ export const ARCHIVED_PROJECT_IDS = ['gui-plus', 'soodou-shop', 'citoykaidi'];
 
 @Component({
     selector: 'app-portfolio',
-    imports: [NgFor, NgIf, TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
+    imports: [TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
     templateUrl: './portfolio.component.html',
     styleUrl: './portfolio.component.css'
 })

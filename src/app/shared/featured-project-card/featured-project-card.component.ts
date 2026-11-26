@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Project } from '../../models/project.model';
 import { getTechnologyLabel } from '../../data/technologies.data';
@@ -8,7 +8,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ProjectStatusComponent } from '../project-status/project-status.component';
 
 @Component({
-    selector: 'app-featured-project-card', imports: [NgFor, NgIf, NgOptimizedImage, RouterModule, TranslatePipe, ProjectStatusComponent], templateUrl: './featured-project-card.component.html', styleUrl: './featured-project-card.component.css'
+    selector: 'app-featured-project-card', imports: [NgOptimizedImage, RouterModule, TranslatePipe, ProjectStatusComponent], templateUrl: './featured-project-card.component.html', styleUrl: './featured-project-card.component.css'
 })
 export class FeaturedProjectCardComponent {
   @Input({ required: true }) project!: Project;

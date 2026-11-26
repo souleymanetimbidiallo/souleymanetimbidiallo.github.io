@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+
 import { PROFESSIONAL_EXPERIENCES } from '../../data/experience.data';
 import { EDUCATION } from '../../data/education.data';
 import { LocalizedText } from '../../models/localized-text.model';
@@ -9,7 +9,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
     selector: 'app-time-line',
-    imports: [NgFor, NgIf, GroupedTechnologiesComponent, TranslatePipe],
+    imports: [GroupedTechnologiesComponent, TranslatePipe],
     templateUrl: './time-line.component.html',
     styleUrl: './time-line.component.css'
 })

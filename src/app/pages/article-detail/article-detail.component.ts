@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgIf } from '@angular/common';
+
 import { catchError, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
@@ -13,7 +13,7 @@ import { PageMetaService } from '../../core/seo/page-meta.service';
 
 @Component({
     selector: 'app-article-detail',
-    imports: [MarkdownModule, NgIf, RouterModule, TranslatePipe],
+    imports: [MarkdownModule, RouterModule, TranslatePipe],
     templateUrl: './article-detail.component.html',
     styleUrl: './article-detail.component.css'
 })

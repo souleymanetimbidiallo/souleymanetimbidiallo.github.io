@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+
 
 import { BLOG_ARTICLES, BlogArticle } from '../../data/articles.data';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -8,7 +8,7 @@ import { LanguageService } from '../../core/i18n/language.service';
 
 @Component({
     selector: 'app-blog',
-    imports: [NgFor, RouterModule, NgIf, TranslatePipe],
+    imports: [RouterModule, TranslatePipe],
     templateUrl: './blog.component.html',
     styleUrl: './blog.component.css'
 })
