@@ -7,7 +7,9 @@ import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ProjectStatusComponent } from '../project-status/project-status.component';
 
-@Component({ selector: 'app-project-card', standalone: true, imports: [NgFor, NgIf, NgOptimizedImage, RouterModule, TranslatePipe, ProjectStatusComponent], templateUrl: './project-card.component.html', styleUrl: './project-card.component.css' })
+@Component({
+    selector: 'app-project-card', imports: [NgFor, NgIf, NgOptimizedImage, RouterModule, TranslatePipe, ProjectStatusComponent], templateUrl: './project-card.component.html', styleUrl: './project-card.component.css'
+})
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
   constructor(public languageService: LanguageService) {}

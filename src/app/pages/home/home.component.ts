@@ -8,18 +8,17 @@ import { TimeLineComponent } from '../time-line/time-line.component';
 import { BlogComponent } from "../blog/blog.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    HeroComponent,
-    AboutComponent,
-    PortfolioComponent,
-    ContactComponent,
-    TimeLineComponent,
-    FooterComponent,
-    BlogComponent
-],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [
+        HeroComponent,
+        AboutComponent,
+        PortfolioComponent,
+        ContactComponent,
+        TimeLineComponent,
+        FooterComponent,
+        BlogComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {}

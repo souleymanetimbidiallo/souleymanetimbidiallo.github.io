@@ -12,11 +12,10 @@ type Service = {
 };
 
 @Component({
-  selector: 'app-services',
-  standalone: true,
-  imports: [NgFor, NgClass, TranslatePipe],
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+    selector: 'app-services',
+    imports: [NgFor, NgClass, TranslatePipe],
+    templateUrl: './services.component.html',
+    styleUrls: ['./services.component.css']
 })
 export class ServicesComponent {
   constructor(private languageService: LanguageService) {}

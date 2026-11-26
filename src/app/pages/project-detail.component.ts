@@ -18,11 +18,10 @@ export interface GalleryItem {
 }
 
 @Component({
-  selector: 'app-project-detail',
-  standalone: true,
-  imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
-  templateUrl: './project-detail.component.html',
-  styleUrl: './project-detail.component.css',
+    selector: 'app-project-detail',
+    imports: [NgFor, NgIf, RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
+    templateUrl: './project-detail.component.html',
+    styleUrl: './project-detail.component.css'
 })
 export class ProjectDetailComponent {
   project?: Project;

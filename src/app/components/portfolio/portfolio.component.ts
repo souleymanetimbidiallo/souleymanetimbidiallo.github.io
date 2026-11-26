@@ -13,11 +13,10 @@ export const FEATURED_PROJECT_IDS = ['gn-exams-2026', 'api-guinea-geo', 'kaglob-
 export const ARCHIVED_PROJECT_IDS = ['gui-plus', 'soodou-shop', 'citoykaidi'];
 
 @Component({
-  selector: 'app-portfolio',
-  standalone: true,
-  imports: [NgFor, NgIf, TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css',
+    selector: 'app-portfolio',
+    imports: [NgFor, NgIf, TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
+    templateUrl: './portfolio.component.html',
+    styleUrl: './portfolio.component.css'
 })
 export class PortfolioComponent {
   readonly allProjects = PROJECTS;

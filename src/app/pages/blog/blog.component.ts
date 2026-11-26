@@ -7,11 +7,10 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { LanguageService } from '../../core/i18n/language.service';
 
 @Component({
-  selector: 'app-blog',
-  standalone: true,
-  imports: [NgFor, RouterModule, NgIf, TranslatePipe],
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.css',
+    selector: 'app-blog',
+    imports: [NgFor, RouterModule, NgIf, TranslatePipe],
+    templateUrl: './blog.component.html',
+    styleUrl: './blog.component.css'
 })
 export class BlogComponent {
   articles = BLOG_ARTICLES;

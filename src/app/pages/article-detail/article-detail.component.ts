@@ -12,11 +12,10 @@ import { LanguageService } from '../../core/i18n/language.service';
 import { PageMetaService } from '../../core/seo/page-meta.service';
 
 @Component({
-  selector: 'app-article-detail',
-  standalone: true,
-  imports: [MarkdownModule, NgIf, RouterModule, TranslatePipe],
-  templateUrl: './article-detail.component.html',
-  styleUrl: './article-detail.component.css',
+    selector: 'app-article-detail',
+    imports: [MarkdownModule, NgIf, RouterModule, TranslatePipe],
+    templateUrl: './article-detail.component.html',
+    styleUrl: './article-detail.component.css'
 })
 export class ArticleDetailComponent {
   slug: string | null;

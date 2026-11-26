@@ -6,11 +6,10 @@ import { getTechnologyLabel } from '../../data/technologies.data';
 interface SkillGroup { titleKey: string; technologies: string[]; }
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [NgFor, TranslatePipe],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+    selector: 'app-about',
+    imports: [NgFor, TranslatePipe],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.css'
 })
 export class AboutComponent {
   readonly coreTechnologies = ['java', 'spring-boot', 'angular', 'php', 'laravel', 'symfony', 'docker', 'postgresql'];

@@ -3,11 +3,10 @@ import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild } fro
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
-  selector: 'app-image-viewer',
-  standalone: true,
-  imports: [NgIf, TranslatePipe],
-  templateUrl: './image-viewer.component.html',
-  styleUrl: './image-viewer.component.css',
+    selector: 'app-image-viewer',
+    imports: [NgIf, TranslatePipe],
+    templateUrl: './image-viewer.component.html',
+    styleUrl: './image-viewer.component.css'
 })
 export class ImageViewerComponent implements OnDestroy {
   @ViewChild('dialog', { static: true }) dialog!: ElementRef<HTMLDialogElement>;

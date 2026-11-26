@@ -4,11 +4,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { PageMetaService } from './core/seo/page-meta.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [HeaderComponent, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [HeaderComponent, RouterOutlet],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'portfolio-angular';
