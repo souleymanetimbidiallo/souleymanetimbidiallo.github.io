@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Injectable, effect, inject } from '@angular/core';
+import { Injectable, effect, inject, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';

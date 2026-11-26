@@ -1,5 +1,5 @@
-import { DOCUMENT, NgIf } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, ViewChild, DOCUMENT } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
