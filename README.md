@@ -9,13 +9,8 @@ Il présente mon **parcours académique et professionnel**, mes **compétences**
 
 ## 👨‍💻 À propos de moi
 
-Je suis **Ingénieur logiciel Fullstack**, passionné par la **Data & IA** et le **DevOps**.  
-Avec plusieurs années d’expérience en entreprise et en freelance, j’ai travaillé sur des projets variés :  
-- Développement **d’applications web et mobiles**  
-- Conception de **solutions data**  
-- Intégration CI/CD et déploiement cloud  
-
-🎯 Mon objectif : contribuer à des projets ambitieux en alliant **qualité du code**, **performance** et **impact concret**.
+Je suis **ingénieur logiciel full-stack**, basé à **Columbus (Ohio, USA)**, ouvert aux postes en remote, hybride ou sur site.  
+Au quotidien : **Java / Spring Boot / Angular**, de l'API REST à l'interface. Dans mes projets personnels : **PHP / Laravel / Symfony**.
 
 ---
 
@@ -42,26 +37,21 @@ Avec plusieurs années d’expérience en entreprise et en freelance, j’ai tra
 
 ## 🛠️ Compétences
 
-**Frontend** : Angular, React, VueJS, HTML, CSS, Sass, TypeScript, Bootstrap  
-**Backend** : Java (Spring Boot), NodeJS, Python (Django), PHP (Symfony, Laravel, Drupal), Scala, C/C++  
-**Mobile** : Flutter, Kotlin  
-**Data & IA** : Python (Pandas, R, SQL), Hadoop, Spark, ElasticSearch  
-**DevOps** : Docker, Kubernetes, Linux, Git, GitHub Actions, GitLab CI/CD  
-**Bases de données** : MySQL, Oracle, PostgreSQL, MongoDB  
-**Gestion de projet** : Jira, Confluence, Trello, Slack  
+**Au quotidien** : Java, Spring Boot, Angular, TypeScript, API REST, Oracle, MariaDB, Elasticsearch  
+**Aussi dans mes projets** : PHP (Laravel, Symfony, Drupal), Python, Flutter  
+**Outils** : Docker, Git, GitLab CI/CD, GitHub Actions, Jira
 
 ---
 
 ## 📂 Projets sélectionnés
 
-- **Gui-Plus** : Plateforme communautaire & médias en Guinée  
-- **Guinea Roads** : Application mobile pour le transport en commun (Flutter)  
-- **CitoyKaidi** : plateforme de technologie civique en PHP, avec une modernisation technique planifiée
-- **API Guinée Geo** : API open-source fournissant des données géographiques  
-- **Soodou Shop** : Application e-commerce en PHP  
-- **KAGLOB ERP** : ERP modulaire de gestion de flotte et de location de véhicules
+- **GN Exams 2026** : analyse et visualisation des résultats des examens nationaux guinéens 2026 (BAC, BEPC, CEE)
+- **API Guinée Geo** : API open-source de données géographiques sur la Guinée
+- **KAGLOB ERP** : ERP modulaire de gestion de flotte et de location de véhicules (Laravel)
 - **Yiidein** : plateforme SaaS multi-domaines de prise de rendez-vous
-- **GN Exams 2026** : application d’analyse et de visualisation des résultats des examens nationaux guinéens 2026 (BAC, BEPC, CEE)
+- **Guinea Roads** : application mobile pour le transport en commun (Flutter)
+
+Archives : Gui-Plus, Soodou Shop, CitoyKaidi (premiers projets, 2019-2020).
 
 *(Détails disponibles dans le portfolio)*
 
@@ -77,3 +67,17 @@ LinkedIn : linkedin.com/in/souleymanetimbidiallo
 GitHub : github.com/souleymanetimbidiallo
 
 Twitter : twitter.com/SouleymaneTm
+
+---
+
+## ⚙️ Développement
+
+```bash
+npm ci
+npm start            # serveur de dev
+npm test             # tests unitaires (Karma)
+npm run build        # build de prod + prerendering des pages dans docs/
+```
+
+Le déploiement est automatique : chaque push sur `master` lance le workflow GitHub Actions
+(`.github/workflows/deploy.yml`) qui teste, construit et publie le site sur GitHub Pages.
