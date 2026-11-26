@@ -106,7 +106,7 @@
 </div>
 </div>
 @if (galleryImages.length) {
-  <section class="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div>@for (item of galleryItems; track $index) {
+  <section class="gallery" [class.gallery--portrait]="project.galleryLayout === 'portrait'" aria-labelledby="gallery-title"><h2 id="gallery-title">{{ 'project.gallery' | t }}</h2><div>@for (item of galleryItems; track $index) {
   <figure><button class="project-image-button" type="button" (click)="imageViewer.open(item.src, item.caption || projectTitle)" [attr.aria-label]="('imageViewer.open' | t) + ' : ' + (item.caption || projectTitle)"><img [src]="item.src" alt="" loading="lazy" decoding="async" /><span class="project-image-hint" aria-hidden="true">{{ 'imageViewer.open' | t }} ↗</span></button>@if (item.caption) {
   <figcaption>{{ item.caption }}</figcaption>
 }</figure>

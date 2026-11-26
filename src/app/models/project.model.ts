@@ -88,6 +88,8 @@ export interface Project {
   coverImage?: string;
   gallery: string[];
   galleryCaptions?: Record<string, LocalizedText>;
+  /** 'portrait' pour des captures de téléphone : grille plus dense. */
+  galleryLayout?: 'landscape' | 'portrait';
   highlights: LocalizedText[];
   caseStudy?: ProjectCaseSection[];
   proofBlocks?: ProjectProofBlock[];
