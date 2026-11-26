@@ -11,7 +11,7 @@ export class LanguageService {
   private readonly storageKey = 'app_lang';
   private readonly document = inject(DOCUMENT);
   private readonly meta = inject(Meta);
-  readonly language = signal<AppLanguage>('fr');
+  readonly language = signal<AppLanguage>('en');
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -32,7 +32,7 @@ export class LanguageService {
   }
 
   toggleLanguage() {
-    this.setLanguage(this.language() === 'fr' ? 'en' : 'fr');
+    this.setLanguage(this.language() === 'en' ? 'fr' : 'en');
   }
 
   private syncDocumentLanguage(lang: AppLanguage) {

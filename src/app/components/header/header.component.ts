@@ -1,5 +1,5 @@
-import { DOCUMENT, NgClass } from '@angular/common';
-import { Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT, NgClass, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     public languageService: LanguageService,
     public themeService: ThemeService,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
   mobileNavOpen = false;
@@ -63,12 +64,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private updateScrolledState(): void {
-    const hero = document.getElementById('hero');
+    const hero = this.document.getElementById('hero');
 
     if (!hero) {
       this.isScrolled = true;
       return;
     }
+    // Prerendered pages start at the top, above the hero's bottom edge.
+    if (!isPlatformBrowser(this.platformId)) return;
 
     this.isScrolled = hero.getBoundingClientRect().bottom <= 88;
   }

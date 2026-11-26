@@ -16,5 +16,10 @@
       </header>
       <div class="project-grid"><app-project-card *ngFor="let project of displayedProjects" [project]="project"></app-project-card></div>
     </section>
+
+    <details class="archives" *ngIf="archivedProjects.length">
+      <summary><span>{{ 'portfolio.archives' | t }}</span> <small>{{ 'portfolio.archivesIntro' | t }}</small></summary>
+      <div class="project-grid"><app-project-card *ngFor="let project of archivedProjects" [project]="project"></app-project-card></div>
+    </details>
   </div>
 </section>

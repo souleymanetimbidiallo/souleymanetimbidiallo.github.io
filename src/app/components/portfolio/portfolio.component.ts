@@ -9,6 +9,8 @@ import { ProjectCardComponent } from '../../shared/project-card/project-card.com
 
 type CategoryKey = 'all' | 'web' | 'mobile' | 'data';
 export const FEATURED_PROJECT_IDS = ['gn-exams-2026', 'api-guinea-geo', 'kaglob-erp', 'yiidein'];
+/** Early projects, kept for history in a collapsed section so they don't dilute recent work. */
+export const ARCHIVED_PROJECT_IDS = ['gui-plus', 'soodou-shop', 'citoykaidi'];
 
 @Component({
   selector: 'app-portfolio',
@@ -26,9 +28,11 @@ export class PortfolioComponent {
 
   get featuredProjects(): Project[] { return FEATURED_PROJECT_IDS.map((id) => this.allProjects.find((project) => project.id === id)).filter((project): project is Project => Boolean(project)); }
   get displayedProjects(): Project[] {
-    if (this.selectedCategory !== 'all') return this.allProjects.filter((project) => project.portfolioFilter === this.selectedCategory);
-    return this.allProjects.filter((project) => !FEATURED_PROJECT_IDS.includes(project.id));
+    const current = this.allProjects.filter((project) => !ARCHIVED_PROJECT_IDS.includes(project.id));
+    if (this.selectedCategory !== 'all') return current.filter((project) => project.portfolioFilter === this.selectedCategory);
+    return current.filter((project) => !FEATURED_PROJECT_IDS.includes(project.id));
   }
+  get archivedProjects(): Project[] { return this.allProjects.filter((project) => ARCHIVED_PROJECT_IDS.includes(project.id)); }
   filterByCategory(category: CategoryKey): void { this.selectedCategory = category; }
   getCategoryLabel(category: CategoryKey): string { return ({ all: { fr:'Tous',en:'All' }, web:{ fr:'Web',en:'Web' }, mobile:{ fr:'Mobile',en:'Mobile' }, data:{ fr:'Données',en:'Data' } }[category])[this.languageService.language()]; }
 }

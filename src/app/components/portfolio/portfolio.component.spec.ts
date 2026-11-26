@@ -41,6 +41,15 @@ describe('PortfolioComponent', () => {
     }
   });
 
+  it('moves early projects out of the main grid into the archives', () => {
+    const archived = ['gui-plus', 'soodou-shop', 'citoykaidi'];
+    expect(component.archivedProjects.map((project) => project.id)).toEqual(jasmine.arrayWithExactContents(archived));
+    for (const category of ['all', 'web', 'mobile', 'data'] as const) {
+      component.filterByCategory(category);
+      expect(component.displayedProjects.some((project) => archived.includes(project.id))).toBeFalse();
+    }
+  });
+
   it('does not include enterprise engagements in the personal project inventory', () => {
     const ids = component.allProjects.map((project) => project.id);
     expect(ids).not.toContain('phenix');

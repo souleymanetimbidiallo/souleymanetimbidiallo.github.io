@@ -14,9 +14,7 @@ describe('LanguageService', () => {
   it('keeps the <html lang> attribute and og:locale in sync with the active language', () => {
     const service = TestBed.inject(LanguageService);
     const meta = TestBed.inject(Meta);
-    expect(document.documentElement.lang).toBe('fr');
-
-    service.setLanguage('en');
+    expect(service.language()).toBe('en');
     expect(document.documentElement.lang).toBe('en');
     expect(meta.getTag('property="og:locale"')?.content).toBe('en_US');
     expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('fr_FR');
@@ -24,5 +22,6 @@ describe('LanguageService', () => {
     service.toggleLanguage();
     expect(document.documentElement.lang).toBe('fr');
     expect(meta.getTag('property="og:locale"')?.content).toBe('fr_FR');
+    expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('en_US');
   });
 });

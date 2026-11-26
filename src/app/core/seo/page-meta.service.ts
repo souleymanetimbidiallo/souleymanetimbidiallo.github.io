@@ -10,8 +10,8 @@ const SITE_URL = 'https://souleymanetimbidiallo.github.io';
 
 /** Description of the pages without their own metadata (home, blog, parcours), per language. */
 export const DEFAULT_DESCRIPTION = {
-  fr: 'Portfolio de Souleymane Diallo, ingénieur logiciel full-stack spécialisé en applications web, APIs REST, data products, Java, Angular, Node.js et Python.',
-  en: 'Portfolio of Souleymane Diallo, a full-stack software engineer specializing in web applications, REST APIs, data products, Java, Angular, Node.js and Python.',
+  fr: 'Souleymane Diallo, ingénieur logiciel full-stack basé à Columbus (Ohio). Java, Spring Boot et Angular au quotidien ; PHP et Laravel dans mes projets. Ouvert aux postes en remote, hybride ou sur site.',
+  en: 'Souleymane Diallo, full-stack software engineer based in Columbus, Ohio. Java, Spring Boot and Angular day to day; PHP and Laravel in my own projects. Open to remote, hybrid or on-site roles.',
 } as const;
 
 export interface PageMeta {

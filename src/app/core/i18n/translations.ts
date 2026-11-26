@@ -85,8 +85,8 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
     en: 'My goal: put my skills to work on ambitious projects and help turn ideas into concrete outcomes.',
   },
   'about.availability': {
-    fr: 'Ouvert aux opportunités remote, hybrides ou en présentiel selon le projet.',
-    en: 'Open to remote, hybrid, or on-site opportunities depending on the role.',
+    fr: 'Basé à Columbus (Ohio), ouvert aux postes en remote, hybride ou sur site.',
+    en: 'Based in Columbus, Ohio, and open to remote, hybrid or on-site roles.',
   },
   'about.skills.fullstack': {
     fr: 'Développement Full-Stack',
@@ -192,6 +192,8 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'portfolio.filterLabel': { fr: 'Filtrer les projets', en: 'Filter projects' },
   'portfolio.viewDetails': { fr: 'Voir le projet', en: 'View project' },
   'portfolio.see': { fr: 'Voir', en: 'View' },
+  'portfolio.archives': { fr: 'Archives', en: 'Archive' },
+  'portfolio.archivesIntro': { fr: 'Mes premiers projets (2019-2020), conservés pour l’historique.', en: 'My early projects (2019-2020), kept for the record.' },
   'portfolio.count': { fr: 'projet(s)', en: 'project(s)' },
   'project.demo': { fr: 'Démo', en: 'Demo' },
   'project.demos': { fr: '3 démos', en: '3 demos' },
@@ -205,16 +207,16 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'blog.readMore': { fr: 'Lire plus', en: 'Read more' },
 
   /* CONTACT */
-  'contact.title': { fr: 'Parlons de votre projet', en: 'Let’s talk about your project' },
-  'contact.lead': { fr: 'Vous recrutez un développeur full-stack ou souhaitez échanger sur un projet présenté ici ? Vous pouvez me joindre par email ou sur LinkedIn.', en: 'Hiring a full-stack developer or want to discuss one of these projects? Get in touch by email or on LinkedIn.' },
+  'contact.title': { fr: 'Vous recrutez ?', en: 'Hiring?' },
+  'contact.lead': { fr: 'Je cherche un poste d’ingénieur full-stack ou backend (Java, Spring Boot, Angular). Basé à Columbus (Ohio), ouvert au remote, à l’hybride ou au sur site. Écrivez-moi par email ou sur LinkedIn.', en: 'I’m looking for a full-stack or backend engineering role (Java, Spring Boot, Angular). Based in Columbus, Ohio, and open to remote, hybrid or on-site work. Reach me by email or on LinkedIn.' },
   'contact.email': { fr: 'Envoyer un email', en: 'Send an email' },
   'contact.linkedin': { fr: 'Voir LinkedIn', en: 'View LinkedIn' },
   'contact.github': { fr: 'Voir GitHub', en: 'View GitHub' },
   'contact.resume': { fr: 'Télécharger le CV', en: 'Download résumé' },
   'contact.availabilityLabel': { fr: 'Disponibilité', en: 'Availability' },
-  'contact.availability': { fr: 'À distance, ou en hybride selon le poste', en: 'Remote, or hybrid depending on the role' },
+  'contact.availability': { fr: 'Remote, hybride ou sur site depuis Columbus (Ohio)', en: 'Remote, hybrid or on-site from Columbus, Ohio' },
   'contact.focusLabel': { fr: 'Domaines', en: 'Focus' },
-  'contact.focus': { fr: 'Développement web, API et analyse de données', en: 'Web development, APIs and data analysis' },
+  'contact.focus': { fr: 'Back-ends Java / Spring Boot, front-ends Angular, API REST', en: 'Java / Spring Boot back ends, Angular front ends, REST APIs' },
 
   /* FOOTER */
   'footer.rights': { fr: 'Tous droits réservés', en: 'All Rights Reserved' },
