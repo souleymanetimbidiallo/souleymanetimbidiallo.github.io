@@ -45,6 +45,8 @@ export const TECHNOLOGIES: Technology[] = [
   { id: 'dart', label: 'Dart', category: 'language' },
   { id: 'flutter', label: 'Flutter', category: 'frontend-framework' },
   { id: 'riverpod', label: 'Riverpod', category: 'library' },
+  { id: 'firebase', label: 'Firebase', category: 'infrastructure' },
+  { id: 'google-maps', label: 'Google Maps', category: 'library' },
 ];
 
 const TECHNOLOGY_BY_ID = new Map(TECHNOLOGIES.map((technology) => [technology.id, technology]));

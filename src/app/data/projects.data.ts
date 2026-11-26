@@ -284,136 +284,125 @@ export const PROJECTS: Project[] = [
     slug: 'guinea-roads',
     legacySlugs: [],
     previousNames: [],
-    title: {
-      fr: 'Guinea-Roads',
-      en: 'Guinea-Roads',
-    },
-    coverImage: 'assets/img/projects/guinea-roads.png',
+    title: { fr: 'Guinea Roads', en: 'Guinea Roads' },
+    coverImage: 'assets/img/projects/guinea-roads/couverture.webp',
     repository: 'https://github.com/souleymanetimbidiallo/guinea_roads',
-    date: '2024-04-08',
+    date: '2024-05-10',
+    description: {
+      fr: 'Application mobile Flutter qui aide à se déplacer en transport en commun à Conakry : choix du trajet, prix, durée estimée et correspondances.',
+      en: 'Flutter mobile app that helps people get around Conakry by public transport: route choice, fare, estimated duration and transfers.',
+    },
+    cardSummary: {
+      fr: 'Itinéraires en taxi, minibus et tricycle à Conakry : prix, durée, correspondances et trajet sur la carte.',
+      en: 'Taxi, minibus and tricycle routes in Conakry: fare, duration, transfers and the trip on a map.',
+    },
+    detailSummary: {
+      fr: 'Guinea Roads compare les trajets possibles entre deux arrêts de Conakry. Pour chaque option, l’application affiche le prix, la durée estimée selon l’heure de départ et les changements à faire, puis trace le trajet sur Google Maps.',
+      en: 'Guinea Roads compares the possible trips between two stops in Conakry. For each option, the app shows the fare, the estimated duration for the departure time and the transfers needed, then draws the trip on Google Maps.',
+    },
+    role: { fr: 'Conception et développement de l’application mobile', en: 'Mobile application design and development' },
     context: 'personal',
     projectType: 'mobile-application',
     portfolioFilter: 'mobile',
     category: { fr: 'Application mobile de transport', en: 'Mobile transport application' },
-    domains: [{ fr: 'Transport', en: 'Transport' }],
-    currentTechnologies: [],
+    domains: [
+      { fr: 'Transport', en: 'Transport' },
+      { fr: 'Mobilité urbaine', en: 'Urban mobility' },
+    ],
+    currentTechnologies: ['dart', 'flutter', 'firebase', 'google-maps'],
     plannedTechnologies: [],
     capabilities: [
-      { fr: 'Cartographie', en: 'Maps' },
-      { fr: 'Géolocalisation', en: 'Geolocation' },
-      { fr: 'Recherche d’itinéraires', en: 'Route discovery' },
+      { fr: 'Recherche d’itinéraires', en: 'Route search' },
+      { fr: 'Calcul des tarifs', en: 'Fare calculation' },
+      { fr: 'Correspondances', en: 'Transfers' },
+      { fr: 'Durée selon l’heure de pointe', en: 'Rush-hour aware duration' },
+      { fr: 'Carte Google Maps', en: 'Google Maps view' },
+      { fr: 'Historique et favoris', en: 'History and favourites' },
     ],
-    client: 'Guinea-Roads',
-    description: {
-      fr: `Application mobile de transport urbain pour rechercher des itinéraires, explorer les points d’intérêt proches et améliorer l’orientation des usagers.`,
-      en: `Urban transport mobile app for route search, nearby point-of-interest discovery, and better user navigation.`,
-    },
-    cardSummary: {
-      fr: 'Application mobile de transport urbain pour les itinéraires et points d’intérêt proches.',
-      en: 'Urban transport mobile app for routes and nearby points of interest.',
-    },
-    role: {
-      fr: 'Développeur mobile',
-      en: 'Mobile developer',
-    },
-    impact: {
-      fr: 'Met l’accent sur un besoin local concret: rendre les déplacements urbains plus lisibles et accessibles.',
-      en: 'Focuses on a concrete local need: making urban mobility easier to understand and access.',
-    },
+    capabilityGroups: [
+      {
+        title: { fr: 'Recherche de trajet', en: 'Trip search' },
+        items: [
+          { fr: 'Recherche des arrêts par quartier ou par repère', en: 'Stop search by neighbourhood or landmark' },
+          { fr: 'Comparaison en taxi, minibus et tricycle', en: 'Comparison by taxi, minibus and tricycle' },
+          { fr: 'Tri des options par prix, durée ou nombre de changements', en: 'Options sorted by fare, duration or number of transfers' },
+          { fr: 'Option recommandée avec la raison du choix', en: 'Recommended option with the reason for the choice' },
+        ],
+      },
+      {
+        title: { fr: 'Calcul du trajet', en: 'Trip calculation' },
+        items: [
+          { fr: 'Plus court chemin pondéré (Dijkstra) entre les axes', en: 'Weighted shortest path (Dijkstra) across routes' },
+          { fr: 'Prix par tronçon et par mode de transport', en: 'Fare per segment and per transport mode' },
+          { fr: 'Durée corrigée selon les créneaux de congestion', en: 'Duration adjusted for congestion time slots' },
+          { fr: 'Correspondances à pied avec durée et consignes', en: 'Walking transfers with duration and directions' },
+        ],
+      },
+      {
+        title: { fr: 'Carte et suivi', en: 'Map and tracking' },
+        items: [
+          { fr: 'Tracé routier via Google Routes API, mis en cache', en: 'Road route from the Google Routes API, cached' },
+          { fr: 'Arrêts et correspondances affichés sur la carte', en: 'Stops and transfers shown on the map' },
+          { fr: 'Historique des recherches et trajets favoris', en: 'Search history and favourite trips' },
+          { fr: 'Données utilisables hors ligne', en: 'Data available offline' },
+        ],
+      },
+    ],
     highlights: [
       {
-        fr: 'Conception d’un parcours mobile centré sur la recherche d’itinéraires.',
-        en: 'Designed a mobile flow centered on route discovery.',
+        fr: 'Un vrai moteur de calcul : le réseau est un graphe d’axes et de correspondances, parcouru avec Dijkstra, puis chaque option reçoit un score (durée 40 %, prix 35 %, changements 25 %).',
+        en: 'A real routing engine: the network is a graph of routes and transfers searched with Dijkstra, then each option gets a score (duration 40%, fare 35%, transfers 25%).',
       },
       {
-        fr: 'Présentation des points d’intérêt pour contextualiser les trajets.',
-        en: 'Presented points of interest to add context to trips.',
+        fr: 'Données honnêtes : chaque tarif, durée ou créneau de congestion indique s’il a été vérifié sur le terrain ou s’il reste une hypothèse pilote.',
+        en: 'Honest data: each fare, duration or congestion slot states whether it was checked in the field or is still a pilot assumption.',
       },
       {
-        fr: 'Travail sur l’expérience utilisateur pour un usage rapide en mobilité.',
-        en: 'Worked on user experience for quick use while on the move.',
+        fr: 'Application qui reste utile sans réseau : Firestore en mode hors ligne, données de secours embarquées et ligne approximative si le tracé Google n’est pas disponible.',
+        en: 'Still useful without a network: Firestore in offline mode, bundled fallback data, and an approximate line when the Google route is unavailable.',
       },
     ],
-    caseStudy: [
-      {
-        title: { fr: 'Problème', en: 'Problem' },
-        items: [
-          {
-            fr: 'Les informations de transport local sont souvent dispersées, difficiles à consulter rapidement et peu adaptées à un usage mobile.',
-            en: 'Local transport information is often fragmented, hard to check quickly, and poorly adapted to mobile usage.',
-          },
-          {
-            fr: 'L’utilisateur doit pouvoir identifier un trajet ou un point d’intérêt sans passer par un parcours complexe.',
-            en: 'Users need to identify a route or nearby point of interest without going through a complex flow.',
-          },
-        ],
+    editorialCaseStudy: {
+      overview: {
+        fr: 'Guinea Roads est une application mobile pour les usagers des transports en commun de Conakry. On choisit un arrêt de départ et un arrêt d’arrivée, et l’application propose plusieurs trajets avec leur prix, leur durée et leurs changements. Démarré en 2024, le projet évolue régulièrement : tarifs, correspondances, routage pondéré et prise en compte des heures de pointe ont été ajoutés au fil des versions.',
+        en: 'Guinea Roads is a mobile app for public transport users in Conakry. You pick a departure stop and an arrival stop, and the app suggests several trips with their fare, duration and transfers. Started in 2024, the project is updated regularly: fares, transfers, weighted routing and rush-hour handling were added over successive versions.',
       },
-      {
-        title: { fr: 'Décisions techniques', en: 'Technical decisions' },
-        items: [
-          {
-            fr: 'Prioriser une interface mobile simple, avec peu d’étapes entre la recherche et le résultat.',
-            en: 'Prioritized a simple mobile interface with few steps between search and result.',
-          },
-          {
-            fr: 'Structurer l’expérience autour de la carte, des itinéraires et des points d’intérêt plutôt qu’autour de longs formulaires.',
-            en: 'Structured the experience around maps, routes, and points of interest instead of long forms.',
-          },
-          {
-            fr: 'Prévoir des composants réutilisables pour présenter lieux, trajets et informations contextuelles.',
-            en: 'Planned reusable components to present places, routes, and contextual information.',
-          },
-        ],
+      problem: {
+        fr: 'À Conakry, les taxis, minibus et tricycles suivent des axes connus des habitués, mais rien n’est écrit. Le prix, le temps de trajet aux heures de pointe et l’endroit où changer de véhicule se transmettent de bouche à oreille. Un nouvel arrivant ou un visiteur ne sait pas quel trajet prendre ni combien il va payer.',
+        en: 'In Conakry, taxis, minibuses and tricycles follow routes that regulars know, but nothing is written down. Fares, rush-hour travel times and where to change vehicles are passed on by word of mouth. A newcomer or visitor does not know which trip to take or how much it will cost.',
       },
-      {
-        title: { fr: 'Livrables', en: 'Deliverables' },
-        items: [
-          {
-            fr: 'Écrans mobiles pour la recherche d’itinéraires et l’exploration de lieux.',
-            en: 'Mobile screens for route search and place discovery.',
-          },
-          {
-            fr: 'Parcours utilisateur optimisé pour une consultation rapide en déplacement.',
-            en: 'User flow optimized for quick consultation while moving.',
-          },
-        ],
+      solution: {
+        fr: 'J’ai modélisé le réseau en tronçons, axes et points de correspondance. Un parcours en quelques écrans (accueil, recherche, résultats, carte) permet de comparer les options et de voir le trajet. Chaque résultat explique pourquoi il est recommandé : « le plus rapide », « le plus économique » ou « meilleur équilibre ».',
+        en: 'I modelled the network as segments, routes and transfer points. A short flow (home, search, results, map) lets users compare options and see the trip. Each result explains why it is recommended: “fastest”, “cheapest” or “best balance”.',
       },
-    ],
-    proofBlocks: [
-      {
-        title: { fr: 'Flux utilisateur mobile', en: 'Mobile user flow' },
-        variant: 'flow',
-        lines: [
-          { fr: 'Recherche', en: 'Search' },
-          { fr: 'Itinéraires', en: 'Routes' },
-          { fr: 'Points proches', en: 'Nearby places' },
-          { fr: 'Détails trajet', en: 'Trip details' },
-        ],
+      architecture: {
+        fr: 'Application Flutter découpée en modèles, services de calcul et écrans. Les services (tarifs, durées, congestion, correspondances, routage, score) sont des fonctions pures couvertes par des tests unitaires. Les données viennent de Cloud Firestore avec un fichier JSON de secours, et le tracé routier de Google Routes API avec un cache de 30 minutes.',
+        en: 'Flutter app split into models, calculation services and screens. The services (fares, durations, congestion, transfers, routing, scoring) are pure functions covered by unit tests. Data comes from Cloud Firestore with a bundled JSON fallback, and road routes from the Google Routes API with a 30-minute cache.',
       },
-      {
-        title: { fr: 'Priorités UX', en: 'UX priorities' },
-        variant: 'list',
-        lines: [
-          {
-            fr: 'Limiter le nombre d’étapes avant le résultat.',
-            en: 'Limit the number of steps before showing a result.',
-          },
-          {
-            fr: 'Présenter les informations utiles dans un format consultable en mobilité.',
-            en: 'Present useful information in a format suited to mobile use.',
-          },
-          {
-            fr: 'Garder une navigation claire entre carte, trajet et lieux.',
-            en: 'Keep navigation clear between map, route, and places.',
-          },
-        ],
+      nextSteps: {
+        fr: 'Valider sur le terrain les tarifs et les temps de trajet, ajouter d’autres axes, et faire passer les appels Google par un serveur avant une diffusion publique.',
+        en: 'Check fares and travel times in the field, add more routes, and send Google calls through a server before a public release.',
       },
-    ],
-    gallery: [
-      'assets/img/projects/guinea-roads/guinea-roads.png',
-      'assets/img/projects/guinea-roads/demo2.png',
-    ],
+    },
+    galleryCaptions: {
+      'assets/img/projects/guinea-roads/accueil.webp': { fr: 'Accueil — accès à la recherche, à l’historique, aux favoris et aux trois modes de transport.', en: 'Home — access to search, history, favourites and the three transport modes.' },
+      'assets/img/projects/guinea-roads/choix-arrets.webp': { fr: 'Choix des arrêts — recherche par quartier ou repère, avec les axes desservis.', en: 'Choosing stops — search by neighbourhood or landmark, with the routes served.' },
+      'assets/img/projects/guinea-roads/resultats.webp': { fr: 'Résultats — option recommandée avec prix, distance, durée estimée, tronçons et score.', en: 'Results — recommended option with fare, distance, estimated duration, segments and score.' },
+      'assets/img/projects/guinea-roads/itineraire.webp': { fr: 'Itinéraire — prix total, durée et étapes du trajet avec le prix de chaque tronçon.', en: 'Trip details — total fare, duration and trip steps with the fare of each segment.' },
+      'assets/img/projects/guinea-roads/carte.webp': { fr: 'Carte — tracé routier sur Google Maps avec les arrêts numérotés et la légende des modes.', en: 'Map — road route on Google Maps with numbered stops and a legend of transport modes.' },
+      'assets/img/projects/guinea-roads/historique.webp': { fr: 'Historique — dernières recherches enregistrées sur le téléphone, avec les favoris accessibles depuis l’accueil.', en: 'History — latest searches saved on the phone, with favourites available from the home screen.' },
+    },
+    status: 'active-development',
     featured: true,
+    galleryLayout: 'portrait',
+    gallery: [
+      'assets/img/projects/guinea-roads/accueil.webp',
+      'assets/img/projects/guinea-roads/choix-arrets.webp',
+      'assets/img/projects/guinea-roads/resultats.webp',
+      'assets/img/projects/guinea-roads/itineraire.webp',
+      'assets/img/projects/guinea-roads/carte.webp',
+      'assets/img/projects/guinea-roads/historique.webp',
+    ],
   },
   {
     id: 'api-guinea-geo',
