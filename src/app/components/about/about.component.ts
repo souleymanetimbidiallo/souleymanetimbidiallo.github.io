@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { getTechnologyLabel } from '../../data/technologies.data';
@@ -9,6 +9,7 @@ interface SkillGroup { titleKey: string; technologies: string[]; }
     selector: 'app-about',
     imports: [TranslatePipe],
     templateUrl: './about.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './about.component.css'
 })
 export class AboutComponent {

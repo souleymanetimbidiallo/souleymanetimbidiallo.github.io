@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
@@ -10,6 +10,7 @@ import { LanguageService } from '../../core/i18n/language.service';
     selector: 'app-blog',
     imports: [RouterModule, TranslatePipe],
     templateUrl: './blog.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './blog.component.css'
 })
 export class BlogComponent {

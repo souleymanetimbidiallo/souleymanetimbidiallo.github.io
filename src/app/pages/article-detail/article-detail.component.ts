@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
@@ -15,6 +15,7 @@ import { PageMetaService } from '../../core/seo/page-meta.service';
     selector: 'app-article-detail',
     imports: [MarkdownModule, RouterModule, TranslatePipe],
     templateUrl: './article-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './article-detail.component.css'
 })
 export class ArticleDetailComponent {

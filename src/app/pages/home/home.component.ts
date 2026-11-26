@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { AboutComponent } from '../../components/about/about.component';
 import { PortfolioComponent } from '../../components/portfolio/portfolio.component';
@@ -19,6 +19,7 @@ import { BlogComponent } from "../blog/blog.component";
         BlogComponent
     ],
     templateUrl: './home.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './home.component.css'
 })
 export class HomeComponent {}

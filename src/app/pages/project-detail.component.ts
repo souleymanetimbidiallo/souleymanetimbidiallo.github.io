@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 
@@ -21,6 +21,7 @@ export interface GalleryItem {
     selector: 'app-project-detail',
     imports: [RouterModule, GroupedTechnologiesComponent, ProjectStatusComponent, TranslatePipe, ImageViewerComponent],
     templateUrl: './project-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './project-detail.component.css'
 })
 export class ProjectDetailComponent {

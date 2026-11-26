@@ -1,5 +1,5 @@
 import { NgClass, isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, DOCUMENT } from '@angular/core';
+import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -9,6 +9,7 @@ import { ThemePreference, ThemeService } from '../../core/theme/theme.service';
     selector: 'app-header',
     imports: [NgClass, RouterModule, TranslatePipe],
     templateUrl: './header.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit, OnDestroy {

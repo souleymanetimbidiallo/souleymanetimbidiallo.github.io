@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { PROJECTS } from '../../data/projects.data';
 import { Project } from '../../models/project.model';
@@ -16,6 +16,7 @@ export const ARCHIVED_PROJECT_IDS = ['gui-plus', 'soodou-shop', 'citoykaidi'];
     selector: 'app-portfolio',
     imports: [TranslatePipe, FeaturedProjectCardComponent, ProjectCardComponent],
     templateUrl: './portfolio.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './portfolio.component.css'
 })
 export class PortfolioComponent {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { PageMetaService } from './core/seo/page-meta.service';
@@ -7,6 +7,7 @@ import { PageMetaService } from './core/seo/page-meta.service';
     selector: 'app-root',
     imports: [HeaderComponent, RouterOutlet],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './app.component.css'
 })
 export class AppComponent {

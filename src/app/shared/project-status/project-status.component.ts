@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { ProjectStatus } from '../../models/project.model';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -7,6 +7,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
     selector: 'app-project-status',
     imports: [TranslatePipe],
     template: `@if (status) {<span [class]="'status status--' + status">{{ 'project.status.' + status | t }}</span>}`,
+    changeDetection: ChangeDetectionStrategy.Eager,
     styles: [`.status{background:var(--color-secondary-surface);border:1px solid var(--color-border);border-radius:999px;color:var(--color-text-secondary);display:inline-block;font-size:var(--text-xs);font-weight:700;line-height:1.3;padding:.38rem .6rem}.status--active-development,.status--completed{border-color:color-mix(in srgb,var(--color-success) 38%,var(--color-border));color:var(--color-success)}.status--planned-modernization,.status--deployment-preparation{border-color:color-mix(in srgb,var(--color-warning) 38%,var(--color-border));color:var(--color-warning)}.status--archived{color:var(--color-text-muted)}`]
 })
 export class ProjectStatusComponent {

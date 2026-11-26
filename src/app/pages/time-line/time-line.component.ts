@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { PROFESSIONAL_EXPERIENCES } from '../../data/experience.data';
 import { EDUCATION } from '../../data/education.data';
@@ -11,6 +11,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
     selector: 'app-time-line',
     imports: [GroupedTechnologiesComponent, TranslatePipe],
     templateUrl: './time-line.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './time-line.component.css'
 })
 export class TimeLineComponent {

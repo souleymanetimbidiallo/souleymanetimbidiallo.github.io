@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -15,6 +15,7 @@ type Service = {
     selector: 'app-services',
     imports: [NgClass, TranslatePipe],
     templateUrl: './services.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./services.component.css']
 })
 export class ServicesComponent {

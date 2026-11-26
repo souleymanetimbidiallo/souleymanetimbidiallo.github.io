@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { LanguageService } from '../../core/i18n/language.service';
 
@@ -6,6 +6,7 @@ import { LanguageService } from '../../core/i18n/language.service';
     selector: 'app-contact',
     imports: [TranslatePipe],
     templateUrl: './contact.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './contact.component.css'
 })
 export class ContactComponent {
