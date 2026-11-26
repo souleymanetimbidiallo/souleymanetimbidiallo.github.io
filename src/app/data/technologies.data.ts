@@ -42,6 +42,9 @@ export const TECHNOLOGIES: Technology[] = [
   { id: 'plotly', label: 'Plotly', category: 'data-visualization' },
   { id: 'parquet', label: 'Parquet', category: 'data-format' },
   { id: 'streamlit', label: 'Streamlit', category: 'data-application-framework' },
+  { id: 'dart', label: 'Dart', category: 'language' },
+  { id: 'flutter', label: 'Flutter', category: 'frontend-framework' },
+  { id: 'riverpod', label: 'Riverpod', category: 'library' },
 ];
 
 const TECHNOLOGY_BY_ID = new Map(TECHNOLOGIES.map((technology) => [technology.id, technology]));

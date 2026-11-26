@@ -965,4 +965,119 @@ export const PROJECTS: Project[] = [
       'assets/img/projects/gn-exams-2026/bac-2026.png',
     ],
   },
+  {
+    id: 'timbi-pos',
+    slug: 'timbi-pos',
+    legacySlugs: [],
+    previousNames: [],
+    title: { fr: 'TimbiPOS', en: 'TimbiPOS' },
+    coverImage: 'assets/img/projects/timbi-pos/caisse.webp',
+    date: '2026-04-30',
+    repository: 'https://github.com/souleymanetimbidiallo/timbi_pos',
+    description: {
+      fr: 'Application de caisse sur tablette Android pour les restaurants en Guinée, conçue pour fonctionner entièrement hors ligne.',
+      en: 'Android tablet point-of-sale app for restaurants in Guinea, designed to work fully offline.',
+    },
+    cardSummary: {
+      fr: 'Caisse tactile hors ligne pour restaurants : panier, paiement en espèces ou Orange Money, historique et rapports du jour.',
+      en: 'Offline touch-screen till for restaurants: cart, cash or Orange Money payment, sales history and daily reports.',
+    },
+    detailSummary: {
+      fr: 'TimbiPOS est une caisse Flutter pour tablette Android. Elle permet d’encaisser une commande en quelques gestes, sans connexion internet, et donne au gérant une vue claire des ventes de la journée.',
+      en: 'TimbiPOS is a Flutter till for Android tablets. It lets staff ring up an order in a few taps, with no internet connection, and gives the manager a clear view of the day’s sales.',
+    },
+    role: { fr: 'Conception et développement de l’application mobile', en: 'Mobile application design and development' },
+    context: 'personal',
+    projectType: 'mobile-application',
+    portfolioFilter: 'mobile',
+    category: { fr: 'Application mobile de caisse', en: 'Point-of-sale mobile application' },
+    domains: [
+      { fr: 'Restauration', en: 'Food service' },
+      { fr: 'Commerce', en: 'Retail' },
+    ],
+    currentTechnologies: ['dart', 'flutter', 'riverpod', 'sqlite'],
+    plannedTechnologies: [],
+    capabilities: [
+      { fr: 'Caisse tactile par catégories', en: 'Touch-screen till by category' },
+      { fr: 'Paiement espèces et Orange Money', en: 'Cash and Orange Money payment' },
+      { fr: 'Fonctionnement 100 % hors ligne', en: '100% offline operation' },
+      { fr: 'Historique des ventes', en: 'Sales history' },
+      { fr: 'Rapports du jour', en: 'Daily reports' },
+      { fr: 'Gestion des produits', en: 'Product management' },
+    ],
+    capabilityGroups: [
+      {
+        title: { fr: 'Encaissement', en: 'Checkout' },
+        items: [
+          { fr: 'Produits classés par catégories (plats, boissons, desserts…)', en: 'Products sorted by category (dishes, drinks, desserts…)' },
+          { fr: 'Panier avec quantités modifiables et total recalculé', en: 'Cart with editable quantities and live total' },
+          { fr: 'Paiement en espèces ou Orange Money', en: 'Cash or Orange Money payment' },
+          { fr: 'Calcul automatique de la monnaie à rendre', en: 'Automatic change calculation' },
+        ],
+      },
+      {
+        title: { fr: 'Suivi des ventes', en: 'Sales tracking' },
+        items: [
+          { fr: 'Historique des ventes par jour, avec le détail de chaque vente', en: 'Daily sales history with the details of each sale' },
+          { fr: 'Chiffre du jour, nombre de ventes et panier moyen', en: 'Daily revenue, number of sales and average basket' },
+          { fr: 'Répartition par mode de paiement et meilleurs produits', en: 'Breakdown by payment method and top products' },
+          { fr: 'Ventes par heure et meilleure heure de la journée', en: 'Sales by hour and best hour of the day' },
+        ],
+      },
+      {
+        title: { fr: 'Gestion', en: 'Management' },
+        items: [
+          { fr: 'Ajout et modification de produits avec photo', en: 'Add and edit products with a photo' },
+          { fr: 'Produits actifs ou désactivés dans la caisse', en: 'Products enabled or disabled in the till' },
+          { fr: 'Import du menu du restaurant en un clic', en: 'One-tap import of the restaurant menu' },
+          { fr: 'Espace manager protégé par code PIN', en: 'Manager area protected by a PIN code' },
+        ],
+      },
+    ],
+    highlights: [
+      { fr: 'Pensée pour un vrai restaurant : le menu complet (plats, boissons, desserts) est chargé dans l’application.', en: 'Built for a real restaurant: the full menu (dishes, drinks, desserts) is loaded into the app.' },
+      { fr: 'Aucune dépendance à internet : produits et ventes sont enregistrés en local dans SQLite.', en: 'No dependency on the internet: products and sales are stored locally in SQLite.' },
+      { fr: 'Interface tactile à gros boutons, pensée pour encaisser vite pendant les heures de pointe.', en: 'Touch interface with large buttons, designed for fast checkout during rush hours.' },
+    ],
+    editorialCaseStudy: {
+      overview: {
+        fr: 'TimbiPOS est une application de caisse pour tablette Android, destinée aux restaurants en Guinée. Le caissier compose la commande, encaisse en espèces ou par Orange Money, et le gérant suit les ventes de la journée.',
+        en: 'TimbiPOS is a point-of-sale app for Android tablets, built for restaurants in Guinea. The cashier builds the order and takes payment in cash or via Orange Money, while the manager follows the day’s sales.',
+      },
+      problem: {
+        fr: 'Dans beaucoup de restaurants, les ventes sont encore notées à la main. Les caisses du marché supposent une connexion internet stable, ce qui n’est pas toujours le cas en Guinée. Il fallait une caisse qui marche sans réseau, qu’un caissier peu habitué aux outils numériques prend en main tout de suite, et qui reste rapide pendant le rush.',
+        en: 'In many restaurants, sales are still written down by hand. Off-the-shelf tills assume a stable internet connection, which is not always available in Guinea. The need was for a till that works without a network, that a cashier with little digital experience can pick up right away, and that stays fast during the rush.',
+      },
+      solution: {
+        fr: 'J’ai conçu une interface en quatre écrans (Caisse, Historique, Produits, Rapports), avec de gros boutons et un minimum d’étapes. Une commande se compose en touchant les produits, puis se valide en un écran de paiement qui calcule la monnaie à rendre. Les écrans de gestion sont réservés au manager.',
+        en: 'I designed an interface with four screens (Till, History, Products, Reports), with large buttons and as few steps as possible. An order is built by tapping products, then confirmed on a single payment screen that calculates the change. Management screens are reserved for the manager.',
+      },
+      architecture: {
+        fr: 'Application Flutter organisée par fonctionnalités (caisse, panier, ventes, produits, historique, rapports). L’état est géré avec Riverpod, la navigation avec go_router, et toutes les données sont stockées localement dans SQLite (sqflite), sans serveur.',
+        en: 'Flutter application organized by feature (till, cart, sales, products, history, reports). State is managed with Riverpod, navigation with go_router, and all data is stored locally in SQLite (sqflite), with no server.',
+      },
+      nextSteps: {
+        fr: 'Synchronisation cloud, gestion de plusieurs restaurants, impression des tickets et tableau de bord web pour le gérant.',
+        en: 'Cloud sync, support for several restaurants, receipt printing and a web dashboard for the manager.',
+      },
+    },
+    galleryCaptions: {
+      'assets/img/projects/timbi-pos/paiement.webp': { fr: 'Paiement — choix entre espèces et Orange Money, avec calcul de la monnaie à rendre.', en: 'Payment — choice between cash and Orange Money, with change calculation.' },
+      'assets/img/projects/timbi-pos/historique.webp': { fr: 'Historique — ventes du jour, total et mode de paiement de chaque vente.', en: 'History — the day’s sales, total and payment method for each sale.' },
+      'assets/img/projects/timbi-pos/detail-vente.webp': { fr: 'Détail d’une vente — heure, mode de paiement et articles.', en: 'Sale details — time, payment method and items.' },
+      'assets/img/projects/timbi-pos/rapports.webp': { fr: 'Rapports — chiffre du jour, panier moyen, meilleurs produits et ventes par heure.', en: 'Reports — daily revenue, average basket, top products and sales by hour.' },
+      'assets/img/projects/timbi-pos/produits.webp': { fr: 'Produits — liste du menu avec catégorie, prix et statut.', en: 'Products — menu list with category, price and status.' },
+      'assets/img/projects/timbi-pos/ajout-produit.webp': { fr: 'Ajout d’un produit — photo, nom, prix, catégorie et activation.', en: 'Adding a product — photo, name, price, category and status.' },
+    },
+    status: 'completed',
+    featured: false,
+    gallery: [
+      'assets/img/projects/timbi-pos/paiement.webp',
+      'assets/img/projects/timbi-pos/historique.webp',
+      'assets/img/projects/timbi-pos/detail-vente.webp',
+      'assets/img/projects/timbi-pos/rapports.webp',
+      'assets/img/projects/timbi-pos/produits.webp',
+      'assets/img/projects/timbi-pos/ajout-produit.webp',
+    ],
+  },
 ];
