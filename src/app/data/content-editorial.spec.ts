@@ -88,8 +88,11 @@ describe('Phase 2 editorial content', () => {
         expect(editorialText).not.toContain('intelligence artificielle');
     });
 
-    it('keeps Soodou Shop PHP-only', () => {
-        expect(findProjectBySlug('soodou-shop')?.currentTechnologies).toEqual(['php']);
+    it('keeps Soodou Shop on plain PHP, without a framework', () => {
+        const stack = findProjectBySlug('soodou-shop')?.currentTechnologies ?? [];
+        expect(stack).toContain('php');
+        expect(stack).not.toContain('laravel');
+        expect(stack).not.toContain('symfony');
     });
 
     it('omits empty editorial case-study sections', () => {

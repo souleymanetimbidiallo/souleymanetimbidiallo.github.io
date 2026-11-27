@@ -27,11 +27,12 @@ describe('centralized portfolio content', () => {
         expect(matches[0].title.fr).toBe('CitoyKaidi');
     });
 
-    it('keeps Soodou Shop PHP-only in the current stack', () => {
+    it('keeps Soodou Shop on a plain PHP stack', () => {
         const project = findProjectBySlug('soodou-shop');
 
-        expect(project?.currentTechnologies).toEqual(['php']);
+        expect(project?.currentTechnologies).toContain('php');
         expect(project?.currentTechnologies).not.toContain('angular');
+        expect(project?.currentTechnologies).not.toContain('laravel');
     });
 
     it('separates CitoyKaidi current and planned technologies', () => {

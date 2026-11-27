@@ -276,6 +276,7 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'technology.group.languages': { fr: 'Langages', en: 'Languages' },
   'technology.group.backend': { fr: 'Backend', en: 'Backend' },
   'technology.group.ai': { fr: 'Intelligence artificielle', en: 'Artificial intelligence' },
+  'technology.group.payment': { fr: 'Paiement', en: 'Payment' },
   'technology.group.frontend': { fr: 'Frontend', en: 'Frontend' },
   'technology.group.cms': { fr: 'CMS', en: 'CMS' },
   'technology.group.templating': { fr: 'Templates', en: 'Templating' },
