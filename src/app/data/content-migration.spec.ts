@@ -35,14 +35,12 @@ describe('centralized portfolio content', () => {
         expect(project?.currentTechnologies).not.toContain('laravel');
     });
 
-    it('separates CitoyKaidi current and planned technologies', () => {
+    it('keeps CitoyKaidi on PHP, modernized in place rather than rewritten', () => {
         const project = findProjectBySlug('citoykaidi');
 
-        expect(project?.currentTechnologies).toEqual(['php']);
-        expect(project?.plannedTechnologies).toEqual([
-            'java', 'spring-boot', 'postgresql', 'flyway', 'jwt', 'swagger', 'docker',
-        ]);
-        project?.plannedTechnologies.forEach((technology) => expect(project.currentTechnologies).not.toContain(technology));
+        expect(project?.currentTechnologies).toContain('php');
+        expect(project?.plannedTechnologies).toEqual([]);
+        expect(project?.status).toBe('planned-modernization');
     });
 
     it('models four distinct Capgemini engagements with their own stacks', () => {
