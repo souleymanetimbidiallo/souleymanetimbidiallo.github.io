@@ -18,6 +18,7 @@ export type TechnologyCategory =
   | 'infrastructure'
   | 'deployment'
   | 'library'
+  | 'ai'
   | 'tool'
   | 'language';
 
