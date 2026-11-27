@@ -13,6 +13,7 @@ export type ProjectType =
   | 'cms-platform'
   | 'media-platform'
   | 'mobile-application'
+  | 'ai-application'
   | 'developer-api'
   | 'corporate-website';
 export type PortfolioFilter = 'web' | 'mobile' | 'data';

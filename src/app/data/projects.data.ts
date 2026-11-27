@@ -1069,4 +1069,120 @@ export const PROJECTS: Project[] = [
       'assets/img/projects/timbi-pos/ajout-produit.webp',
     ],
   },
+  {
+    id: 'tryon-guinee',
+    slug: 'tryon-guinee',
+    legacySlugs: [],
+    previousNames: [{ fr: 'TryOn Guinée Vibes', en: 'TryOn Guinée Vibes' }],
+    title: { fr: 'TryOn Guinée', en: 'TryOn Guinée' },
+    coverImage: 'assets/img/projects/tryon-guinee/couverture.webp',
+    date: '2026-11-26',
+    repository: 'https://github.com/souleymanetimbidiallo/tryon-guinee-vibes',
+    description: {
+      fr: 'Studio d’essayage virtuel par IA dédié à la mode guinéenne : bazin, léppi, kendeli, forêt sacrée.',
+      en: 'AI-powered virtual try-on studio for Guinean fashion: bazin, léppi, kendeli, forêt sacrée.',
+    },
+    cardSummary: {
+      fr: 'Habille une photo, un personnage récurrent ou un mannequin IA avec une tenue guinéenne, dans le décor de son choix.',
+      en: 'Dress a photo, a recurring character or an AI model in a Guinean outfit, in the setting of your choice.',
+    },
+    detailSummary: {
+      fr: 'TryOn Guinée est une application web Next.js qui s’appuie sur Google Gemini pour habiller une personne avec une tenue guinéenne. Elle sert à essayer une tenue avant de l’acheter, à habiller des personnages pour des images et vidéos, et à produire des visuels de lookbook pour les créateurs.',
+      en: 'TryOn Guinée is a Next.js web app that uses Google Gemini to dress a person in a Guinean outfit. It is used to try on an outfit before buying it, to dress characters for images and videos, and to produce lookbook visuals for designers.',
+    },
+    role: { fr: 'Conception, développement et intégration IA', en: 'Design, development and AI integration' },
+    context: 'personal',
+    projectType: 'ai-application',
+    portfolioFilter: 'web',
+    category: { fr: 'Application web d’IA générative', en: 'Generative AI web application' },
+    domains: [
+      { fr: 'Mode', en: 'Fashion' },
+      { fr: 'Culture guinéenne', en: 'Guinean culture' },
+      { fr: 'IA générative', en: 'Generative AI' },
+    ],
+    currentTechnologies: ['typescript', 'next-js', 'react', 'tailwind-css', 'google-gemini', 'indexeddb'],
+    plannedTechnologies: ['vercel'],
+    capabilities: [
+      { fr: 'Essayage sur photo', en: 'Try-on from a photo' },
+      { fr: 'Mannequins générés par IA', en: 'AI-generated models' },
+      { fr: 'Galerie de personnages réutilisables', en: 'Reusable character gallery' },
+      { fr: 'Catalogue de tissus guinéens', en: 'Guinean fabric catalogue' },
+      { fr: 'Décors et formats réseaux sociaux', en: 'Settings and social media formats' },
+      { fr: 'Limitation des abus par IP', en: 'Per-IP abuse limiting' },
+    ],
+    capabilityGroups: [
+      {
+        title: { fr: 'Qui porte la tenue', en: 'Who wears the outfit' },
+        items: [
+          { fr: 'Une photo importée, redimensionnée et réorientée dans le navigateur', en: 'An uploaded photo, resized and re-oriented in the browser' },
+          { fr: 'Un mannequin IA paramétrable : genre, teint, silhouette, âge, pose', en: 'A configurable AI model: gender, skin tone, build, age, pose' },
+          { fr: 'Des personnages enregistrés et réhabillés en gardant le même visage', en: 'Saved characters, re-dressed while keeping the same face' },
+        ],
+      },
+      {
+        title: { fr: 'Quelle tenue', en: 'Which outfit' },
+        items: [
+          { fr: 'Catalogue : abayas, grands boubous, complets, pagnes, robes', en: 'Catalogue: abayas, grand boubous, suits, wrappers, dresses' },
+          { fr: 'Tissus locaux (léppi, kendeli, forêt sacrée, bakha) envoyés comme échantillons à l’IA', en: 'Local fabrics (léppi, kendeli, forêt sacrée, bakha) sent to the AI as swatches' },
+          { fr: 'Photo d’une tenue fournie par un créateur, avec description facultative', en: 'Photo of an outfit supplied by a designer, with an optional description' },
+        ],
+      },
+      {
+        title: { fr: 'Rendu', en: 'Rendering' },
+        items: [
+          { fr: 'Décors : studio, rue de Conakry, cérémonie, Fouta-Djalon', en: 'Settings: studio, Conakry street, ceremony, Fouta-Djalon' },
+          { fr: 'Formats portrait, carré, paysage et 9:16 pour Reels et TikTok', en: 'Portrait, square, landscape and 9:16 for Reels and TikTok' },
+          { fr: 'Comparaison avant / après et téléchargement', en: 'Before / after comparison and download' },
+        ],
+      },
+    ],
+    highlights: [
+      { fr: 'Les tissus guinéens sont transmis à l’IA sous forme d’échantillons photo : le modèle reproduit le vrai motif au lieu d’en inventer un.', en: 'Guinean fabrics are passed to the AI as photo swatches, so the model reproduces the real pattern instead of inventing one.' },
+      { fr: 'Un seul prompt côté serveur, construit uniquement à partir de valeurs en liste blanche : aucun texte libre ne peut le détourner, hormis une note bornée à 300 caractères.', en: 'A single server-side prompt, built only from allow-listed values: no free text can hijack it, apart from a note capped at 300 characters.' },
+      { fr: 'Clé d’API uniquement côté serveur, validation des fichiers et limite d’essais par IP pour maîtriser les coûts.', en: 'API key kept server-side only, file validation and a per-IP try limit to keep costs under control.' },
+    ],
+    editorialCaseStudy: {
+      overview: {
+        fr: 'TryOn Guinée habille une personne avec une tenue guinéenne grâce à l’IA générative. L’utilisateur choisit qui porte la tenue (sa photo, un personnage enregistré ou un mannequin IA), puis la tenue (catalogue, tissu local ou photo d’un créateur), le décor et le format.',
+        en: 'TryOn Guinée dresses a person in a Guinean outfit using generative AI. The user picks who wears the outfit (their photo, a saved character or an AI model), then the outfit (catalogue, local fabric or a designer’s photo), the setting and the format.',
+      },
+      problem: {
+        fr: 'Acheter une tenue guinéenne à distance, notamment depuis la diaspora, oblige à imaginer le rendu sans pouvoir l’essayer. De leur côté, les créateurs ont besoin de visuels réguliers pour les réseaux sociaux, et une séance photo coûte cher. Enfin, les modèles d’IA connaissent mal les tissus locaux comme le kendeli de Kindia ou la forêt sacrée.',
+        en: 'Buying a Guinean outfit remotely, especially from the diaspora, means imagining the result without trying it on. Designers, for their part, need regular visuals for social media, and photo shoots are expensive. On top of that, AI models know little about local fabrics such as Kindia’s kendeli or forêt sacrée.',
+      },
+      solution: {
+        fr: 'Un studio en trois étapes (qui, quelle tenue, rendu) qui envoie à Gemini la personne, puis une image de référence : la tenue ou un échantillon du tissu. Le prompt numérote les images et impose de conserver le visage et la pose, de reproduire fidèlement le tissu et de ne jamais reprendre le visage d’une image de référence.',
+        en: 'A three-step studio (who, which outfit, rendering) that sends Gemini the person, then a reference image: the outfit or a fabric swatch. The prompt numbers the images and requires keeping the face and pose, faithfully reproducing the fabric and never reusing a face from a reference image.',
+      },
+      architecture: {
+        fr: 'Application Next.js 16 (App Router) en TypeScript et Tailwind CSS 4. Une route API unique valide les fichiers et les options, construit le prompt et appelle Gemini via le SDK @google/genai ; la clé reste côté serveur. Les personnages sont stockés dans le navigateur (IndexedDB) et ne quittent l’appareil qu’au moment d’une génération.',
+        en: 'Next.js 16 (App Router) application in TypeScript and Tailwind CSS 4. A single API route validates files and options, builds the prompt and calls Gemini through the @google/genai SDK; the key stays server-side. Characters are stored in the browser (IndexedDB) and only leave the device when a generation is requested.',
+      },
+      technicalDecisions: [
+        { fr: 'Refonte d’un prototype généré avec Lovable (Vite, Express et Supabase) en une seule application Next.js : un seul backend et un seul prompt, au lieu de trois versions divergentes.', en: 'Rebuilt a Lovable-generated prototype (Vite, Express and Supabase) into a single Next.js app: one backend and one prompt instead of three diverging versions.' },
+        { fr: 'Images redimensionnées dans le navigateur avant l’envoi, pour rester sous la limite de taille des fonctions serverless.', en: 'Images resized in the browser before upload, to stay under the serverless function size limit.' },
+        { fr: 'Modèle d’image configurable par variable d’environnement, pour passer d’un modèle rapide à un modèle haute qualité sans toucher au code.', en: 'Image model configurable through an environment variable, to switch between a fast model and a high-quality one without code changes.' },
+      ],
+      nextSteps: {
+        fr: 'Pilote avec des créateurs guinéens, photos de tissus sous licence, déploiement sur Vercel, puis comptes créateurs et application mobile.',
+        en: 'Pilot with Guinean designers, licensed fabric photos, deployment on Vercel, then designer accounts and a mobile app.',
+      },
+    },
+    galleryCaptions: {
+      'assets/img/projects/tryon-guinee/studio-mannequin.webp': { fr: 'Studio — mannequin IA habillé d’un pagne kendeli, dans une rue de Conakry.', en: 'Studio — AI model wearing a kendeli wrapper, in a Conakry street.' },
+      'assets/img/projects/tryon-guinee/rendu-kendeli.webp': { fr: 'Rendu généré — le motif du kendeli de Kindia reproduit à partir d’un échantillon de tissu.', en: 'Generated render — the Kindia kendeli pattern reproduced from a fabric swatch.' },
+      'assets/img/projects/tryon-guinee/rendu-foret-sacree.webp': { fr: 'Rendu généré — grand boubou en tissu forêt sacrée, décor du Fouta-Djalon.', en: 'Generated render — grand boubou in forêt sacrée fabric, Fouta-Djalon setting.' },
+      'assets/img/projects/tryon-guinee/tissus.webp': { fr: 'Catalogue — tenues confectionnées dans les tissus locaux : léppi, kendeli, forêt sacrée, bakha.', en: 'Catalogue — outfits made from local fabrics: léppi, kendeli, forêt sacrée, bakha.' },
+      'assets/img/projects/tryon-guinee/accueil.webp': { fr: 'Accueil — présentation de l’essayage virtuel.', en: 'Home — virtual try-on introduction.' },
+    },
+    status: 'active-development',
+    featured: false,
+    gallery: [
+      'assets/img/projects/tryon-guinee/studio-mannequin.webp',
+      'assets/img/projects/tryon-guinee/rendu-kendeli.webp',
+      'assets/img/projects/tryon-guinee/rendu-foret-sacree.webp',
+      'assets/img/projects/tryon-guinee/tissus.webp',
+      'assets/img/projects/tryon-guinee/accueil.webp',
+    ],
+  },
 ];

@@ -45,6 +45,9 @@ export const TECHNOLOGIES: Technology[] = [
   { id: 'dart', label: 'Dart', category: 'language' },
   { id: 'flutter', label: 'Flutter', category: 'frontend-framework' },
   { id: 'riverpod', label: 'Riverpod', category: 'library' },
+  { id: 'next-js', label: 'Next.js', category: 'frontend-framework' },
+  { id: 'google-gemini', label: 'Google Gemini', category: 'ai' },
+  { id: 'indexeddb', label: 'IndexedDB', category: 'database' },
   { id: 'firebase', label: 'Firebase', category: 'infrastructure' },
   { id: 'google-maps', label: 'Google Maps', category: 'library' },
 ];

@@ -262,6 +262,7 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   'project.type.cms-platform': { fr: 'Plateforme CMS', en: 'CMS platform' },
   'project.type.media-platform': { fr: 'Plateforme média', en: 'Media platform' },
   'project.type.mobile-application': { fr: 'Application mobile', en: 'Mobile application' },
+  'project.type.ai-application': { fr: 'Application IA', en: 'AI application' },
   'project.type.developer-api': { fr: 'API pour développeurs', en: 'Developer API' },
   'project.type.corporate-website': { fr: 'Site institutionnel', en: 'Corporate website' },
   'project.case.overview': { fr: 'Vue d’ensemble', en: 'Overview' },
@@ -274,6 +275,7 @@ export const TRANSLATIONS: Record<string, Record<AppLanguage, string>> = {
   /* TECHNOLOGY GROUPS */
   'technology.group.languages': { fr: 'Langages', en: 'Languages' },
   'technology.group.backend': { fr: 'Backend', en: 'Backend' },
+  'technology.group.ai': { fr: 'Intelligence artificielle', en: 'Artificial intelligence' },
   'technology.group.frontend': { fr: 'Frontend', en: 'Frontend' },
   'technology.group.cms': { fr: 'CMS', en: 'CMS' },
   'technology.group.templating': { fr: 'Templates', en: 'Templating' },

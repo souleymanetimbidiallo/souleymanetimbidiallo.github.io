@@ -28,6 +28,7 @@ export const TECHNOLOGY_CATEGORY_LABEL_KEYS: Record<TechnologyCategory, string> 
   infrastructure: 'technology.group.infrastructure',
   deployment: 'technology.group.deployment',
   library: 'technology.group.libraries',
+  ai: 'technology.group.ai',
   tool: 'technology.group.tools',
 };
 
