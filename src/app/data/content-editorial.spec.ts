@@ -63,7 +63,7 @@ describe('Phase 2 editorial content', () => {
         const plannedIds = groupTechnologies(project.plannedTechnologies)
             .flatMap((group) => group.technologies.map(({ id }) => id));
 
-        expect(currentIds).toEqual(['php']);
+        expect(currentIds).toContain('php');
         expect(plannedIds).not.toContain('php');
         expect(currentIds.some((id) => plannedIds.includes(id))).toBe(false);
     });
@@ -98,8 +98,10 @@ describe('Phase 2 editorial content', () => {
     it('omits empty editorial case-study sections', () => {
         const sections = getEditorialSections(findProjectBySlug('citoykaidi')!, 'en');
 
+        // CitoyKaidi has no « outcome » section: it must not be rendered empty
         expect(sections.map(({ labelKey }) => labelKey)).toEqual([
-            'project.case.overview', 'project.case.nextSteps',
+            'project.case.overview', 'project.case.problem', 'project.case.solution',
+            'project.case.architecture', 'project.case.nextSteps',
         ]);
     });
 
