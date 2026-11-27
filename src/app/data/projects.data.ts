@@ -1077,7 +1077,7 @@ export const PROJECTS: Project[] = [
     title: { fr: 'TryOn Guinée', en: 'TryOn Guinée' },
     coverImage: 'assets/img/projects/tryon-guinee/couverture.webp',
     date: '2026-11-26',
-    repository: 'https://github.com/souleymanetimbidiallo/tryon-guinee-vibes/tree/v2',
+    repository: 'https://github.com/souleymanetimbidiallo/tryon-guinee-vibes',
     description: {
       fr: 'Studio d’essayage virtuel par IA dédié à la mode guinéenne : bazin, léppi, kendeli, forêt sacrée.',
       en: 'AI-powered virtual try-on studio for Guinean fashion: bazin, léppi, kendeli, forêt sacrée.',
