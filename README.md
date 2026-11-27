@@ -50,8 +50,9 @@ Au quotidien : **Java / Spring Boot / Angular**, de l'API REST à l'interface. D
 - **KAGLOB ERP** : ERP modulaire de gestion de flotte et de location de véhicules (Laravel)
 - **Yiidein** : plateforme SaaS multi-domaines de prise de rendez-vous
 - **Guinea Roads** : application mobile pour le transport en commun (Flutter)
+- **Soodou Shop** : boutique high-tech en PHP natif, avec paiement Stripe et tableau de bord des ventes
 
-Archives : Gui-Plus, Soodou Shop, CitoyKaidi (premiers projets, 2019-2020).
+Archives : Gui-Plus, CitoyKaidi (premiers projets, 2019-2020).
 
 *(Détails disponibles dans le portfolio)*
 

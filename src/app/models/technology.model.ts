@@ -19,6 +19,7 @@ export type TechnologyCategory =
   | 'deployment'
   | 'library'
   | 'ai'
+  | 'payment'
   | 'tool'
   | 'language';
 

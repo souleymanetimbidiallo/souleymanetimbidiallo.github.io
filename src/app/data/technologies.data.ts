@@ -50,6 +50,8 @@ export const TECHNOLOGIES: Technology[] = [
   { id: 'indexeddb', label: 'IndexedDB', category: 'database' },
   { id: 'firebase', label: 'Firebase', category: 'infrastructure' },
   { id: 'google-maps', label: 'Google Maps', category: 'library' },
+  { id: 'stripe', label: 'Stripe', category: 'payment' },
+  { id: 'chart-js', label: 'Chart.js', category: 'data-visualization' },
 ];
 
 const TECHNOLOGY_BY_ID = new Map(TECHNOLOGIES.map((technology) => [technology.id, technology]));

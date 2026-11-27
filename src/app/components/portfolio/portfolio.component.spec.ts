@@ -42,12 +42,18 @@ describe('PortfolioComponent', () => {
     });
 
     it('moves early projects out of the main grid into the archives', () => {
-        const archived = ['gui-plus', 'soodou-shop', 'citoykaidi'];
+        const archived = ['gui-plus', 'citoykaidi'];
         expect(component.archivedProjects.map((project) => project.id).sort()).toEqual([...archived].sort());
         for (const category of ['all', 'web', 'mobile', 'data'] as const) {
             component.filterByCategory(category);
             expect(component.displayedProjects.some((project) => archived.includes(project.id))).toBe(false);
         }
+    });
+
+    it('shows the reworked Soodou Shop in the main grid, not in the archives', () => {
+        expect(component.archivedProjects.some((project) => project.id === 'soodou-shop')).toBe(false);
+        component.filterByCategory('web');
+        expect(component.displayedProjects.some((project) => project.id === 'soodou-shop')).toBe(true);
     });
 
     it('does not include enterprise engagements in the personal project inventory', () => {
